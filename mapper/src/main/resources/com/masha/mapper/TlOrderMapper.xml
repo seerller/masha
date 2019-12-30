@@ -1,0 +1,2507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.masha.mapper.TlOrderMapper">
+  <resultMap id="BaseResultMap" type="com.masha.model.TlOrder">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+    <result column="back_order_sn" jdbcType="VARCHAR" property="backOrderSn" />
+    <result column="transaction_id" jdbcType="VARCHAR" property="transactionId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="address_name" jdbcType="VARCHAR" property="addressName" />
+    <result column="address_phone" jdbcType="VARCHAR" property="addressPhone" />
+    <result column="address_id" jdbcType="SMALLINT" property="addressId" />
+    <result column="address_province_id" jdbcType="INTEGER" property="addressProvinceId" />
+    <result column="address_city_id" jdbcType="INTEGER" property="addressCityId" />
+    <result column="address_area_id" jdbcType="INTEGER" property="addressAreaId" />
+    <result column="address_street_id" jdbcType="INTEGER" property="addressStreetId" />
+    <result column="address_params" jdbcType="VARCHAR" property="addressParams" />
+    <result column="shipping_fee" jdbcType="DECIMAL" property="shippingFee" />
+    <result column="goods_fee" jdbcType="DECIMAL" property="goodsFee" />
+    <result column="total_fee" jdbcType="DECIMAL" property="totalFee" />
+    <result column="pay_fee" jdbcType="DECIMAL" property="payFee" />
+    <result column="pay_beizhu" jdbcType="VARCHAR" property="payBeizhu" />
+    <result column="real_fee" jdbcType="DECIMAL" property="realFee" />
+    <result column="dis_fee" jdbcType="DECIMAL" property="disFee" />
+    <result column="discount_fee" jdbcType="DECIMAL" property="discountFee" />
+    <result column="account_fee" jdbcType="DECIMAL" property="accountFee" />
+    <result column="shuidian_fee" jdbcType="VARCHAR" property="shuidianFee" />
+    <result column="discount_fee_params" jdbcType="VARCHAR" property="discountFeeParams" />
+    <result column="point_fee" jdbcType="REAL" property="pointFee" />
+    <result column="teacher_fee" jdbcType="DECIMAL" property="teacherFee" />
+    <result column="fee_dis_for_coupon" jdbcType="DECIMAL" property="feeDisForCoupon" />
+    <result column="coupon_id" jdbcType="VARCHAR" property="couponId" />
+    <result column="user_coupon_id" jdbcType="VARCHAR" property="userCouponId" />
+    <result column="shop_fee" jdbcType="DECIMAL" property="shopFee" />
+    <result column="shop_fee_pre" jdbcType="INTEGER" property="shopFeePre" />
+    <result column="buy_give_point" jdbcType="INTEGER" property="buyGivePoint" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="success_time" jdbcType="INTEGER" property="successTime" />
+    <result column="shipping_status" jdbcType="SMALLINT" property="shippingStatus" />
+    <result column="back_end_content" jdbcType="VARCHAR" property="backEndContent" />
+    <result column="back_end" jdbcType="INTEGER" property="backEnd" />
+    <result column="back_status" jdbcType="INTEGER" property="backStatus" />
+    <result column="back_comfirm" jdbcType="INTEGER" property="backComfirm" />
+    <result column="back_comfirm_time" jdbcType="INTEGER" property="backComfirmTime" />
+    <result column="back_from" jdbcType="VARCHAR" property="backFrom" />
+    <result column="gift_status" jdbcType="INTEGER" property="giftStatus" />
+    <result column="pay_status" jdbcType="SMALLINT" property="payStatus" />
+    <result column="paytime" jdbcType="INTEGER" property="paytime" />
+    <result column="comfirm_stauts" jdbcType="SMALLINT" property="comfirmStauts" />
+    <result column="tuangou_status" jdbcType="SMALLINT" property="tuangouStatus" />
+    <result column="is_real" jdbcType="INTEGER" property="isReal" />
+    <result column="is_tuangou" jdbcType="SMALLINT" property="isTuangou" />
+    <result column="shipping_code" jdbcType="VARCHAR" property="shippingCode" />
+    <result column="shipping_id" jdbcType="VARCHAR" property="shippingId" />
+    <result column="shipping_sn" jdbcType="VARCHAR" property="shippingSn" />
+    <result column="pay_id" jdbcType="INTEGER" property="payId" />
+    <result column="back_time" jdbcType="INTEGER" property="backTime" />
+    <result column="shipping_time" jdbcType="INTEGER" property="shippingTime" />
+    <result column="comfirm_time" jdbcType="INTEGER" property="comfirmTime" />
+    <result column="back_type" jdbcType="INTEGER" property="backType" />
+    <result column="back_shipping_addtime" jdbcType="INTEGER" property="backShippingAddtime" />
+    <result column="back_shipping_code" jdbcType="VARCHAR" property="backShippingCode" />
+    <result column="back_shipping_id" jdbcType="VARCHAR" property="backShippingId" />
+    <result column="back_address" jdbcType="VARCHAR" property="backAddress" />
+    <result column="back_fee" jdbcType="DECIMAL" property="backFee" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="msg" jdbcType="VARCHAR" property="msg" />
+    <result column="biaozhu" jdbcType="INTEGER" property="biaozhu" />
+    <result column="content_back" jdbcType="VARCHAR" property="contentBack" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="app" jdbcType="VARCHAR" property="app" />
+    <result column="business_id" jdbcType="INTEGER" property="businessId" />
+    <result column="schedule_id" jdbcType="INTEGER" property="scheduleId" />
+    <result column="service_shop_id" jdbcType="INTEGER" property="serviceShopId" />
+    <result column="teacher_id" jdbcType="INTEGER" property="teacherId" />
+    <result column="schedule_date" jdbcType="VARCHAR" property="scheduleDate" />
+    <result column="schedule_timepart" jdbcType="VARCHAR" property="scheduleTimepart" />
+    <result column="schedule_timepart_arr" jdbcType="VARCHAR" property="scheduleTimepartArr" />
+    <result column="service_status" jdbcType="TINYINT" property="serviceStatus" />
+    <result column="service_type" jdbcType="INTEGER" property="serviceType" />
+    <result column="food_status" jdbcType="INTEGER" property="foodStatus" />
+    <result column="tuangou_user_id" jdbcType="INTEGER" property="tuangouUserId" />
+    <result column="tuangou_addtime" jdbcType="INTEGER" property="tuangouAddtime" />
+    <result column="tuangou_shop_id" jdbcType="INTEGER" property="tuangouShopId" />
+    <result column="wx_id" jdbcType="INTEGER" property="wxId" />
+    <result column="user_del" jdbcType="INTEGER" property="userDel" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="user_coupon_id_str" jdbcType="VARCHAR" property="userCouponIdStr" />
+    <result column="pay_style" jdbcType="INTEGER" property="payStyle" />
+    <result column="pay_time" jdbcType="INTEGER" property="payTime" />
+    <result column="comment_time" jdbcType="INTEGER" property="commentTime" />
+    <result column="comment_status" jdbcType="TINYINT" property="commentStatus" />
+    <result column="add_shop_log" jdbcType="INTEGER" property="addShopLog" />
+    <result column="add_daili_log" jdbcType="INTEGER" property="addDailiLog" />
+    <result column="add_zhaoshang_log" jdbcType="INTEGER" property="addZhaoshangLog" />
+    <result column="add_member_log" jdbcType="INTEGER" property="addMemberLog" />
+    <result column="coupon_id_str" jdbcType="VARCHAR" property="couponIdStr" />
+    <result column="day" jdbcType="INTEGER" property="day" />
+    <result column="addtime" jdbcType="INTEGER" property="addtime" />
+    <result column="is_zhongchou" jdbcType="INTEGER" property="isZhongchou" />
+    <result column="is_pintuan" jdbcType="INTEGER" property="isPintuan" />
+    <result column="pintuan_id" jdbcType="INTEGER" property="pintuanId" />
+    <result column="pintuan_status" jdbcType="INTEGER" property="pintuanStatus" />
+    <result column="pintuan_app" jdbcType="VARCHAR" property="pintuanApp" />
+    <result column="pintuan_endtime" jdbcType="INTEGER" property="pintuanEndtime" />
+    <result column="pintuan_type" jdbcType="INTEGER" property="pintuanType" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
+    <result column="vip_zhekou" jdbcType="DECIMAL" property="vipZhekou" />
+    <result column="child_id" jdbcType="INTEGER" property="childId" />
+    <result column="service_card_num" jdbcType="VARCHAR" property="serviceCardNum" />
+    <result column="is_service" jdbcType="INTEGER" property="isService" />
+    <result column="is_daifa" jdbcType="TINYINT" property="isDaifa" />
+    <result column="daifa_address" jdbcType="INTEGER" property="daifaAddress" />
+    <result column="is_invoice" jdbcType="TINYINT" property="isInvoice" />
+    <result column="give_points_all" jdbcType="INTEGER" property="givePointsAll" />
+    <result column="use_points" jdbcType="INTEGER" property="usePoints" />
+    <result column="is_use_points" jdbcType="VARCHAR" property="isUsePoints" />
+    <result column="points_fee" jdbcType="DECIMAL" property="pointsFee" />
+    <result column="gift_id" jdbcType="INTEGER" property="giftId" />
+    <result column="iccid" jdbcType="VARCHAR" property="iccid" />
+    <result column="kuaidi_type" jdbcType="INTEGER" property="kuaidiType" />
+    <result column="sale_account_id" jdbcType="INTEGER" property="saleAccountId" />
+    <result column="from_user_id" jdbcType="INTEGER" property="fromUserId" />
+    <result column="from_shop_id" jdbcType="INTEGER" property="fromShopId" />
+    <result column="is_self_status" jdbcType="INTEGER" property="isSelfStatus" />
+    <result column="goods_pintuan_id" jdbcType="INTEGER" property="goodsPintuanId" />
+    <result column="is_yuncang_from" jdbcType="SMALLINT" property="isYuncangFrom" />
+    <result column="is_yuncang" jdbcType="SMALLINT" property="isYuncang" />
+    <result column="is_sign" jdbcType="SMALLINT" property="isSign" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.masha.model.TlOrder">
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+    <result column="back_end_content_pingtai" jdbcType="LONGVARCHAR" property="backEndContentPingtai" />
+    <result column="weixin_order_sn" jdbcType="LONGVARCHAR" property="weixinOrderSn" />
+    <result column="params_booking" jdbcType="LONGVARCHAR" property="paramsBooking" />
+    <result column="params_yanguang" jdbcType="LONGVARCHAR" property="paramsYanguang" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    order_id, order_sn, back_order_sn, transaction_id, user_id, address_name, address_phone, 
+    address_id, address_province_id, address_city_id, address_area_id, address_street_id, 
+    address_params, shipping_fee, goods_fee, total_fee, pay_fee, pay_beizhu, real_fee, 
+    dis_fee, discount_fee, account_fee, shuidian_fee, discount_fee_params, point_fee, 
+    teacher_fee, fee_dis_for_coupon, coupon_id, user_coupon_id, shop_fee, shop_fee_pre, 
+    buy_give_point, order_status, success_time, shipping_status, back_end_content, back_end, 
+    back_status, back_comfirm, back_comfirm_time, back_from, gift_status, pay_status, 
+    paytime, comfirm_stauts, tuangou_status, is_real, is_tuangou, shipping_code, shipping_id, 
+    shipping_sn, pay_id, back_time, shipping_time, comfirm_time, back_type, back_shipping_addtime, 
+    back_shipping_code, back_shipping_id, back_address, back_fee, action, msg, biaozhu, 
+    content_back, content, type, app, business_id, schedule_id, service_shop_id, teacher_id, 
+    schedule_date, schedule_timepart, schedule_timepart_arr, service_status, service_type, 
+    food_status, tuangou_user_id, tuangou_addtime, tuangou_shop_id, wx_id, user_del, 
+    amount, user_coupon_id_str, pay_style, pay_time, comment_time, comment_status, add_shop_log, 
+    add_daili_log, add_zhaoshang_log, add_member_log, coupon_id_str, day, addtime, is_zhongchou, 
+    is_pintuan, pintuan_id, pintuan_status, pintuan_app, pintuan_endtime, pintuan_type, 
+    goods_id, params, vip_zhekou, child_id, service_card_num, is_service, is_daifa, daifa_address, 
+    is_invoice, give_points_all, use_points, is_use_points, points_fee, gift_id, iccid, 
+    kuaidi_type, sale_account_id, from_user_id, from_shop_id, is_self_status, goods_pintuan_id, 
+    is_yuncang_from, is_yuncang, is_sign
+  </sql>
+  <sql id="Blob_Column_List">
+    address, back_end_content_pingtai, weixin_order_sn, params_booking, params_yanguang
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.masha.model.TlOrderExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tl_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.masha.model.TlOrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tl_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tl_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tl_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.masha.model.TlOrderExample">
+    delete from tl_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.masha.model.TlOrder">
+    insert into tl_order (order_id, order_sn, back_order_sn, 
+      transaction_id, user_id, address_name, 
+      address_phone, address_id, address_province_id, 
+      address_city_id, address_area_id, address_street_id, 
+      address_params, shipping_fee, goods_fee, 
+      total_fee, pay_fee, pay_beizhu, 
+      real_fee, dis_fee, discount_fee, 
+      account_fee, shuidian_fee, discount_fee_params, 
+      point_fee, teacher_fee, fee_dis_for_coupon, 
+      coupon_id, user_coupon_id, shop_fee, 
+      shop_fee_pre, buy_give_point, order_status, 
+      success_time, shipping_status, back_end_content, 
+      back_end, back_status, back_comfirm, 
+      back_comfirm_time, back_from, gift_status, 
+      pay_status, paytime, comfirm_stauts, 
+      tuangou_status, is_real, is_tuangou, 
+      shipping_code, shipping_id, shipping_sn, 
+      pay_id, back_time, shipping_time, 
+      comfirm_time, back_type, back_shipping_addtime, 
+      back_shipping_code, back_shipping_id, back_address, 
+      back_fee, action, msg, 
+      biaozhu, content_back, content, 
+      type, app, business_id, 
+      schedule_id, service_shop_id, teacher_id, 
+      schedule_date, schedule_timepart, schedule_timepart_arr, 
+      service_status, service_type, food_status, 
+      tuangou_user_id, tuangou_addtime, tuangou_shop_id, 
+      wx_id, user_del, amount, 
+      user_coupon_id_str, pay_style, pay_time, 
+      comment_time, comment_status, add_shop_log, 
+      add_daili_log, add_zhaoshang_log, add_member_log, 
+      coupon_id_str, day, addtime, 
+      is_zhongchou, is_pintuan, pintuan_id, 
+      pintuan_status, pintuan_app, pintuan_endtime, 
+      pintuan_type, goods_id, params, 
+      vip_zhekou, child_id, service_card_num, 
+      is_service, is_daifa, daifa_address, 
+      is_invoice, give_points_all, use_points, 
+      is_use_points, points_fee, gift_id, 
+      iccid, kuaidi_type, sale_account_id, 
+      from_user_id, from_shop_id, is_self_status, 
+      goods_pintuan_id, is_yuncang_from, is_yuncang, 
+      is_sign, address, back_end_content_pingtai, 
+      weixin_order_sn, params_booking, params_yanguang
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{orderSn,jdbcType=VARCHAR}, #{backOrderSn,jdbcType=VARCHAR}, 
+      #{transactionId,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{addressName,jdbcType=VARCHAR}, 
+      #{addressPhone,jdbcType=VARCHAR}, #{addressId,jdbcType=SMALLINT}, #{addressProvinceId,jdbcType=INTEGER}, 
+      #{addressCityId,jdbcType=INTEGER}, #{addressAreaId,jdbcType=INTEGER}, #{addressStreetId,jdbcType=INTEGER}, 
+      #{addressParams,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, #{goodsFee,jdbcType=DECIMAL}, 
+      #{totalFee,jdbcType=DECIMAL}, #{payFee,jdbcType=DECIMAL}, #{payBeizhu,jdbcType=VARCHAR}, 
+      #{realFee,jdbcType=DECIMAL}, #{disFee,jdbcType=DECIMAL}, #{discountFee,jdbcType=DECIMAL}, 
+      #{accountFee,jdbcType=DECIMAL}, #{shuidianFee,jdbcType=VARCHAR}, #{discountFeeParams,jdbcType=VARCHAR}, 
+      #{pointFee,jdbcType=REAL}, #{teacherFee,jdbcType=DECIMAL}, #{feeDisForCoupon,jdbcType=DECIMAL}, 
+      #{couponId,jdbcType=VARCHAR}, #{userCouponId,jdbcType=VARCHAR}, #{shopFee,jdbcType=DECIMAL}, 
+      #{shopFeePre,jdbcType=INTEGER}, #{buyGivePoint,jdbcType=INTEGER}, #{orderStatus,jdbcType=INTEGER}, 
+      #{successTime,jdbcType=INTEGER}, #{shippingStatus,jdbcType=SMALLINT}, #{backEndContent,jdbcType=VARCHAR}, 
+      #{backEnd,jdbcType=INTEGER}, #{backStatus,jdbcType=INTEGER}, #{backComfirm,jdbcType=INTEGER}, 
+      #{backComfirmTime,jdbcType=INTEGER}, #{backFrom,jdbcType=VARCHAR}, #{giftStatus,jdbcType=INTEGER}, 
+      #{payStatus,jdbcType=SMALLINT}, #{paytime,jdbcType=INTEGER}, #{comfirmStauts,jdbcType=SMALLINT}, 
+      #{tuangouStatus,jdbcType=SMALLINT}, #{isReal,jdbcType=INTEGER}, #{isTuangou,jdbcType=SMALLINT}, 
+      #{shippingCode,jdbcType=VARCHAR}, #{shippingId,jdbcType=VARCHAR}, #{shippingSn,jdbcType=VARCHAR}, 
+      #{payId,jdbcType=INTEGER}, #{backTime,jdbcType=INTEGER}, #{shippingTime,jdbcType=INTEGER}, 
+      #{comfirmTime,jdbcType=INTEGER}, #{backType,jdbcType=INTEGER}, #{backShippingAddtime,jdbcType=INTEGER}, 
+      #{backShippingCode,jdbcType=VARCHAR}, #{backShippingId,jdbcType=VARCHAR}, #{backAddress,jdbcType=VARCHAR}, 
+      #{backFee,jdbcType=DECIMAL}, #{action,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR}, 
+      #{biaozhu,jdbcType=INTEGER}, #{contentBack,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{app,jdbcType=VARCHAR}, #{businessId,jdbcType=INTEGER}, 
+      #{scheduleId,jdbcType=INTEGER}, #{serviceShopId,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}, 
+      #{scheduleDate,jdbcType=VARCHAR}, #{scheduleTimepart,jdbcType=VARCHAR}, #{scheduleTimepartArr,jdbcType=VARCHAR}, 
+      #{serviceStatus,jdbcType=TINYINT}, #{serviceType,jdbcType=INTEGER}, #{foodStatus,jdbcType=INTEGER}, 
+      #{tuangouUserId,jdbcType=INTEGER}, #{tuangouAddtime,jdbcType=INTEGER}, #{tuangouShopId,jdbcType=INTEGER}, 
+      #{wxId,jdbcType=INTEGER}, #{userDel,jdbcType=INTEGER}, #{amount,jdbcType=INTEGER}, 
+      #{userCouponIdStr,jdbcType=VARCHAR}, #{payStyle,jdbcType=INTEGER}, #{payTime,jdbcType=INTEGER}, 
+      #{commentTime,jdbcType=INTEGER}, #{commentStatus,jdbcType=TINYINT}, #{addShopLog,jdbcType=INTEGER}, 
+      #{addDailiLog,jdbcType=INTEGER}, #{addZhaoshangLog,jdbcType=INTEGER}, #{addMemberLog,jdbcType=INTEGER}, 
+      #{couponIdStr,jdbcType=VARCHAR}, #{day,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}, 
+      #{isZhongchou,jdbcType=INTEGER}, #{isPintuan,jdbcType=INTEGER}, #{pintuanId,jdbcType=INTEGER}, 
+      #{pintuanStatus,jdbcType=INTEGER}, #{pintuanApp,jdbcType=VARCHAR}, #{pintuanEndtime,jdbcType=INTEGER}, 
+      #{pintuanType,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, #{params,jdbcType=VARCHAR}, 
+      #{vipZhekou,jdbcType=DECIMAL}, #{childId,jdbcType=INTEGER}, #{serviceCardNum,jdbcType=VARCHAR}, 
+      #{isService,jdbcType=INTEGER}, #{isDaifa,jdbcType=TINYINT}, #{daifaAddress,jdbcType=INTEGER}, 
+      #{isInvoice,jdbcType=TINYINT}, #{givePointsAll,jdbcType=INTEGER}, #{usePoints,jdbcType=INTEGER}, 
+      #{isUsePoints,jdbcType=VARCHAR}, #{pointsFee,jdbcType=DECIMAL}, #{giftId,jdbcType=INTEGER}, 
+      #{iccid,jdbcType=VARCHAR}, #{kuaidiType,jdbcType=INTEGER}, #{saleAccountId,jdbcType=INTEGER}, 
+      #{fromUserId,jdbcType=INTEGER}, #{fromShopId,jdbcType=INTEGER}, #{isSelfStatus,jdbcType=INTEGER}, 
+      #{goodsPintuanId,jdbcType=INTEGER}, #{isYuncangFrom,jdbcType=SMALLINT}, #{isYuncang,jdbcType=SMALLINT}, 
+      #{isSign,jdbcType=SMALLINT}, #{address,jdbcType=LONGVARCHAR}, #{backEndContentPingtai,jdbcType=LONGVARCHAR}, 
+      #{weixinOrderSn,jdbcType=LONGVARCHAR}, #{paramsBooking,jdbcType=LONGVARCHAR}, #{paramsYanguang,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.masha.model.TlOrder">
+    insert into tl_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="orderSn != null">
+        order_sn,
+      </if>
+      <if test="backOrderSn != null">
+        back_order_sn,
+      </if>
+      <if test="transactionId != null">
+        transaction_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="addressName != null">
+        address_name,
+      </if>
+      <if test="addressPhone != null">
+        address_phone,
+      </if>
+      <if test="addressId != null">
+        address_id,
+      </if>
+      <if test="addressProvinceId != null">
+        address_province_id,
+      </if>
+      <if test="addressCityId != null">
+        address_city_id,
+      </if>
+      <if test="addressAreaId != null">
+        address_area_id,
+      </if>
+      <if test="addressStreetId != null">
+        address_street_id,
+      </if>
+      <if test="addressParams != null">
+        address_params,
+      </if>
+      <if test="shippingFee != null">
+        shipping_fee,
+      </if>
+      <if test="goodsFee != null">
+        goods_fee,
+      </if>
+      <if test="totalFee != null">
+        total_fee,
+      </if>
+      <if test="payFee != null">
+        pay_fee,
+      </if>
+      <if test="payBeizhu != null">
+        pay_beizhu,
+      </if>
+      <if test="realFee != null">
+        real_fee,
+      </if>
+      <if test="disFee != null">
+        dis_fee,
+      </if>
+      <if test="discountFee != null">
+        discount_fee,
+      </if>
+      <if test="accountFee != null">
+        account_fee,
+      </if>
+      <if test="shuidianFee != null">
+        shuidian_fee,
+      </if>
+      <if test="discountFeeParams != null">
+        discount_fee_params,
+      </if>
+      <if test="pointFee != null">
+        point_fee,
+      </if>
+      <if test="teacherFee != null">
+        teacher_fee,
+      </if>
+      <if test="feeDisForCoupon != null">
+        fee_dis_for_coupon,
+      </if>
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="userCouponId != null">
+        user_coupon_id,
+      </if>
+      <if test="shopFee != null">
+        shop_fee,
+      </if>
+      <if test="shopFeePre != null">
+        shop_fee_pre,
+      </if>
+      <if test="buyGivePoint != null">
+        buy_give_point,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="successTime != null">
+        success_time,
+      </if>
+      <if test="shippingStatus != null">
+        shipping_status,
+      </if>
+      <if test="backEndContent != null">
+        back_end_content,
+      </if>
+      <if test="backEnd != null">
+        back_end,
+      </if>
+      <if test="backStatus != null">
+        back_status,
+      </if>
+      <if test="backComfirm != null">
+        back_comfirm,
+      </if>
+      <if test="backComfirmTime != null">
+        back_comfirm_time,
+      </if>
+      <if test="backFrom != null">
+        back_from,
+      </if>
+      <if test="giftStatus != null">
+        gift_status,
+      </if>
+      <if test="payStatus != null">
+        pay_status,
+      </if>
+      <if test="paytime != null">
+        paytime,
+      </if>
+      <if test="comfirmStauts != null">
+        comfirm_stauts,
+      </if>
+      <if test="tuangouStatus != null">
+        tuangou_status,
+      </if>
+      <if test="isReal != null">
+        is_real,
+      </if>
+      <if test="isTuangou != null">
+        is_tuangou,
+      </if>
+      <if test="shippingCode != null">
+        shipping_code,
+      </if>
+      <if test="shippingId != null">
+        shipping_id,
+      </if>
+      <if test="shippingSn != null">
+        shipping_sn,
+      </if>
+      <if test="payId != null">
+        pay_id,
+      </if>
+      <if test="backTime != null">
+        back_time,
+      </if>
+      <if test="shippingTime != null">
+        shipping_time,
+      </if>
+      <if test="comfirmTime != null">
+        comfirm_time,
+      </if>
+      <if test="backType != null">
+        back_type,
+      </if>
+      <if test="backShippingAddtime != null">
+        back_shipping_addtime,
+      </if>
+      <if test="backShippingCode != null">
+        back_shipping_code,
+      </if>
+      <if test="backShippingId != null">
+        back_shipping_id,
+      </if>
+      <if test="backAddress != null">
+        back_address,
+      </if>
+      <if test="backFee != null">
+        back_fee,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="msg != null">
+        msg,
+      </if>
+      <if test="biaozhu != null">
+        biaozhu,
+      </if>
+      <if test="contentBack != null">
+        content_back,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="app != null">
+        app,
+      </if>
+      <if test="businessId != null">
+        business_id,
+      </if>
+      <if test="scheduleId != null">
+        schedule_id,
+      </if>
+      <if test="serviceShopId != null">
+        service_shop_id,
+      </if>
+      <if test="teacherId != null">
+        teacher_id,
+      </if>
+      <if test="scheduleDate != null">
+        schedule_date,
+      </if>
+      <if test="scheduleTimepart != null">
+        schedule_timepart,
+      </if>
+      <if test="scheduleTimepartArr != null">
+        schedule_timepart_arr,
+      </if>
+      <if test="serviceStatus != null">
+        service_status,
+      </if>
+      <if test="serviceType != null">
+        service_type,
+      </if>
+      <if test="foodStatus != null">
+        food_status,
+      </if>
+      <if test="tuangouUserId != null">
+        tuangou_user_id,
+      </if>
+      <if test="tuangouAddtime != null">
+        tuangou_addtime,
+      </if>
+      <if test="tuangouShopId != null">
+        tuangou_shop_id,
+      </if>
+      <if test="wxId != null">
+        wx_id,
+      </if>
+      <if test="userDel != null">
+        user_del,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="userCouponIdStr != null">
+        user_coupon_id_str,
+      </if>
+      <if test="payStyle != null">
+        pay_style,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="commentTime != null">
+        comment_time,
+      </if>
+      <if test="commentStatus != null">
+        comment_status,
+      </if>
+      <if test="addShopLog != null">
+        add_shop_log,
+      </if>
+      <if test="addDailiLog != null">
+        add_daili_log,
+      </if>
+      <if test="addZhaoshangLog != null">
+        add_zhaoshang_log,
+      </if>
+      <if test="addMemberLog != null">
+        add_member_log,
+      </if>
+      <if test="couponIdStr != null">
+        coupon_id_str,
+      </if>
+      <if test="day != null">
+        day,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="isZhongchou != null">
+        is_zhongchou,
+      </if>
+      <if test="isPintuan != null">
+        is_pintuan,
+      </if>
+      <if test="pintuanId != null">
+        pintuan_id,
+      </if>
+      <if test="pintuanStatus != null">
+        pintuan_status,
+      </if>
+      <if test="pintuanApp != null">
+        pintuan_app,
+      </if>
+      <if test="pintuanEndtime != null">
+        pintuan_endtime,
+      </if>
+      <if test="pintuanType != null">
+        pintuan_type,
+      </if>
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="params != null">
+        params,
+      </if>
+      <if test="vipZhekou != null">
+        vip_zhekou,
+      </if>
+      <if test="childId != null">
+        child_id,
+      </if>
+      <if test="serviceCardNum != null">
+        service_card_num,
+      </if>
+      <if test="isService != null">
+        is_service,
+      </if>
+      <if test="isDaifa != null">
+        is_daifa,
+      </if>
+      <if test="daifaAddress != null">
+        daifa_address,
+      </if>
+      <if test="isInvoice != null">
+        is_invoice,
+      </if>
+      <if test="givePointsAll != null">
+        give_points_all,
+      </if>
+      <if test="usePoints != null">
+        use_points,
+      </if>
+      <if test="isUsePoints != null">
+        is_use_points,
+      </if>
+      <if test="pointsFee != null">
+        points_fee,
+      </if>
+      <if test="giftId != null">
+        gift_id,
+      </if>
+      <if test="iccid != null">
+        iccid,
+      </if>
+      <if test="kuaidiType != null">
+        kuaidi_type,
+      </if>
+      <if test="saleAccountId != null">
+        sale_account_id,
+      </if>
+      <if test="fromUserId != null">
+        from_user_id,
+      </if>
+      <if test="fromShopId != null">
+        from_shop_id,
+      </if>
+      <if test="isSelfStatus != null">
+        is_self_status,
+      </if>
+      <if test="goodsPintuanId != null">
+        goods_pintuan_id,
+      </if>
+      <if test="isYuncangFrom != null">
+        is_yuncang_from,
+      </if>
+      <if test="isYuncang != null">
+        is_yuncang,
+      </if>
+      <if test="isSign != null">
+        is_sign,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="backEndContentPingtai != null">
+        back_end_content_pingtai,
+      </if>
+      <if test="weixinOrderSn != null">
+        weixin_order_sn,
+      </if>
+      <if test="paramsBooking != null">
+        params_booking,
+      </if>
+      <if test="paramsYanguang != null">
+        params_yanguang,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderSn != null">
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="backOrderSn != null">
+        #{backOrderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionId != null">
+        #{transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="addressName != null">
+        #{addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="addressPhone != null">
+        #{addressPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="addressId != null">
+        #{addressId,jdbcType=SMALLINT},
+      </if>
+      <if test="addressProvinceId != null">
+        #{addressProvinceId,jdbcType=INTEGER},
+      </if>
+      <if test="addressCityId != null">
+        #{addressCityId,jdbcType=INTEGER},
+      </if>
+      <if test="addressAreaId != null">
+        #{addressAreaId,jdbcType=INTEGER},
+      </if>
+      <if test="addressStreetId != null">
+        #{addressStreetId,jdbcType=INTEGER},
+      </if>
+      <if test="addressParams != null">
+        #{addressParams,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingFee != null">
+        #{shippingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsFee != null">
+        #{goodsFee,jdbcType=DECIMAL},
+      </if>
+      <if test="totalFee != null">
+        #{totalFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payFee != null">
+        #{payFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payBeizhu != null">
+        #{payBeizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="realFee != null">
+        #{realFee,jdbcType=DECIMAL},
+      </if>
+      <if test="disFee != null">
+        #{disFee,jdbcType=DECIMAL},
+      </if>
+      <if test="discountFee != null">
+        #{discountFee,jdbcType=DECIMAL},
+      </if>
+      <if test="accountFee != null">
+        #{accountFee,jdbcType=DECIMAL},
+      </if>
+      <if test="shuidianFee != null">
+        #{shuidianFee,jdbcType=VARCHAR},
+      </if>
+      <if test="discountFeeParams != null">
+        #{discountFeeParams,jdbcType=VARCHAR},
+      </if>
+      <if test="pointFee != null">
+        #{pointFee,jdbcType=REAL},
+      </if>
+      <if test="teacherFee != null">
+        #{teacherFee,jdbcType=DECIMAL},
+      </if>
+      <if test="feeDisForCoupon != null">
+        #{feeDisForCoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="couponId != null">
+        #{couponId,jdbcType=VARCHAR},
+      </if>
+      <if test="userCouponId != null">
+        #{userCouponId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopFee != null">
+        #{shopFee,jdbcType=DECIMAL},
+      </if>
+      <if test="shopFeePre != null">
+        #{shopFeePre,jdbcType=INTEGER},
+      </if>
+      <if test="buyGivePoint != null">
+        #{buyGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="successTime != null">
+        #{successTime,jdbcType=INTEGER},
+      </if>
+      <if test="shippingStatus != null">
+        #{shippingStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="backEndContent != null">
+        #{backEndContent,jdbcType=VARCHAR},
+      </if>
+      <if test="backEnd != null">
+        #{backEnd,jdbcType=INTEGER},
+      </if>
+      <if test="backStatus != null">
+        #{backStatus,jdbcType=INTEGER},
+      </if>
+      <if test="backComfirm != null">
+        #{backComfirm,jdbcType=INTEGER},
+      </if>
+      <if test="backComfirmTime != null">
+        #{backComfirmTime,jdbcType=INTEGER},
+      </if>
+      <if test="backFrom != null">
+        #{backFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="giftStatus != null">
+        #{giftStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payStatus != null">
+        #{payStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="paytime != null">
+        #{paytime,jdbcType=INTEGER},
+      </if>
+      <if test="comfirmStauts != null">
+        #{comfirmStauts,jdbcType=SMALLINT},
+      </if>
+      <if test="tuangouStatus != null">
+        #{tuangouStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="isReal != null">
+        #{isReal,jdbcType=INTEGER},
+      </if>
+      <if test="isTuangou != null">
+        #{isTuangou,jdbcType=SMALLINT},
+      </if>
+      <if test="shippingCode != null">
+        #{shippingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingId != null">
+        #{shippingId,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingSn != null">
+        #{shippingSn,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null">
+        #{payId,jdbcType=INTEGER},
+      </if>
+      <if test="backTime != null">
+        #{backTime,jdbcType=INTEGER},
+      </if>
+      <if test="shippingTime != null">
+        #{shippingTime,jdbcType=INTEGER},
+      </if>
+      <if test="comfirmTime != null">
+        #{comfirmTime,jdbcType=INTEGER},
+      </if>
+      <if test="backType != null">
+        #{backType,jdbcType=INTEGER},
+      </if>
+      <if test="backShippingAddtime != null">
+        #{backShippingAddtime,jdbcType=INTEGER},
+      </if>
+      <if test="backShippingCode != null">
+        #{backShippingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="backShippingId != null">
+        #{backShippingId,jdbcType=VARCHAR},
+      </if>
+      <if test="backAddress != null">
+        #{backAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="backFee != null">
+        #{backFee,jdbcType=DECIMAL},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="biaozhu != null">
+        #{biaozhu,jdbcType=INTEGER},
+      </if>
+      <if test="contentBack != null">
+        #{contentBack,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="app != null">
+        #{app,jdbcType=VARCHAR},
+      </if>
+      <if test="businessId != null">
+        #{businessId,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleId != null">
+        #{scheduleId,jdbcType=INTEGER},
+      </if>
+      <if test="serviceShopId != null">
+        #{serviceShopId,jdbcType=INTEGER},
+      </if>
+      <if test="teacherId != null">
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleDate != null">
+        #{scheduleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleTimepart != null">
+        #{scheduleTimepart,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleTimepartArr != null">
+        #{scheduleTimepartArr,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceStatus != null">
+        #{serviceStatus,jdbcType=TINYINT},
+      </if>
+      <if test="serviceType != null">
+        #{serviceType,jdbcType=INTEGER},
+      </if>
+      <if test="foodStatus != null">
+        #{foodStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tuangouUserId != null">
+        #{tuangouUserId,jdbcType=INTEGER},
+      </if>
+      <if test="tuangouAddtime != null">
+        #{tuangouAddtime,jdbcType=INTEGER},
+      </if>
+      <if test="tuangouShopId != null">
+        #{tuangouShopId,jdbcType=INTEGER},
+      </if>
+      <if test="wxId != null">
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="userDel != null">
+        #{userDel,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="userCouponIdStr != null">
+        #{userCouponIdStr,jdbcType=VARCHAR},
+      </if>
+      <if test="payStyle != null">
+        #{payStyle,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=INTEGER},
+      </if>
+      <if test="commentTime != null">
+        #{commentTime,jdbcType=INTEGER},
+      </if>
+      <if test="commentStatus != null">
+        #{commentStatus,jdbcType=TINYINT},
+      </if>
+      <if test="addShopLog != null">
+        #{addShopLog,jdbcType=INTEGER},
+      </if>
+      <if test="addDailiLog != null">
+        #{addDailiLog,jdbcType=INTEGER},
+      </if>
+      <if test="addZhaoshangLog != null">
+        #{addZhaoshangLog,jdbcType=INTEGER},
+      </if>
+      <if test="addMemberLog != null">
+        #{addMemberLog,jdbcType=INTEGER},
+      </if>
+      <if test="couponIdStr != null">
+        #{couponIdStr,jdbcType=VARCHAR},
+      </if>
+      <if test="day != null">
+        #{day,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="isZhongchou != null">
+        #{isZhongchou,jdbcType=INTEGER},
+      </if>
+      <if test="isPintuan != null">
+        #{isPintuan,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanId != null">
+        #{pintuanId,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanStatus != null">
+        #{pintuanStatus,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanApp != null">
+        #{pintuanApp,jdbcType=VARCHAR},
+      </if>
+      <if test="pintuanEndtime != null">
+        #{pintuanEndtime,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanType != null">
+        #{pintuanType,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="params != null">
+        #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="vipZhekou != null">
+        #{vipZhekou,jdbcType=DECIMAL},
+      </if>
+      <if test="childId != null">
+        #{childId,jdbcType=INTEGER},
+      </if>
+      <if test="serviceCardNum != null">
+        #{serviceCardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="isService != null">
+        #{isService,jdbcType=INTEGER},
+      </if>
+      <if test="isDaifa != null">
+        #{isDaifa,jdbcType=TINYINT},
+      </if>
+      <if test="daifaAddress != null">
+        #{daifaAddress,jdbcType=INTEGER},
+      </if>
+      <if test="isInvoice != null">
+        #{isInvoice,jdbcType=TINYINT},
+      </if>
+      <if test="givePointsAll != null">
+        #{givePointsAll,jdbcType=INTEGER},
+      </if>
+      <if test="usePoints != null">
+        #{usePoints,jdbcType=INTEGER},
+      </if>
+      <if test="isUsePoints != null">
+        #{isUsePoints,jdbcType=VARCHAR},
+      </if>
+      <if test="pointsFee != null">
+        #{pointsFee,jdbcType=DECIMAL},
+      </if>
+      <if test="giftId != null">
+        #{giftId,jdbcType=INTEGER},
+      </if>
+      <if test="iccid != null">
+        #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="kuaidiType != null">
+        #{kuaidiType,jdbcType=INTEGER},
+      </if>
+      <if test="saleAccountId != null">
+        #{saleAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="fromUserId != null">
+        #{fromUserId,jdbcType=INTEGER},
+      </if>
+      <if test="fromShopId != null">
+        #{fromShopId,jdbcType=INTEGER},
+      </if>
+      <if test="isSelfStatus != null">
+        #{isSelfStatus,jdbcType=INTEGER},
+      </if>
+      <if test="goodsPintuanId != null">
+        #{goodsPintuanId,jdbcType=INTEGER},
+      </if>
+      <if test="isYuncangFrom != null">
+        #{isYuncangFrom,jdbcType=SMALLINT},
+      </if>
+      <if test="isYuncang != null">
+        #{isYuncang,jdbcType=SMALLINT},
+      </if>
+      <if test="isSign != null">
+        #{isSign,jdbcType=SMALLINT},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="backEndContentPingtai != null">
+        #{backEndContentPingtai,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="weixinOrderSn != null">
+        #{weixinOrderSn,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="paramsBooking != null">
+        #{paramsBooking,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="paramsYanguang != null">
+        #{paramsYanguang,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.masha.model.TlOrderExample" resultType="java.lang.Long">
+    select count(*) from tl_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tl_order
+    <set>
+      <if test="record.orderId != null">
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderSn != null">
+        order_sn = #{record.orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.backOrderSn != null">
+        back_order_sn = #{record.backOrderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transactionId != null">
+        transaction_id = #{record.transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.addressName != null">
+        address_name = #{record.addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addressPhone != null">
+        address_phone = #{record.addressPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addressId != null">
+        address_id = #{record.addressId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.addressProvinceId != null">
+        address_province_id = #{record.addressProvinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.addressCityId != null">
+        address_city_id = #{record.addressCityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.addressAreaId != null">
+        address_area_id = #{record.addressAreaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.addressStreetId != null">
+        address_street_id = #{record.addressStreetId,jdbcType=INTEGER},
+      </if>
+      <if test="record.addressParams != null">
+        address_params = #{record.addressParams,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shippingFee != null">
+        shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.goodsFee != null">
+        goods_fee = #{record.goodsFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalFee != null">
+        total_fee = #{record.totalFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payFee != null">
+        pay_fee = #{record.payFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payBeizhu != null">
+        pay_beizhu = #{record.payBeizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realFee != null">
+        real_fee = #{record.realFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.disFee != null">
+        dis_fee = #{record.disFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.discountFee != null">
+        discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.accountFee != null">
+        account_fee = #{record.accountFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.shuidianFee != null">
+        shuidian_fee = #{record.shuidianFee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.discountFeeParams != null">
+        discount_fee_params = #{record.discountFeeParams,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pointFee != null">
+        point_fee = #{record.pointFee,jdbcType=REAL},
+      </if>
+      <if test="record.teacherFee != null">
+        teacher_fee = #{record.teacherFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.feeDisForCoupon != null">
+        fee_dis_for_coupon = #{record.feeDisForCoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="record.couponId != null">
+        coupon_id = #{record.couponId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userCouponId != null">
+        user_coupon_id = #{record.userCouponId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopFee != null">
+        shop_fee = #{record.shopFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.shopFeePre != null">
+        shop_fee_pre = #{record.shopFeePre,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyGivePoint != null">
+        buy_give_point = #{record.buyGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderStatus != null">
+        order_status = #{record.orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.successTime != null">
+        success_time = #{record.successTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.shippingStatus != null">
+        shipping_status = #{record.shippingStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="record.backEndContent != null">
+        back_end_content = #{record.backEndContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.backEnd != null">
+        back_end = #{record.backEnd,jdbcType=INTEGER},
+      </if>
+      <if test="record.backStatus != null">
+        back_status = #{record.backStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.backComfirm != null">
+        back_comfirm = #{record.backComfirm,jdbcType=INTEGER},
+      </if>
+      <if test="record.backComfirmTime != null">
+        back_comfirm_time = #{record.backComfirmTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.backFrom != null">
+        back_from = #{record.backFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.giftStatus != null">
+        gift_status = #{record.giftStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.payStatus != null">
+        pay_status = #{record.payStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="record.paytime != null">
+        paytime = #{record.paytime,jdbcType=INTEGER},
+      </if>
+      <if test="record.comfirmStauts != null">
+        comfirm_stauts = #{record.comfirmStauts,jdbcType=SMALLINT},
+      </if>
+      <if test="record.tuangouStatus != null">
+        tuangou_status = #{record.tuangouStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isReal != null">
+        is_real = #{record.isReal,jdbcType=INTEGER},
+      </if>
+      <if test="record.isTuangou != null">
+        is_tuangou = #{record.isTuangou,jdbcType=SMALLINT},
+      </if>
+      <if test="record.shippingCode != null">
+        shipping_code = #{record.shippingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shippingId != null">
+        shipping_id = #{record.shippingId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shippingSn != null">
+        shipping_sn = #{record.shippingSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payId != null">
+        pay_id = #{record.payId,jdbcType=INTEGER},
+      </if>
+      <if test="record.backTime != null">
+        back_time = #{record.backTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.shippingTime != null">
+        shipping_time = #{record.shippingTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.comfirmTime != null">
+        comfirm_time = #{record.comfirmTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.backType != null">
+        back_type = #{record.backType,jdbcType=INTEGER},
+      </if>
+      <if test="record.backShippingAddtime != null">
+        back_shipping_addtime = #{record.backShippingAddtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.backShippingCode != null">
+        back_shipping_code = #{record.backShippingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.backShippingId != null">
+        back_shipping_id = #{record.backShippingId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.backAddress != null">
+        back_address = #{record.backAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.backFee != null">
+        back_fee = #{record.backFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.action != null">
+        action = #{record.action,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msg != null">
+        msg = #{record.msg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.biaozhu != null">
+        biaozhu = #{record.biaozhu,jdbcType=INTEGER},
+      </if>
+      <if test="record.contentBack != null">
+        content_back = #{record.contentBack,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.app != null">
+        app = #{record.app,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessId != null">
+        business_id = #{record.businessId,jdbcType=INTEGER},
+      </if>
+      <if test="record.scheduleId != null">
+        schedule_id = #{record.scheduleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.serviceShopId != null">
+        service_shop_id = #{record.serviceShopId,jdbcType=INTEGER},
+      </if>
+      <if test="record.teacherId != null">
+        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.scheduleDate != null">
+        schedule_date = #{record.scheduleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scheduleTimepart != null">
+        schedule_timepart = #{record.scheduleTimepart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scheduleTimepartArr != null">
+        schedule_timepart_arr = #{record.scheduleTimepartArr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceStatus != null">
+        service_status = #{record.serviceStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.serviceType != null">
+        service_type = #{record.serviceType,jdbcType=INTEGER},
+      </if>
+      <if test="record.foodStatus != null">
+        food_status = #{record.foodStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.tuangouUserId != null">
+        tuangou_user_id = #{record.tuangouUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.tuangouAddtime != null">
+        tuangou_addtime = #{record.tuangouAddtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.tuangouShopId != null">
+        tuangou_shop_id = #{record.tuangouShopId,jdbcType=INTEGER},
+      </if>
+      <if test="record.wxId != null">
+        wx_id = #{record.wxId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userDel != null">
+        user_del = #{record.userDel,jdbcType=INTEGER},
+      </if>
+      <if test="record.amount != null">
+        amount = #{record.amount,jdbcType=INTEGER},
+      </if>
+      <if test="record.userCouponIdStr != null">
+        user_coupon_id_str = #{record.userCouponIdStr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payStyle != null">
+        pay_style = #{record.payStyle,jdbcType=INTEGER},
+      </if>
+      <if test="record.payTime != null">
+        pay_time = #{record.payTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentTime != null">
+        comment_time = #{record.commentTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentStatus != null">
+        comment_status = #{record.commentStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.addShopLog != null">
+        add_shop_log = #{record.addShopLog,jdbcType=INTEGER},
+      </if>
+      <if test="record.addDailiLog != null">
+        add_daili_log = #{record.addDailiLog,jdbcType=INTEGER},
+      </if>
+      <if test="record.addZhaoshangLog != null">
+        add_zhaoshang_log = #{record.addZhaoshangLog,jdbcType=INTEGER},
+      </if>
+      <if test="record.addMemberLog != null">
+        add_member_log = #{record.addMemberLog,jdbcType=INTEGER},
+      </if>
+      <if test="record.couponIdStr != null">
+        coupon_id_str = #{record.couponIdStr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.day != null">
+        day = #{record.day,jdbcType=INTEGER},
+      </if>
+      <if test="record.addtime != null">
+        addtime = #{record.addtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.isZhongchou != null">
+        is_zhongchou = #{record.isZhongchou,jdbcType=INTEGER},
+      </if>
+      <if test="record.isPintuan != null">
+        is_pintuan = #{record.isPintuan,jdbcType=INTEGER},
+      </if>
+      <if test="record.pintuanId != null">
+        pintuan_id = #{record.pintuanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pintuanStatus != null">
+        pintuan_status = #{record.pintuanStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.pintuanApp != null">
+        pintuan_app = #{record.pintuanApp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pintuanEndtime != null">
+        pintuan_endtime = #{record.pintuanEndtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.pintuanType != null">
+        pintuan_type = #{record.pintuanType,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsId != null">
+        goods_id = #{record.goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.params != null">
+        params = #{record.params,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vipZhekou != null">
+        vip_zhekou = #{record.vipZhekou,jdbcType=DECIMAL},
+      </if>
+      <if test="record.childId != null">
+        child_id = #{record.childId,jdbcType=INTEGER},
+      </if>
+      <if test="record.serviceCardNum != null">
+        service_card_num = #{record.serviceCardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isService != null">
+        is_service = #{record.isService,jdbcType=INTEGER},
+      </if>
+      <if test="record.isDaifa != null">
+        is_daifa = #{record.isDaifa,jdbcType=TINYINT},
+      </if>
+      <if test="record.daifaAddress != null">
+        daifa_address = #{record.daifaAddress,jdbcType=INTEGER},
+      </if>
+      <if test="record.isInvoice != null">
+        is_invoice = #{record.isInvoice,jdbcType=TINYINT},
+      </if>
+      <if test="record.givePointsAll != null">
+        give_points_all = #{record.givePointsAll,jdbcType=INTEGER},
+      </if>
+      <if test="record.usePoints != null">
+        use_points = #{record.usePoints,jdbcType=INTEGER},
+      </if>
+      <if test="record.isUsePoints != null">
+        is_use_points = #{record.isUsePoints,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pointsFee != null">
+        points_fee = #{record.pointsFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.giftId != null">
+        gift_id = #{record.giftId,jdbcType=INTEGER},
+      </if>
+      <if test="record.iccid != null">
+        iccid = #{record.iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kuaidiType != null">
+        kuaidi_type = #{record.kuaidiType,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleAccountId != null">
+        sale_account_id = #{record.saleAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="record.fromUserId != null">
+        from_user_id = #{record.fromUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.fromShopId != null">
+        from_shop_id = #{record.fromShopId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isSelfStatus != null">
+        is_self_status = #{record.isSelfStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsPintuanId != null">
+        goods_pintuan_id = #{record.goodsPintuanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isYuncangFrom != null">
+        is_yuncang_from = #{record.isYuncangFrom,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isYuncang != null">
+        is_yuncang = #{record.isYuncang,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isSign != null">
+        is_sign = #{record.isSign,jdbcType=SMALLINT},
+      </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.backEndContentPingtai != null">
+        back_end_content_pingtai = #{record.backEndContentPingtai,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.weixinOrderSn != null">
+        weixin_order_sn = #{record.weixinOrderSn,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.paramsBooking != null">
+        params_booking = #{record.paramsBooking,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.paramsYanguang != null">
+        params_yanguang = #{record.paramsYanguang,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tl_order
+    set order_id = #{record.orderId,jdbcType=INTEGER},
+      order_sn = #{record.orderSn,jdbcType=VARCHAR},
+      back_order_sn = #{record.backOrderSn,jdbcType=VARCHAR},
+      transaction_id = #{record.transactionId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      address_name = #{record.addressName,jdbcType=VARCHAR},
+      address_phone = #{record.addressPhone,jdbcType=VARCHAR},
+      address_id = #{record.addressId,jdbcType=SMALLINT},
+      address_province_id = #{record.addressProvinceId,jdbcType=INTEGER},
+      address_city_id = #{record.addressCityId,jdbcType=INTEGER},
+      address_area_id = #{record.addressAreaId,jdbcType=INTEGER},
+      address_street_id = #{record.addressStreetId,jdbcType=INTEGER},
+      address_params = #{record.addressParams,jdbcType=VARCHAR},
+      shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
+      goods_fee = #{record.goodsFee,jdbcType=DECIMAL},
+      total_fee = #{record.totalFee,jdbcType=DECIMAL},
+      pay_fee = #{record.payFee,jdbcType=DECIMAL},
+      pay_beizhu = #{record.payBeizhu,jdbcType=VARCHAR},
+      real_fee = #{record.realFee,jdbcType=DECIMAL},
+      dis_fee = #{record.disFee,jdbcType=DECIMAL},
+      discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+      account_fee = #{record.accountFee,jdbcType=DECIMAL},
+      shuidian_fee = #{record.shuidianFee,jdbcType=VARCHAR},
+      discount_fee_params = #{record.discountFeeParams,jdbcType=VARCHAR},
+      point_fee = #{record.pointFee,jdbcType=REAL},
+      teacher_fee = #{record.teacherFee,jdbcType=DECIMAL},
+      fee_dis_for_coupon = #{record.feeDisForCoupon,jdbcType=DECIMAL},
+      coupon_id = #{record.couponId,jdbcType=VARCHAR},
+      user_coupon_id = #{record.userCouponId,jdbcType=VARCHAR},
+      shop_fee = #{record.shopFee,jdbcType=DECIMAL},
+      shop_fee_pre = #{record.shopFeePre,jdbcType=INTEGER},
+      buy_give_point = #{record.buyGivePoint,jdbcType=INTEGER},
+      order_status = #{record.orderStatus,jdbcType=INTEGER},
+      success_time = #{record.successTime,jdbcType=INTEGER},
+      shipping_status = #{record.shippingStatus,jdbcType=SMALLINT},
+      back_end_content = #{record.backEndContent,jdbcType=VARCHAR},
+      back_end = #{record.backEnd,jdbcType=INTEGER},
+      back_status = #{record.backStatus,jdbcType=INTEGER},
+      back_comfirm = #{record.backComfirm,jdbcType=INTEGER},
+      back_comfirm_time = #{record.backComfirmTime,jdbcType=INTEGER},
+      back_from = #{record.backFrom,jdbcType=VARCHAR},
+      gift_status = #{record.giftStatus,jdbcType=INTEGER},
+      pay_status = #{record.payStatus,jdbcType=SMALLINT},
+      paytime = #{record.paytime,jdbcType=INTEGER},
+      comfirm_stauts = #{record.comfirmStauts,jdbcType=SMALLINT},
+      tuangou_status = #{record.tuangouStatus,jdbcType=SMALLINT},
+      is_real = #{record.isReal,jdbcType=INTEGER},
+      is_tuangou = #{record.isTuangou,jdbcType=SMALLINT},
+      shipping_code = #{record.shippingCode,jdbcType=VARCHAR},
+      shipping_id = #{record.shippingId,jdbcType=VARCHAR},
+      shipping_sn = #{record.shippingSn,jdbcType=VARCHAR},
+      pay_id = #{record.payId,jdbcType=INTEGER},
+      back_time = #{record.backTime,jdbcType=INTEGER},
+      shipping_time = #{record.shippingTime,jdbcType=INTEGER},
+      comfirm_time = #{record.comfirmTime,jdbcType=INTEGER},
+      back_type = #{record.backType,jdbcType=INTEGER},
+      back_shipping_addtime = #{record.backShippingAddtime,jdbcType=INTEGER},
+      back_shipping_code = #{record.backShippingCode,jdbcType=VARCHAR},
+      back_shipping_id = #{record.backShippingId,jdbcType=VARCHAR},
+      back_address = #{record.backAddress,jdbcType=VARCHAR},
+      back_fee = #{record.backFee,jdbcType=DECIMAL},
+      action = #{record.action,jdbcType=VARCHAR},
+      msg = #{record.msg,jdbcType=VARCHAR},
+      biaozhu = #{record.biaozhu,jdbcType=INTEGER},
+      content_back = #{record.contentBack,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=INTEGER},
+      app = #{record.app,jdbcType=VARCHAR},
+      business_id = #{record.businessId,jdbcType=INTEGER},
+      schedule_id = #{record.scheduleId,jdbcType=INTEGER},
+      service_shop_id = #{record.serviceShopId,jdbcType=INTEGER},
+      teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      schedule_date = #{record.scheduleDate,jdbcType=VARCHAR},
+      schedule_timepart = #{record.scheduleTimepart,jdbcType=VARCHAR},
+      schedule_timepart_arr = #{record.scheduleTimepartArr,jdbcType=VARCHAR},
+      service_status = #{record.serviceStatus,jdbcType=TINYINT},
+      service_type = #{record.serviceType,jdbcType=INTEGER},
+      food_status = #{record.foodStatus,jdbcType=INTEGER},
+      tuangou_user_id = #{record.tuangouUserId,jdbcType=INTEGER},
+      tuangou_addtime = #{record.tuangouAddtime,jdbcType=INTEGER},
+      tuangou_shop_id = #{record.tuangouShopId,jdbcType=INTEGER},
+      wx_id = #{record.wxId,jdbcType=INTEGER},
+      user_del = #{record.userDel,jdbcType=INTEGER},
+      amount = #{record.amount,jdbcType=INTEGER},
+      user_coupon_id_str = #{record.userCouponIdStr,jdbcType=VARCHAR},
+      pay_style = #{record.payStyle,jdbcType=INTEGER},
+      pay_time = #{record.payTime,jdbcType=INTEGER},
+      comment_time = #{record.commentTime,jdbcType=INTEGER},
+      comment_status = #{record.commentStatus,jdbcType=TINYINT},
+      add_shop_log = #{record.addShopLog,jdbcType=INTEGER},
+      add_daili_log = #{record.addDailiLog,jdbcType=INTEGER},
+      add_zhaoshang_log = #{record.addZhaoshangLog,jdbcType=INTEGER},
+      add_member_log = #{record.addMemberLog,jdbcType=INTEGER},
+      coupon_id_str = #{record.couponIdStr,jdbcType=VARCHAR},
+      day = #{record.day,jdbcType=INTEGER},
+      addtime = #{record.addtime,jdbcType=INTEGER},
+      is_zhongchou = #{record.isZhongchou,jdbcType=INTEGER},
+      is_pintuan = #{record.isPintuan,jdbcType=INTEGER},
+      pintuan_id = #{record.pintuanId,jdbcType=INTEGER},
+      pintuan_status = #{record.pintuanStatus,jdbcType=INTEGER},
+      pintuan_app = #{record.pintuanApp,jdbcType=VARCHAR},
+      pintuan_endtime = #{record.pintuanEndtime,jdbcType=INTEGER},
+      pintuan_type = #{record.pintuanType,jdbcType=INTEGER},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      params = #{record.params,jdbcType=VARCHAR},
+      vip_zhekou = #{record.vipZhekou,jdbcType=DECIMAL},
+      child_id = #{record.childId,jdbcType=INTEGER},
+      service_card_num = #{record.serviceCardNum,jdbcType=VARCHAR},
+      is_service = #{record.isService,jdbcType=INTEGER},
+      is_daifa = #{record.isDaifa,jdbcType=TINYINT},
+      daifa_address = #{record.daifaAddress,jdbcType=INTEGER},
+      is_invoice = #{record.isInvoice,jdbcType=TINYINT},
+      give_points_all = #{record.givePointsAll,jdbcType=INTEGER},
+      use_points = #{record.usePoints,jdbcType=INTEGER},
+      is_use_points = #{record.isUsePoints,jdbcType=VARCHAR},
+      points_fee = #{record.pointsFee,jdbcType=DECIMAL},
+      gift_id = #{record.giftId,jdbcType=INTEGER},
+      iccid = #{record.iccid,jdbcType=VARCHAR},
+      kuaidi_type = #{record.kuaidiType,jdbcType=INTEGER},
+      sale_account_id = #{record.saleAccountId,jdbcType=INTEGER},
+      from_user_id = #{record.fromUserId,jdbcType=INTEGER},
+      from_shop_id = #{record.fromShopId,jdbcType=INTEGER},
+      is_self_status = #{record.isSelfStatus,jdbcType=INTEGER},
+      goods_pintuan_id = #{record.goodsPintuanId,jdbcType=INTEGER},
+      is_yuncang_from = #{record.isYuncangFrom,jdbcType=SMALLINT},
+      is_yuncang = #{record.isYuncang,jdbcType=SMALLINT},
+      is_sign = #{record.isSign,jdbcType=SMALLINT},
+      address = #{record.address,jdbcType=LONGVARCHAR},
+      back_end_content_pingtai = #{record.backEndContentPingtai,jdbcType=LONGVARCHAR},
+      weixin_order_sn = #{record.weixinOrderSn,jdbcType=LONGVARCHAR},
+      params_booking = #{record.paramsBooking,jdbcType=LONGVARCHAR},
+      params_yanguang = #{record.paramsYanguang,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tl_order
+    set order_id = #{record.orderId,jdbcType=INTEGER},
+      order_sn = #{record.orderSn,jdbcType=VARCHAR},
+      back_order_sn = #{record.backOrderSn,jdbcType=VARCHAR},
+      transaction_id = #{record.transactionId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      address_name = #{record.addressName,jdbcType=VARCHAR},
+      address_phone = #{record.addressPhone,jdbcType=VARCHAR},
+      address_id = #{record.addressId,jdbcType=SMALLINT},
+      address_province_id = #{record.addressProvinceId,jdbcType=INTEGER},
+      address_city_id = #{record.addressCityId,jdbcType=INTEGER},
+      address_area_id = #{record.addressAreaId,jdbcType=INTEGER},
+      address_street_id = #{record.addressStreetId,jdbcType=INTEGER},
+      address_params = #{record.addressParams,jdbcType=VARCHAR},
+      shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
+      goods_fee = #{record.goodsFee,jdbcType=DECIMAL},
+      total_fee = #{record.totalFee,jdbcType=DECIMAL},
+      pay_fee = #{record.payFee,jdbcType=DECIMAL},
+      pay_beizhu = #{record.payBeizhu,jdbcType=VARCHAR},
+      real_fee = #{record.realFee,jdbcType=DECIMAL},
+      dis_fee = #{record.disFee,jdbcType=DECIMAL},
+      discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+      account_fee = #{record.accountFee,jdbcType=DECIMAL},
+      shuidian_fee = #{record.shuidianFee,jdbcType=VARCHAR},
+      discount_fee_params = #{record.discountFeeParams,jdbcType=VARCHAR},
+      point_fee = #{record.pointFee,jdbcType=REAL},
+      teacher_fee = #{record.teacherFee,jdbcType=DECIMAL},
+      fee_dis_for_coupon = #{record.feeDisForCoupon,jdbcType=DECIMAL},
+      coupon_id = #{record.couponId,jdbcType=VARCHAR},
+      user_coupon_id = #{record.userCouponId,jdbcType=VARCHAR},
+      shop_fee = #{record.shopFee,jdbcType=DECIMAL},
+      shop_fee_pre = #{record.shopFeePre,jdbcType=INTEGER},
+      buy_give_point = #{record.buyGivePoint,jdbcType=INTEGER},
+      order_status = #{record.orderStatus,jdbcType=INTEGER},
+      success_time = #{record.successTime,jdbcType=INTEGER},
+      shipping_status = #{record.shippingStatus,jdbcType=SMALLINT},
+      back_end_content = #{record.backEndContent,jdbcType=VARCHAR},
+      back_end = #{record.backEnd,jdbcType=INTEGER},
+      back_status = #{record.backStatus,jdbcType=INTEGER},
+      back_comfirm = #{record.backComfirm,jdbcType=INTEGER},
+      back_comfirm_time = #{record.backComfirmTime,jdbcType=INTEGER},
+      back_from = #{record.backFrom,jdbcType=VARCHAR},
+      gift_status = #{record.giftStatus,jdbcType=INTEGER},
+      pay_status = #{record.payStatus,jdbcType=SMALLINT},
+      paytime = #{record.paytime,jdbcType=INTEGER},
+      comfirm_stauts = #{record.comfirmStauts,jdbcType=SMALLINT},
+      tuangou_status = #{record.tuangouStatus,jdbcType=SMALLINT},
+      is_real = #{record.isReal,jdbcType=INTEGER},
+      is_tuangou = #{record.isTuangou,jdbcType=SMALLINT},
+      shipping_code = #{record.shippingCode,jdbcType=VARCHAR},
+      shipping_id = #{record.shippingId,jdbcType=VARCHAR},
+      shipping_sn = #{record.shippingSn,jdbcType=VARCHAR},
+      pay_id = #{record.payId,jdbcType=INTEGER},
+      back_time = #{record.backTime,jdbcType=INTEGER},
+      shipping_time = #{record.shippingTime,jdbcType=INTEGER},
+      comfirm_time = #{record.comfirmTime,jdbcType=INTEGER},
+      back_type = #{record.backType,jdbcType=INTEGER},
+      back_shipping_addtime = #{record.backShippingAddtime,jdbcType=INTEGER},
+      back_shipping_code = #{record.backShippingCode,jdbcType=VARCHAR},
+      back_shipping_id = #{record.backShippingId,jdbcType=VARCHAR},
+      back_address = #{record.backAddress,jdbcType=VARCHAR},
+      back_fee = #{record.backFee,jdbcType=DECIMAL},
+      action = #{record.action,jdbcType=VARCHAR},
+      msg = #{record.msg,jdbcType=VARCHAR},
+      biaozhu = #{record.biaozhu,jdbcType=INTEGER},
+      content_back = #{record.contentBack,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=INTEGER},
+      app = #{record.app,jdbcType=VARCHAR},
+      business_id = #{record.businessId,jdbcType=INTEGER},
+      schedule_id = #{record.scheduleId,jdbcType=INTEGER},
+      service_shop_id = #{record.serviceShopId,jdbcType=INTEGER},
+      teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      schedule_date = #{record.scheduleDate,jdbcType=VARCHAR},
+      schedule_timepart = #{record.scheduleTimepart,jdbcType=VARCHAR},
+      schedule_timepart_arr = #{record.scheduleTimepartArr,jdbcType=VARCHAR},
+      service_status = #{record.serviceStatus,jdbcType=TINYINT},
+      service_type = #{record.serviceType,jdbcType=INTEGER},
+      food_status = #{record.foodStatus,jdbcType=INTEGER},
+      tuangou_user_id = #{record.tuangouUserId,jdbcType=INTEGER},
+      tuangou_addtime = #{record.tuangouAddtime,jdbcType=INTEGER},
+      tuangou_shop_id = #{record.tuangouShopId,jdbcType=INTEGER},
+      wx_id = #{record.wxId,jdbcType=INTEGER},
+      user_del = #{record.userDel,jdbcType=INTEGER},
+      amount = #{record.amount,jdbcType=INTEGER},
+      user_coupon_id_str = #{record.userCouponIdStr,jdbcType=VARCHAR},
+      pay_style = #{record.payStyle,jdbcType=INTEGER},
+      pay_time = #{record.payTime,jdbcType=INTEGER},
+      comment_time = #{record.commentTime,jdbcType=INTEGER},
+      comment_status = #{record.commentStatus,jdbcType=TINYINT},
+      add_shop_log = #{record.addShopLog,jdbcType=INTEGER},
+      add_daili_log = #{record.addDailiLog,jdbcType=INTEGER},
+      add_zhaoshang_log = #{record.addZhaoshangLog,jdbcType=INTEGER},
+      add_member_log = #{record.addMemberLog,jdbcType=INTEGER},
+      coupon_id_str = #{record.couponIdStr,jdbcType=VARCHAR},
+      day = #{record.day,jdbcType=INTEGER},
+      addtime = #{record.addtime,jdbcType=INTEGER},
+      is_zhongchou = #{record.isZhongchou,jdbcType=INTEGER},
+      is_pintuan = #{record.isPintuan,jdbcType=INTEGER},
+      pintuan_id = #{record.pintuanId,jdbcType=INTEGER},
+      pintuan_status = #{record.pintuanStatus,jdbcType=INTEGER},
+      pintuan_app = #{record.pintuanApp,jdbcType=VARCHAR},
+      pintuan_endtime = #{record.pintuanEndtime,jdbcType=INTEGER},
+      pintuan_type = #{record.pintuanType,jdbcType=INTEGER},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      params = #{record.params,jdbcType=VARCHAR},
+      vip_zhekou = #{record.vipZhekou,jdbcType=DECIMAL},
+      child_id = #{record.childId,jdbcType=INTEGER},
+      service_card_num = #{record.serviceCardNum,jdbcType=VARCHAR},
+      is_service = #{record.isService,jdbcType=INTEGER},
+      is_daifa = #{record.isDaifa,jdbcType=TINYINT},
+      daifa_address = #{record.daifaAddress,jdbcType=INTEGER},
+      is_invoice = #{record.isInvoice,jdbcType=TINYINT},
+      give_points_all = #{record.givePointsAll,jdbcType=INTEGER},
+      use_points = #{record.usePoints,jdbcType=INTEGER},
+      is_use_points = #{record.isUsePoints,jdbcType=VARCHAR},
+      points_fee = #{record.pointsFee,jdbcType=DECIMAL},
+      gift_id = #{record.giftId,jdbcType=INTEGER},
+      iccid = #{record.iccid,jdbcType=VARCHAR},
+      kuaidi_type = #{record.kuaidiType,jdbcType=INTEGER},
+      sale_account_id = #{record.saleAccountId,jdbcType=INTEGER},
+      from_user_id = #{record.fromUserId,jdbcType=INTEGER},
+      from_shop_id = #{record.fromShopId,jdbcType=INTEGER},
+      is_self_status = #{record.isSelfStatus,jdbcType=INTEGER},
+      goods_pintuan_id = #{record.goodsPintuanId,jdbcType=INTEGER},
+      is_yuncang_from = #{record.isYuncangFrom,jdbcType=SMALLINT},
+      is_yuncang = #{record.isYuncang,jdbcType=SMALLINT},
+      is_sign = #{record.isSign,jdbcType=SMALLINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.masha.model.TlOrder">
+    update tl_order
+    <set>
+      <if test="orderSn != null">
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="backOrderSn != null">
+        back_order_sn = #{backOrderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionId != null">
+        transaction_id = #{transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="addressName != null">
+        address_name = #{addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="addressPhone != null">
+        address_phone = #{addressPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="addressId != null">
+        address_id = #{addressId,jdbcType=SMALLINT},
+      </if>
+      <if test="addressProvinceId != null">
+        address_province_id = #{addressProvinceId,jdbcType=INTEGER},
+      </if>
+      <if test="addressCityId != null">
+        address_city_id = #{addressCityId,jdbcType=INTEGER},
+      </if>
+      <if test="addressAreaId != null">
+        address_area_id = #{addressAreaId,jdbcType=INTEGER},
+      </if>
+      <if test="addressStreetId != null">
+        address_street_id = #{addressStreetId,jdbcType=INTEGER},
+      </if>
+      <if test="addressParams != null">
+        address_params = #{addressParams,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingFee != null">
+        shipping_fee = #{shippingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsFee != null">
+        goods_fee = #{goodsFee,jdbcType=DECIMAL},
+      </if>
+      <if test="totalFee != null">
+        total_fee = #{totalFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payFee != null">
+        pay_fee = #{payFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payBeizhu != null">
+        pay_beizhu = #{payBeizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="realFee != null">
+        real_fee = #{realFee,jdbcType=DECIMAL},
+      </if>
+      <if test="disFee != null">
+        dis_fee = #{disFee,jdbcType=DECIMAL},
+      </if>
+      <if test="discountFee != null">
+        discount_fee = #{discountFee,jdbcType=DECIMAL},
+      </if>
+      <if test="accountFee != null">
+        account_fee = #{accountFee,jdbcType=DECIMAL},
+      </if>
+      <if test="shuidianFee != null">
+        shuidian_fee = #{shuidianFee,jdbcType=VARCHAR},
+      </if>
+      <if test="discountFeeParams != null">
+        discount_fee_params = #{discountFeeParams,jdbcType=VARCHAR},
+      </if>
+      <if test="pointFee != null">
+        point_fee = #{pointFee,jdbcType=REAL},
+      </if>
+      <if test="teacherFee != null">
+        teacher_fee = #{teacherFee,jdbcType=DECIMAL},
+      </if>
+      <if test="feeDisForCoupon != null">
+        fee_dis_for_coupon = #{feeDisForCoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="couponId != null">
+        coupon_id = #{couponId,jdbcType=VARCHAR},
+      </if>
+      <if test="userCouponId != null">
+        user_coupon_id = #{userCouponId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopFee != null">
+        shop_fee = #{shopFee,jdbcType=DECIMAL},
+      </if>
+      <if test="shopFeePre != null">
+        shop_fee_pre = #{shopFeePre,jdbcType=INTEGER},
+      </if>
+      <if test="buyGivePoint != null">
+        buy_give_point = #{buyGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="successTime != null">
+        success_time = #{successTime,jdbcType=INTEGER},
+      </if>
+      <if test="shippingStatus != null">
+        shipping_status = #{shippingStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="backEndContent != null">
+        back_end_content = #{backEndContent,jdbcType=VARCHAR},
+      </if>
+      <if test="backEnd != null">
+        back_end = #{backEnd,jdbcType=INTEGER},
+      </if>
+      <if test="backStatus != null">
+        back_status = #{backStatus,jdbcType=INTEGER},
+      </if>
+      <if test="backComfirm != null">
+        back_comfirm = #{backComfirm,jdbcType=INTEGER},
+      </if>
+      <if test="backComfirmTime != null">
+        back_comfirm_time = #{backComfirmTime,jdbcType=INTEGER},
+      </if>
+      <if test="backFrom != null">
+        back_from = #{backFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="giftStatus != null">
+        gift_status = #{giftStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payStatus != null">
+        pay_status = #{payStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="paytime != null">
+        paytime = #{paytime,jdbcType=INTEGER},
+      </if>
+      <if test="comfirmStauts != null">
+        comfirm_stauts = #{comfirmStauts,jdbcType=SMALLINT},
+      </if>
+      <if test="tuangouStatus != null">
+        tuangou_status = #{tuangouStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="isReal != null">
+        is_real = #{isReal,jdbcType=INTEGER},
+      </if>
+      <if test="isTuangou != null">
+        is_tuangou = #{isTuangou,jdbcType=SMALLINT},
+      </if>
+      <if test="shippingCode != null">
+        shipping_code = #{shippingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingId != null">
+        shipping_id = #{shippingId,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingSn != null">
+        shipping_sn = #{shippingSn,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null">
+        pay_id = #{payId,jdbcType=INTEGER},
+      </if>
+      <if test="backTime != null">
+        back_time = #{backTime,jdbcType=INTEGER},
+      </if>
+      <if test="shippingTime != null">
+        shipping_time = #{shippingTime,jdbcType=INTEGER},
+      </if>
+      <if test="comfirmTime != null">
+        comfirm_time = #{comfirmTime,jdbcType=INTEGER},
+      </if>
+      <if test="backType != null">
+        back_type = #{backType,jdbcType=INTEGER},
+      </if>
+      <if test="backShippingAddtime != null">
+        back_shipping_addtime = #{backShippingAddtime,jdbcType=INTEGER},
+      </if>
+      <if test="backShippingCode != null">
+        back_shipping_code = #{backShippingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="backShippingId != null">
+        back_shipping_id = #{backShippingId,jdbcType=VARCHAR},
+      </if>
+      <if test="backAddress != null">
+        back_address = #{backAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="backFee != null">
+        back_fee = #{backFee,jdbcType=DECIMAL},
+      </if>
+      <if test="action != null">
+        action = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="biaozhu != null">
+        biaozhu = #{biaozhu,jdbcType=INTEGER},
+      </if>
+      <if test="contentBack != null">
+        content_back = #{contentBack,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="app != null">
+        app = #{app,jdbcType=VARCHAR},
+      </if>
+      <if test="businessId != null">
+        business_id = #{businessId,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleId != null">
+        schedule_id = #{scheduleId,jdbcType=INTEGER},
+      </if>
+      <if test="serviceShopId != null">
+        service_shop_id = #{serviceShopId,jdbcType=INTEGER},
+      </if>
+      <if test="teacherId != null">
+        teacher_id = #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleDate != null">
+        schedule_date = #{scheduleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleTimepart != null">
+        schedule_timepart = #{scheduleTimepart,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleTimepartArr != null">
+        schedule_timepart_arr = #{scheduleTimepartArr,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceStatus != null">
+        service_status = #{serviceStatus,jdbcType=TINYINT},
+      </if>
+      <if test="serviceType != null">
+        service_type = #{serviceType,jdbcType=INTEGER},
+      </if>
+      <if test="foodStatus != null">
+        food_status = #{foodStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tuangouUserId != null">
+        tuangou_user_id = #{tuangouUserId,jdbcType=INTEGER},
+      </if>
+      <if test="tuangouAddtime != null">
+        tuangou_addtime = #{tuangouAddtime,jdbcType=INTEGER},
+      </if>
+      <if test="tuangouShopId != null">
+        tuangou_shop_id = #{tuangouShopId,jdbcType=INTEGER},
+      </if>
+      <if test="wxId != null">
+        wx_id = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="userDel != null">
+        user_del = #{userDel,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="userCouponIdStr != null">
+        user_coupon_id_str = #{userCouponIdStr,jdbcType=VARCHAR},
+      </if>
+      <if test="payStyle != null">
+        pay_style = #{payStyle,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=INTEGER},
+      </if>
+      <if test="commentTime != null">
+        comment_time = #{commentTime,jdbcType=INTEGER},
+      </if>
+      <if test="commentStatus != null">
+        comment_status = #{commentStatus,jdbcType=TINYINT},
+      </if>
+      <if test="addShopLog != null">
+        add_shop_log = #{addShopLog,jdbcType=INTEGER},
+      </if>
+      <if test="addDailiLog != null">
+        add_daili_log = #{addDailiLog,jdbcType=INTEGER},
+      </if>
+      <if test="addZhaoshangLog != null">
+        add_zhaoshang_log = #{addZhaoshangLog,jdbcType=INTEGER},
+      </if>
+      <if test="addMemberLog != null">
+        add_member_log = #{addMemberLog,jdbcType=INTEGER},
+      </if>
+      <if test="couponIdStr != null">
+        coupon_id_str = #{couponIdStr,jdbcType=VARCHAR},
+      </if>
+      <if test="day != null">
+        day = #{day,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        addtime = #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="isZhongchou != null">
+        is_zhongchou = #{isZhongchou,jdbcType=INTEGER},
+      </if>
+      <if test="isPintuan != null">
+        is_pintuan = #{isPintuan,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanId != null">
+        pintuan_id = #{pintuanId,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanStatus != null">
+        pintuan_status = #{pintuanStatus,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanApp != null">
+        pintuan_app = #{pintuanApp,jdbcType=VARCHAR},
+      </if>
+      <if test="pintuanEndtime != null">
+        pintuan_endtime = #{pintuanEndtime,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanType != null">
+        pintuan_type = #{pintuanType,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="params != null">
+        params = #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="vipZhekou != null">
+        vip_zhekou = #{vipZhekou,jdbcType=DECIMAL},
+      </if>
+      <if test="childId != null">
+        child_id = #{childId,jdbcType=INTEGER},
+      </if>
+      <if test="serviceCardNum != null">
+        service_card_num = #{serviceCardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="isService != null">
+        is_service = #{isService,jdbcType=INTEGER},
+      </if>
+      <if test="isDaifa != null">
+        is_daifa = #{isDaifa,jdbcType=TINYINT},
+      </if>
+      <if test="daifaAddress != null">
+        daifa_address = #{daifaAddress,jdbcType=INTEGER},
+      </if>
+      <if test="isInvoice != null">
+        is_invoice = #{isInvoice,jdbcType=TINYINT},
+      </if>
+      <if test="givePointsAll != null">
+        give_points_all = #{givePointsAll,jdbcType=INTEGER},
+      </if>
+      <if test="usePoints != null">
+        use_points = #{usePoints,jdbcType=INTEGER},
+      </if>
+      <if test="isUsePoints != null">
+        is_use_points = #{isUsePoints,jdbcType=VARCHAR},
+      </if>
+      <if test="pointsFee != null">
+        points_fee = #{pointsFee,jdbcType=DECIMAL},
+      </if>
+      <if test="giftId != null">
+        gift_id = #{giftId,jdbcType=INTEGER},
+      </if>
+      <if test="iccid != null">
+        iccid = #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="kuaidiType != null">
+        kuaidi_type = #{kuaidiType,jdbcType=INTEGER},
+      </if>
+      <if test="saleAccountId != null">
+        sale_account_id = #{saleAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="fromUserId != null">
+        from_user_id = #{fromUserId,jdbcType=INTEGER},
+      </if>
+      <if test="fromShopId != null">
+        from_shop_id = #{fromShopId,jdbcType=INTEGER},
+      </if>
+      <if test="isSelfStatus != null">
+        is_self_status = #{isSelfStatus,jdbcType=INTEGER},
+      </if>
+      <if test="goodsPintuanId != null">
+        goods_pintuan_id = #{goodsPintuanId,jdbcType=INTEGER},
+      </if>
+      <if test="isYuncangFrom != null">
+        is_yuncang_from = #{isYuncangFrom,jdbcType=SMALLINT},
+      </if>
+      <if test="isYuncang != null">
+        is_yuncang = #{isYuncang,jdbcType=SMALLINT},
+      </if>
+      <if test="isSign != null">
+        is_sign = #{isSign,jdbcType=SMALLINT},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="backEndContentPingtai != null">
+        back_end_content_pingtai = #{backEndContentPingtai,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="weixinOrderSn != null">
+        weixin_order_sn = #{weixinOrderSn,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="paramsBooking != null">
+        params_booking = #{paramsBooking,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="paramsYanguang != null">
+        params_yanguang = #{paramsYanguang,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.masha.model.TlOrder">
+    update tl_order
+    set order_sn = #{orderSn,jdbcType=VARCHAR},
+      back_order_sn = #{backOrderSn,jdbcType=VARCHAR},
+      transaction_id = #{transactionId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      address_name = #{addressName,jdbcType=VARCHAR},
+      address_phone = #{addressPhone,jdbcType=VARCHAR},
+      address_id = #{addressId,jdbcType=SMALLINT},
+      address_province_id = #{addressProvinceId,jdbcType=INTEGER},
+      address_city_id = #{addressCityId,jdbcType=INTEGER},
+      address_area_id = #{addressAreaId,jdbcType=INTEGER},
+      address_street_id = #{addressStreetId,jdbcType=INTEGER},
+      address_params = #{addressParams,jdbcType=VARCHAR},
+      shipping_fee = #{shippingFee,jdbcType=DECIMAL},
+      goods_fee = #{goodsFee,jdbcType=DECIMAL},
+      total_fee = #{totalFee,jdbcType=DECIMAL},
+      pay_fee = #{payFee,jdbcType=DECIMAL},
+      pay_beizhu = #{payBeizhu,jdbcType=VARCHAR},
+      real_fee = #{realFee,jdbcType=DECIMAL},
+      dis_fee = #{disFee,jdbcType=DECIMAL},
+      discount_fee = #{discountFee,jdbcType=DECIMAL},
+      account_fee = #{accountFee,jdbcType=DECIMAL},
+      shuidian_fee = #{shuidianFee,jdbcType=VARCHAR},
+      discount_fee_params = #{discountFeeParams,jdbcType=VARCHAR},
+      point_fee = #{pointFee,jdbcType=REAL},
+      teacher_fee = #{teacherFee,jdbcType=DECIMAL},
+      fee_dis_for_coupon = #{feeDisForCoupon,jdbcType=DECIMAL},
+      coupon_id = #{couponId,jdbcType=VARCHAR},
+      user_coupon_id = #{userCouponId,jdbcType=VARCHAR},
+      shop_fee = #{shopFee,jdbcType=DECIMAL},
+      shop_fee_pre = #{shopFeePre,jdbcType=INTEGER},
+      buy_give_point = #{buyGivePoint,jdbcType=INTEGER},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      success_time = #{successTime,jdbcType=INTEGER},
+      shipping_status = #{shippingStatus,jdbcType=SMALLINT},
+      back_end_content = #{backEndContent,jdbcType=VARCHAR},
+      back_end = #{backEnd,jdbcType=INTEGER},
+      back_status = #{backStatus,jdbcType=INTEGER},
+      back_comfirm = #{backComfirm,jdbcType=INTEGER},
+      back_comfirm_time = #{backComfirmTime,jdbcType=INTEGER},
+      back_from = #{backFrom,jdbcType=VARCHAR},
+      gift_status = #{giftStatus,jdbcType=INTEGER},
+      pay_status = #{payStatus,jdbcType=SMALLINT},
+      paytime = #{paytime,jdbcType=INTEGER},
+      comfirm_stauts = #{comfirmStauts,jdbcType=SMALLINT},
+      tuangou_status = #{tuangouStatus,jdbcType=SMALLINT},
+      is_real = #{isReal,jdbcType=INTEGER},
+      is_tuangou = #{isTuangou,jdbcType=SMALLINT},
+      shipping_code = #{shippingCode,jdbcType=VARCHAR},
+      shipping_id = #{shippingId,jdbcType=VARCHAR},
+      shipping_sn = #{shippingSn,jdbcType=VARCHAR},
+      pay_id = #{payId,jdbcType=INTEGER},
+      back_time = #{backTime,jdbcType=INTEGER},
+      shipping_time = #{shippingTime,jdbcType=INTEGER},
+      comfirm_time = #{comfirmTime,jdbcType=INTEGER},
+      back_type = #{backType,jdbcType=INTEGER},
+      back_shipping_addtime = #{backShippingAddtime,jdbcType=INTEGER},
+      back_shipping_code = #{backShippingCode,jdbcType=VARCHAR},
+      back_shipping_id = #{backShippingId,jdbcType=VARCHAR},
+      back_address = #{backAddress,jdbcType=VARCHAR},
+      back_fee = #{backFee,jdbcType=DECIMAL},
+      action = #{action,jdbcType=VARCHAR},
+      msg = #{msg,jdbcType=VARCHAR},
+      biaozhu = #{biaozhu,jdbcType=INTEGER},
+      content_back = #{contentBack,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      app = #{app,jdbcType=VARCHAR},
+      business_id = #{businessId,jdbcType=INTEGER},
+      schedule_id = #{scheduleId,jdbcType=INTEGER},
+      service_shop_id = #{serviceShopId,jdbcType=INTEGER},
+      teacher_id = #{teacherId,jdbcType=INTEGER},
+      schedule_date = #{scheduleDate,jdbcType=VARCHAR},
+      schedule_timepart = #{scheduleTimepart,jdbcType=VARCHAR},
+      schedule_timepart_arr = #{scheduleTimepartArr,jdbcType=VARCHAR},
+      service_status = #{serviceStatus,jdbcType=TINYINT},
+      service_type = #{serviceType,jdbcType=INTEGER},
+      food_status = #{foodStatus,jdbcType=INTEGER},
+      tuangou_user_id = #{tuangouUserId,jdbcType=INTEGER},
+      tuangou_addtime = #{tuangouAddtime,jdbcType=INTEGER},
+      tuangou_shop_id = #{tuangouShopId,jdbcType=INTEGER},
+      wx_id = #{wxId,jdbcType=INTEGER},
+      user_del = #{userDel,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=INTEGER},
+      user_coupon_id_str = #{userCouponIdStr,jdbcType=VARCHAR},
+      pay_style = #{payStyle,jdbcType=INTEGER},
+      pay_time = #{payTime,jdbcType=INTEGER},
+      comment_time = #{commentTime,jdbcType=INTEGER},
+      comment_status = #{commentStatus,jdbcType=TINYINT},
+      add_shop_log = #{addShopLog,jdbcType=INTEGER},
+      add_daili_log = #{addDailiLog,jdbcType=INTEGER},
+      add_zhaoshang_log = #{addZhaoshangLog,jdbcType=INTEGER},
+      add_member_log = #{addMemberLog,jdbcType=INTEGER},
+      coupon_id_str = #{couponIdStr,jdbcType=VARCHAR},
+      day = #{day,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      is_zhongchou = #{isZhongchou,jdbcType=INTEGER},
+      is_pintuan = #{isPintuan,jdbcType=INTEGER},
+      pintuan_id = #{pintuanId,jdbcType=INTEGER},
+      pintuan_status = #{pintuanStatus,jdbcType=INTEGER},
+      pintuan_app = #{pintuanApp,jdbcType=VARCHAR},
+      pintuan_endtime = #{pintuanEndtime,jdbcType=INTEGER},
+      pintuan_type = #{pintuanType,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      params = #{params,jdbcType=VARCHAR},
+      vip_zhekou = #{vipZhekou,jdbcType=DECIMAL},
+      child_id = #{childId,jdbcType=INTEGER},
+      service_card_num = #{serviceCardNum,jdbcType=VARCHAR},
+      is_service = #{isService,jdbcType=INTEGER},
+      is_daifa = #{isDaifa,jdbcType=TINYINT},
+      daifa_address = #{daifaAddress,jdbcType=INTEGER},
+      is_invoice = #{isInvoice,jdbcType=TINYINT},
+      give_points_all = #{givePointsAll,jdbcType=INTEGER},
+      use_points = #{usePoints,jdbcType=INTEGER},
+      is_use_points = #{isUsePoints,jdbcType=VARCHAR},
+      points_fee = #{pointsFee,jdbcType=DECIMAL},
+      gift_id = #{giftId,jdbcType=INTEGER},
+      iccid = #{iccid,jdbcType=VARCHAR},
+      kuaidi_type = #{kuaidiType,jdbcType=INTEGER},
+      sale_account_id = #{saleAccountId,jdbcType=INTEGER},
+      from_user_id = #{fromUserId,jdbcType=INTEGER},
+      from_shop_id = #{fromShopId,jdbcType=INTEGER},
+      is_self_status = #{isSelfStatus,jdbcType=INTEGER},
+      goods_pintuan_id = #{goodsPintuanId,jdbcType=INTEGER},
+      is_yuncang_from = #{isYuncangFrom,jdbcType=SMALLINT},
+      is_yuncang = #{isYuncang,jdbcType=SMALLINT},
+      is_sign = #{isSign,jdbcType=SMALLINT},
+      address = #{address,jdbcType=LONGVARCHAR},
+      back_end_content_pingtai = #{backEndContentPingtai,jdbcType=LONGVARCHAR},
+      weixin_order_sn = #{weixinOrderSn,jdbcType=LONGVARCHAR},
+      params_booking = #{paramsBooking,jdbcType=LONGVARCHAR},
+      params_yanguang = #{paramsYanguang,jdbcType=LONGVARCHAR}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.masha.model.TlOrder">
+    update tl_order
+    set order_sn = #{orderSn,jdbcType=VARCHAR},
+      back_order_sn = #{backOrderSn,jdbcType=VARCHAR},
+      transaction_id = #{transactionId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      address_name = #{addressName,jdbcType=VARCHAR},
+      address_phone = #{addressPhone,jdbcType=VARCHAR},
+      address_id = #{addressId,jdbcType=SMALLINT},
+      address_province_id = #{addressProvinceId,jdbcType=INTEGER},
+      address_city_id = #{addressCityId,jdbcType=INTEGER},
+      address_area_id = #{addressAreaId,jdbcType=INTEGER},
+      address_street_id = #{addressStreetId,jdbcType=INTEGER},
+      address_params = #{addressParams,jdbcType=VARCHAR},
+      shipping_fee = #{shippingFee,jdbcType=DECIMAL},
+      goods_fee = #{goodsFee,jdbcType=DECIMAL},
+      total_fee = #{totalFee,jdbcType=DECIMAL},
+      pay_fee = #{payFee,jdbcType=DECIMAL},
+      pay_beizhu = #{payBeizhu,jdbcType=VARCHAR},
+      real_fee = #{realFee,jdbcType=DECIMAL},
+      dis_fee = #{disFee,jdbcType=DECIMAL},
+      discount_fee = #{discountFee,jdbcType=DECIMAL},
+      account_fee = #{accountFee,jdbcType=DECIMAL},
+      shuidian_fee = #{shuidianFee,jdbcType=VARCHAR},
+      discount_fee_params = #{discountFeeParams,jdbcType=VARCHAR},
+      point_fee = #{pointFee,jdbcType=REAL},
+      teacher_fee = #{teacherFee,jdbcType=DECIMAL},
+      fee_dis_for_coupon = #{feeDisForCoupon,jdbcType=DECIMAL},
+      coupon_id = #{couponId,jdbcType=VARCHAR},
+      user_coupon_id = #{userCouponId,jdbcType=VARCHAR},
+      shop_fee = #{shopFee,jdbcType=DECIMAL},
+      shop_fee_pre = #{shopFeePre,jdbcType=INTEGER},
+      buy_give_point = #{buyGivePoint,jdbcType=INTEGER},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      success_time = #{successTime,jdbcType=INTEGER},
+      shipping_status = #{shippingStatus,jdbcType=SMALLINT},
+      back_end_content = #{backEndContent,jdbcType=VARCHAR},
+      back_end = #{backEnd,jdbcType=INTEGER},
+      back_status = #{backStatus,jdbcType=INTEGER},
+      back_comfirm = #{backComfirm,jdbcType=INTEGER},
+      back_comfirm_time = #{backComfirmTime,jdbcType=INTEGER},
+      back_from = #{backFrom,jdbcType=VARCHAR},
+      gift_status = #{giftStatus,jdbcType=INTEGER},
+      pay_status = #{payStatus,jdbcType=SMALLINT},
+      paytime = #{paytime,jdbcType=INTEGER},
+      comfirm_stauts = #{comfirmStauts,jdbcType=SMALLINT},
+      tuangou_status = #{tuangouStatus,jdbcType=SMALLINT},
+      is_real = #{isReal,jdbcType=INTEGER},
+      is_tuangou = #{isTuangou,jdbcType=SMALLINT},
+      shipping_code = #{shippingCode,jdbcType=VARCHAR},
+      shipping_id = #{shippingId,jdbcType=VARCHAR},
+      shipping_sn = #{shippingSn,jdbcType=VARCHAR},
+      pay_id = #{payId,jdbcType=INTEGER},
+      back_time = #{backTime,jdbcType=INTEGER},
+      shipping_time = #{shippingTime,jdbcType=INTEGER},
+      comfirm_time = #{comfirmTime,jdbcType=INTEGER},
+      back_type = #{backType,jdbcType=INTEGER},
+      back_shipping_addtime = #{backShippingAddtime,jdbcType=INTEGER},
+      back_shipping_code = #{backShippingCode,jdbcType=VARCHAR},
+      back_shipping_id = #{backShippingId,jdbcType=VARCHAR},
+      back_address = #{backAddress,jdbcType=VARCHAR},
+      back_fee = #{backFee,jdbcType=DECIMAL},
+      action = #{action,jdbcType=VARCHAR},
+      msg = #{msg,jdbcType=VARCHAR},
+      biaozhu = #{biaozhu,jdbcType=INTEGER},
+      content_back = #{contentBack,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      app = #{app,jdbcType=VARCHAR},
+      business_id = #{businessId,jdbcType=INTEGER},
+      schedule_id = #{scheduleId,jdbcType=INTEGER},
+      service_shop_id = #{serviceShopId,jdbcType=INTEGER},
+      teacher_id = #{teacherId,jdbcType=INTEGER},
+      schedule_date = #{scheduleDate,jdbcType=VARCHAR},
+      schedule_timepart = #{scheduleTimepart,jdbcType=VARCHAR},
+      schedule_timepart_arr = #{scheduleTimepartArr,jdbcType=VARCHAR},
+      service_status = #{serviceStatus,jdbcType=TINYINT},
+      service_type = #{serviceType,jdbcType=INTEGER},
+      food_status = #{foodStatus,jdbcType=INTEGER},
+      tuangou_user_id = #{tuangouUserId,jdbcType=INTEGER},
+      tuangou_addtime = #{tuangouAddtime,jdbcType=INTEGER},
+      tuangou_shop_id = #{tuangouShopId,jdbcType=INTEGER},
+      wx_id = #{wxId,jdbcType=INTEGER},
+      user_del = #{userDel,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=INTEGER},
+      user_coupon_id_str = #{userCouponIdStr,jdbcType=VARCHAR},
+      pay_style = #{payStyle,jdbcType=INTEGER},
+      pay_time = #{payTime,jdbcType=INTEGER},
+      comment_time = #{commentTime,jdbcType=INTEGER},
+      comment_status = #{commentStatus,jdbcType=TINYINT},
+      add_shop_log = #{addShopLog,jdbcType=INTEGER},
+      add_daili_log = #{addDailiLog,jdbcType=INTEGER},
+      add_zhaoshang_log = #{addZhaoshangLog,jdbcType=INTEGER},
+      add_member_log = #{addMemberLog,jdbcType=INTEGER},
+      coupon_id_str = #{couponIdStr,jdbcType=VARCHAR},
+      day = #{day,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      is_zhongchou = #{isZhongchou,jdbcType=INTEGER},
+      is_pintuan = #{isPintuan,jdbcType=INTEGER},
+      pintuan_id = #{pintuanId,jdbcType=INTEGER},
+      pintuan_status = #{pintuanStatus,jdbcType=INTEGER},
+      pintuan_app = #{pintuanApp,jdbcType=VARCHAR},
+      pintuan_endtime = #{pintuanEndtime,jdbcType=INTEGER},
+      pintuan_type = #{pintuanType,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      params = #{params,jdbcType=VARCHAR},
+      vip_zhekou = #{vipZhekou,jdbcType=DECIMAL},
+      child_id = #{childId,jdbcType=INTEGER},
+      service_card_num = #{serviceCardNum,jdbcType=VARCHAR},
+      is_service = #{isService,jdbcType=INTEGER},
+      is_daifa = #{isDaifa,jdbcType=TINYINT},
+      daifa_address = #{daifaAddress,jdbcType=INTEGER},
+      is_invoice = #{isInvoice,jdbcType=TINYINT},
+      give_points_all = #{givePointsAll,jdbcType=INTEGER},
+      use_points = #{usePoints,jdbcType=INTEGER},
+      is_use_points = #{isUsePoints,jdbcType=VARCHAR},
+      points_fee = #{pointsFee,jdbcType=DECIMAL},
+      gift_id = #{giftId,jdbcType=INTEGER},
+      iccid = #{iccid,jdbcType=VARCHAR},
+      kuaidi_type = #{kuaidiType,jdbcType=INTEGER},
+      sale_account_id = #{saleAccountId,jdbcType=INTEGER},
+      from_user_id = #{fromUserId,jdbcType=INTEGER},
+      from_shop_id = #{fromShopId,jdbcType=INTEGER},
+      is_self_status = #{isSelfStatus,jdbcType=INTEGER},
+      goods_pintuan_id = #{goodsPintuanId,jdbcType=INTEGER},
+      is_yuncang_from = #{isYuncangFrom,jdbcType=SMALLINT},
+      is_yuncang = #{isYuncang,jdbcType=SMALLINT},
+      is_sign = #{isSign,jdbcType=SMALLINT}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+</mapper>
