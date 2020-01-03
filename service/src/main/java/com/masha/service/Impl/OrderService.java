@@ -16,14 +16,22 @@ import java.util.function.Function;
 @Service
 public class OrderService  implements IOrderService{
 
+   /* @Autowired
+    TlOrderMapper orderMapper;*/
+
     @Override
-    public List<TlOrder> getTlOerderList(String param) {
+    public List<TlOrder> getTlOrderList(String param) {
         return null;
     }
 
     @Override
     public TlOrder getTlOrderById(Integer orderId) {
         return null;
+    }
+
+    @Override
+    public void deleteTlOrderById(Integer orderId) {
+
     }
 
     @Override

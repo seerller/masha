@@ -11,7 +11,7 @@ public interface IOrderService extends IService<TlOrder> {
      * @param param
      * @return
      */
-    List<TlOrder> getTlOerderList(String param);
+    List<TlOrder> getTlOrderList(String param);
 
     /**
      * 根据主键查询订单详情
@@ -19,4 +19,10 @@ public interface IOrderService extends IService<TlOrder> {
      * @return
      */
     TlOrder getTlOrderById(Integer orderId);
+
+    /**
+     * 删除订单
+     * @param orderId
+     */
+    void deleteTlOrderById(Integer orderId);
 }

@@ -5,7 +5,10 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.masha.controller.commen.BaseController;
 import com.masha.model.TlOrder;
+import com.masha.model.TlOrderBack;
+import com.masha.service.Impl.OrderBackService;
 import com.masha.service.Impl.OrderService;
+import com.masha.tools.MessageBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -22,11 +25,54 @@ public class OrderController extends BaseController {
     @Autowired
     OrderService orderService;
 
+    @Autowired
+    OrderBackService orderBackService;
+
     @RequestMapping(value = "/getTlOerderList", method = RequestMethod.POST)
     @ApiOperation(value = "订单列表")
-    public Object getTlOerderList(Page page  ,Integer ver, Integer user_id, Integer is_app , String sql){
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name="payStatus", dataType = "Integer", required = true , value = "付款状态"),
+            @ApiImplicitParam(paramType = "query", name="shippingStatus", dataType = "Integer", required = true , value = "发货状态")
+    })
+    public Object getTlOrderList(Page page  ,Integer ver, Integer user_id, Integer is_app , String sql){
         QueryWrapper<TlOrder> query = Wrappers.<TlOrder>query();
         //query.select("pay_status");
+        return resultSuccess(orderService.page(page , query));
+    }
+
+    @RequestMapping(value = "/getTlOerderList", method = RequestMethod.POST)
+    @ApiOperation(value = "订单列表（待付款）")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name="payStatus", dataType = "Integer", required = true , value = "付款状态")
+    })
+    public Object getTlOrderList3(Page page  ,Integer ver, Integer user_id, Integer is_app , String sql){
+        QueryWrapper<TlOrder> query = Wrappers.<TlOrder>query();
+        query.eq("payStatus", 0);
+        return resultSuccess(orderService.page(page , query));
+    }
+
+
+    @RequestMapping(value = "/getTlOerderList", method = RequestMethod.POST)
+    @ApiOperation(value = "订单列表(未发货)")
+    @ApiImplicitParams({
+
+            @ApiImplicitParam(paramType = "query", name="shippingStatus", dataType = "Integer", required = true , value = "发货状态")
+    })
+    public Object getTlOrderList1(Page page  ,Integer ver, Integer user_id, Integer is_app , String sql){
+        QueryWrapper<TlOrder> query = Wrappers.<TlOrder>query();
+        query.eq("shippingStatus", 0);
+        return resultSuccess(orderService.page(page , query));
+    }
+
+    @RequestMapping(value = "/getTlOerderList", method = RequestMethod.POST)
+    @ApiOperation(value = "订单列表（待收货）")
+    @ApiImplicitParams({
+
+            @ApiImplicitParam(paramType = "query", name="shippingStatus", dataType = "Integer", required = true , value = "发货状态")
+    })
+    public Object getTlOrderList2(Page page  ,Integer ver, Integer user_id, Integer is_app , String sql){
+        QueryWrapper<TlOrder> query = Wrappers.<TlOrder>query();
+        query.eq("shippingStatus", 1);
         return resultSuccess(orderService.page(page , query));
     }
 
@@ -39,7 +85,19 @@ public class OrderController extends BaseController {
         return resultSuccess(orderService.getTlOrderById(orderId));
     }
 
+    @RequestMapping(value = "/deleteTlOrderById", method = RequestMethod.POST)
+    @ApiOperation(value = "删除订单", notes = "根据主键删除订单")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name="orderId", dataType = "Integer", required = true , value = "订单id")
+    })
+    public MessageBean deleteTlOrderById(Integer orderId){
+        return resultSuccess(orderService.removeById(orderId));
+    }
 
+    public MessageBean add_back(Integer orderId){
+        TlOrderBack orderBack=new TlOrderBack();
+        orderBack.setStatus(stauts);
+    }
 
 }
 
