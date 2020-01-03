@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.masha.mapper.TlOrderBackMapper">
+  <resultMap id="BaseResultMap" type="com.masha.model.TlOrderBack">
+    <id column="order_back_id" jdbcType="INTEGER" property="orderBackId" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="order_goods_id" jdbcType="VARCHAR" property="orderGoodsId" />
+    <result column="point_fee" jdbcType="REAL" property="pointFee" />
+    <result column="money_fee" jdbcType="DECIMAL" property="moneyFee" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="type" jdbcType="SMALLINT" property="type" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="back_num" jdbcType="INTEGER" property="backNum" />
+    <result column="addtime" jdbcType="INTEGER" property="addtime" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.masha.model.TlOrderBack">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    order_back_id, order_id, order_goods_id, point_fee, money_fee, amount, type, reason, 
+    status, back_num, addtime, shop_id
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.masha.model.TlOrderBackExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tl_order_back
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.masha.model.TlOrderBackExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tl_order_back
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tl_order_back
+    where order_back_id = #{orderBackId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tl_order_back
+    where order_back_id = #{orderBackId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.masha.model.TlOrderBackExample">
+    delete from tl_order_back
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.masha.model.TlOrderBack">
+    insert into tl_order_back (order_back_id, order_id, order_goods_id, 
+      point_fee, money_fee, amount, 
+      type, reason, status, 
+      back_num, addtime, shop_id, 
+      content)
+    values (#{orderBackId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{orderGoodsId,jdbcType=VARCHAR}, 
+      #{pointFee,jdbcType=REAL}, #{moneyFee,jdbcType=DECIMAL}, #{amount,jdbcType=INTEGER}, 
+      #{type,jdbcType=SMALLINT}, #{reason,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{backNum,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.masha.model.TlOrderBack">
+    insert into tl_order_back
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderBackId != null">
+        order_back_id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="orderGoodsId != null">
+        order_goods_id,
+      </if>
+      <if test="pointFee != null">
+        point_fee,
+      </if>
+      <if test="moneyFee != null">
+        money_fee,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="backNum != null">
+        back_num,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderBackId != null">
+        #{orderBackId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderGoodsId != null">
+        #{orderGoodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="pointFee != null">
+        #{pointFee,jdbcType=REAL},
+      </if>
+      <if test="moneyFee != null">
+        #{moneyFee,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="backNum != null">
+        #{backNum,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.masha.model.TlOrderBackExample" resultType="java.lang.Long">
+    select count(*) from tl_order_back
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tl_order_back
+    <set>
+      <if test="record.orderBackId != null">
+        order_back_id = #{record.orderBackId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderId != null">
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderGoodsId != null">
+        order_goods_id = #{record.orderGoodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pointFee != null">
+        point_fee = #{record.pointFee,jdbcType=REAL},
+      </if>
+      <if test="record.moneyFee != null">
+        money_fee = #{record.moneyFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.amount != null">
+        amount = #{record.amount,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=SMALLINT},
+      </if>
+      <if test="record.reason != null">
+        reason = #{record.reason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.backNum != null">
+        back_num = #{record.backNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.addtime != null">
+        addtime = #{record.addtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopId != null">
+        shop_id = #{record.shopId,jdbcType=INTEGER},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tl_order_back
+    set order_back_id = #{record.orderBackId,jdbcType=INTEGER},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      order_goods_id = #{record.orderGoodsId,jdbcType=VARCHAR},
+      point_fee = #{record.pointFee,jdbcType=REAL},
+      money_fee = #{record.moneyFee,jdbcType=DECIMAL},
+      amount = #{record.amount,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=SMALLINT},
+      reason = #{record.reason,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      back_num = #{record.backNum,jdbcType=INTEGER},
+      addtime = #{record.addtime,jdbcType=INTEGER},
+      shop_id = #{record.shopId,jdbcType=INTEGER},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tl_order_back
+    set order_back_id = #{record.orderBackId,jdbcType=INTEGER},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      order_goods_id = #{record.orderGoodsId,jdbcType=VARCHAR},
+      point_fee = #{record.pointFee,jdbcType=REAL},
+      money_fee = #{record.moneyFee,jdbcType=DECIMAL},
+      amount = #{record.amount,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=SMALLINT},
+      reason = #{record.reason,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      back_num = #{record.backNum,jdbcType=INTEGER},
+      addtime = #{record.addtime,jdbcType=INTEGER},
+      shop_id = #{record.shopId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.masha.model.TlOrderBack">
+    update tl_order_back
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderGoodsId != null">
+        order_goods_id = #{orderGoodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="pointFee != null">
+        point_fee = #{pointFee,jdbcType=REAL},
+      </if>
+      <if test="moneyFee != null">
+        money_fee = #{moneyFee,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="reason != null">
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="backNum != null">
+        back_num = #{backNum,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        addtime = #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where order_back_id = #{orderBackId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.masha.model.TlOrderBack">
+    update tl_order_back
+    set order_id = #{orderId,jdbcType=INTEGER},
+      order_goods_id = #{orderGoodsId,jdbcType=VARCHAR},
+      point_fee = #{pointFee,jdbcType=REAL},
+      money_fee = #{moneyFee,jdbcType=DECIMAL},
+      amount = #{amount,jdbcType=INTEGER},
+      type = #{type,jdbcType=SMALLINT},
+      reason = #{reason,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      back_num = #{backNum,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      shop_id = #{shopId,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where order_back_id = #{orderBackId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.masha.model.TlOrderBack">
+    update tl_order_back
+    set order_id = #{orderId,jdbcType=INTEGER},
+      order_goods_id = #{orderGoodsId,jdbcType=VARCHAR},
+      point_fee = #{pointFee,jdbcType=REAL},
+      money_fee = #{moneyFee,jdbcType=DECIMAL},
+      amount = #{amount,jdbcType=INTEGER},
+      type = #{type,jdbcType=SMALLINT},
+      reason = #{reason,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      back_num = #{backNum,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      shop_id = #{shopId,jdbcType=INTEGER}
+    where order_back_id = #{orderBackId,jdbcType=INTEGER}
+  </update>
+</mapper>
