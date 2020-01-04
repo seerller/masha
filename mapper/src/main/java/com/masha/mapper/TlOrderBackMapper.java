@@ -2,10 +2,12 @@ package com.masha.mapper;
 
 import com.masha.model.TlOrderBack;
 import com.masha.model.TlOrderBackExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-public interface TlOrderBackMapper {
+import java.util.List;
+
+public interface TlOrderBackMapper extends BaseMapper<TlOrderBack> {
     long countByExample(TlOrderBackExample example);
 
     int deleteByExample(TlOrderBackExample example);

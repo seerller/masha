@@ -135,4 +135,9 @@ public class OrderBackService  implements IOrderBackService {
     public BaseMapper<TlOrderBack> getBaseMapper() {
         return null;
     }
+
+    @Override
+    public void add_back(String content , String back_img , Short type) {
+
+    }
 }

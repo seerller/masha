@@ -94,10 +94,23 @@ public class OrderController extends BaseController {
         return resultSuccess(orderService.removeById(orderId));
     }
 
-    public MessageBean add_back(Integer orderId){
+    @RequestMapping(value = "/add_back",method = RequestMethod.POST)
+    @ApiOperation(value = "退货")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name="orderId", dataType = "Integer", required = true , value = "订单id"),
+            @ApiImplicitParam(paramType = "query", name="content", dataType = "String", required = true , value = "退货原因"),
+            @ApiImplicitParam(paramType = "query", name="type", dataType = "Short", required = true , value = "退货类型")
+    })
+    public MessageBean add_back(Integer orderId , String content , String back_img , Short type){
         TlOrderBack orderBack=new TlOrderBack();
-        orderBack.setStatus(stauts);
+        orderBack.setOrderId(orderId);
+        orderBack.setContent(content);
+        //orderBack.setStatus(back_img);
+        orderBack.setType(type);
+        return resultSuccess(orderBackService.save(orderBack));
     }
+
+
 
 }
 

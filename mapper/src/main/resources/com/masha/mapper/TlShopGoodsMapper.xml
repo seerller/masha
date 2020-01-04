@@ -1,0 +1,2135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.masha.mapper.TlShopGoodsMapper">
+  <resultMap id="BaseResultMap" type="com.masha.model.TlShopGoods">
+    <id column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="goods_sn" jdbcType="VARCHAR" property="goodsSn" />
+    <result column="is_yuncang" jdbcType="SMALLINT" property="isYuncang" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="sub_title" jdbcType="VARCHAR" property="subTitle" />
+    <result column="goods_name_style" jdbcType="VARCHAR" property="goodsNameStyle" />
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="count_buy" jdbcType="INTEGER" property="countBuy" />
+    <result column="count_view" jdbcType="INTEGER" property="countView" />
+    <result column="cate_id" jdbcType="INTEGER" property="cateId" />
+    <result column="home_cate" jdbcType="INTEGER" property="homeCate" />
+    <result column="cate_self_id" jdbcType="INTEGER" property="cateSelfId" />
+    <result column="brand_id" jdbcType="SMALLINT" property="brandId" />
+    <result column="attribute_cate_id" jdbcType="INTEGER" property="attributeCateId" />
+    <result column="provider_id" jdbcType="VARCHAR" property="providerId" />
+    <result column="goods_number" jdbcType="INTEGER" property="goodsNumber" />
+    <result column="goods_weight" jdbcType="DECIMAL" property="goodsWeight" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="shop_price" jdbcType="DECIMAL" property="shopPrice" />
+    <result column="shiyong_price" jdbcType="DECIMAL" property="shiyongPrice" />
+    <result column="vip_price" jdbcType="DECIMAL" property="vipPrice" />
+    <result column="pifa_price" jdbcType="DECIMAL" property="pifaPrice" />
+    <result column="cost_price" jdbcType="DECIMAL" property="costPrice" />
+    <result column="cal_price" jdbcType="DECIMAL" property="calPrice" />
+    <result column="coupon_fee" jdbcType="DECIMAL" property="couponFee" />
+    <result column="coupon_discount" jdbcType="INTEGER" property="couponDiscount" />
+    <result column="grade_see_all" jdbcType="INTEGER" property="gradeSeeAll" />
+    <result column="grade_see_ids" jdbcType="VARCHAR" property="gradeSeeIds" />
+    <result column="is_free_shipping_fee" jdbcType="INTEGER" property="isFreeShippingFee" />
+    <result column="meal_price" jdbcType="DECIMAL" property="mealPrice" />
+    <result column="dis_price" jdbcType="DECIMAL" property="disPrice" />
+    <result column="max_point_pre" jdbcType="INTEGER" property="maxPointPre" />
+    <result column="max_point" jdbcType="INTEGER" property="maxPoint" />
+    <result column="promote_price" jdbcType="DECIMAL" property="promotePrice" />
+    <result column="promote_start_date" jdbcType="INTEGER" property="promoteStartDate" />
+    <result column="point_end_date" jdbcType="INTEGER" property="pointEndDate" />
+    <result column="promote_end_date" jdbcType="INTEGER" property="promoteEndDate" />
+    <result column="commission_money" jdbcType="DECIMAL" property="commissionMoney" />
+    <result column="discount_num" jdbcType="VARCHAR" property="discountNum" />
+    <result column="discount_money" jdbcType="DECIMAL" property="discountMoney" />
+    <result column="share_give_point" jdbcType="INTEGER" property="shareGivePoint" />
+    <result column="buy_give_point" jdbcType="INTEGER" property="buyGivePoint" />
+    <result column="buy_pv" jdbcType="DECIMAL" property="buyPv" />
+    <result column="img_thumb" jdbcType="VARCHAR" property="imgThumb" />
+    <result column="img_orogin" jdbcType="VARCHAR" property="imgOrogin" />
+    <result column="img_promote" jdbcType="VARCHAR" property="imgPromote" />
+    <result column="goods_bef" jdbcType="VARCHAR" property="goodsBef" />
+    <result column="sell_number" jdbcType="INTEGER" property="sellNumber" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="shop_sort" jdbcType="INTEGER" property="shopSort" />
+    <result column="purchase" jdbcType="VARCHAR" property="purchase" />
+    <result column="is_pintuan" jdbcType="SMALLINT" property="isPintuan" />
+    <result column="is_zhongchou" jdbcType="SMALLINT" property="isZhongchou" />
+    <result column="is_real" jdbcType="SMALLINT" property="isReal" />
+    <result column="is_qianggou" jdbcType="SMALLINT" property="isQianggou" />
+    <result column="is_promote" jdbcType="SMALLINT" property="isPromote" />
+    <result column="is_miaosha" jdbcType="SMALLINT" property="isMiaosha" />
+    <result column="is_xiangliang" jdbcType="SMALLINT" property="isXiangliang" />
+    <result column="is_pre" jdbcType="SMALLINT" property="isPre" />
+    <result column="is_hot" jdbcType="SMALLINT" property="isHot" />
+    <result column="is_dangpin" jdbcType="SMALLINT" property="isDangpin" />
+    <result column="is_recommended" jdbcType="SMALLINT" property="isRecommended" />
+    <result column="is_point" jdbcType="SMALLINT" property="isPoint" />
+    <result column="point_price" jdbcType="INTEGER" property="pointPrice" />
+    <result column="is_new" jdbcType="SMALLINT" property="isNew" />
+    <result column="is_had_gift" jdbcType="SMALLINT" property="isHadGift" />
+    <result column="is_tra" jdbcType="SMALLINT" property="isTra" />
+    <result column="is_share" jdbcType="SMALLINT" property="isShare" />
+    <result column="is_bargain" jdbcType="SMALLINT" property="isBargain" />
+    <result column="is_user_coupon" jdbcType="SMALLINT" property="isUserCoupon" />
+    <result column="is_discount" jdbcType="SMALLINT" property="isDiscount" />
+    <result column="is_tuangou" jdbcType="SMALLINT" property="isTuangou" />
+    <result column="is_yanguang" jdbcType="SMALLINT" property="isYanguang" />
+    <result column="is_user_coupon_fee" jdbcType="DECIMAL" property="isUserCouponFee" />
+    <result column="is_coupon_50" jdbcType="SMALLINT" property="isCoupon50" />
+    <result column="is_coupon_100" jdbcType="SMALLINT" property="isCoupon100" />
+    <result column="is_daojishituan" jdbcType="SMALLINT" property="isDaojishituan" />
+    <result column="is_guangxue" jdbcType="SMALLINT" property="isGuangxue" />
+    <result column="zhongchou_cate_id" jdbcType="SMALLINT" property="zhongchouCateId" />
+    <result column="is_pay_once" jdbcType="SMALLINT" property="isPayOnce" />
+    <result column="two_push" jdbcType="VARCHAR" property="twoPush" />
+    <result column="one_push" jdbcType="VARCHAR" property="onePush" />
+    <result column="gift_lists" jdbcType="VARCHAR" property="giftLists" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="buy_deduction_point" jdbcType="INTEGER" property="buyDeductionPoint" />
+    <result column="buy_give_share_point" jdbcType="INTEGER" property="buyGiveSharePoint" />
+    <result column="pay_level_lists" jdbcType="REAL" property="payLevelLists" />
+    <result column="review_give_point" jdbcType="INTEGER" property="reviewGivePoint" />
+    <result column="pintuan_params" jdbcType="VARCHAR" property="pintuanParams" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
+    <result column="pintuan_endtime" jdbcType="INTEGER" property="pintuanEndtime" />
+    <result column="img_pintuan" jdbcType="VARCHAR" property="imgPintuan" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="edittime" jdbcType="INTEGER" property="edittime" />
+    <result column="addtime" jdbcType="INTEGER" property="addtime" />
+    <result column="warehouse_ids" jdbcType="VARCHAR" property="warehouseIds" />
+    <result column="kuaidi_ids" jdbcType="VARCHAR" property="kuaidiIds" />
+    <result column="supplier_id" jdbcType="INTEGER" property="supplierId" />
+    <result column="supply_price" jdbcType="DECIMAL" property="supplyPrice" />
+    <result column="is_top" jdbcType="TINYINT" property="isTop" />
+    <result column="give_points" jdbcType="INTEGER" property="givePoints" />
+    <result column="click_count" jdbcType="INTEGER" property="clickCount" />
+    <result column="is_promote_qm" jdbcType="TINYINT" property="isPromoteQm" />
+    <result column="img_detail" jdbcType="VARCHAR" property="imgDetail" />
+    <result column="goods_status" jdbcType="VARCHAR" property="goodsStatus" />
+    <result column="kf_url" jdbcType="VARCHAR" property="kfUrl" />
+    <result column="indextpl_id" jdbcType="INTEGER" property="indextplId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.masha.model.TlShopGoods">
+    <result column="goods_des" jdbcType="LONGVARCHAR" property="goodsDes" />
+    <result column="video" jdbcType="LONGVARCHAR" property="video" />
+    <result column="video_bef" jdbcType="LONGVARCHAR" property="videoBef" />
+    <result column="service" jdbcType="LONGVARCHAR" property="service" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    goods_id, goods_sn, is_yuncang, goods_name, sub_title, goods_name_style, keyword, 
+    count_buy, count_view, cate_id, home_cate, cate_self_id, brand_id, attribute_cate_id, 
+    provider_id, goods_number, goods_weight, market_price, shop_price, shiyong_price, 
+    vip_price, pifa_price, cost_price, cal_price, coupon_fee, coupon_discount, grade_see_all, 
+    grade_see_ids, is_free_shipping_fee, meal_price, dis_price, max_point_pre, max_point, 
+    promote_price, promote_start_date, point_end_date, promote_end_date, commission_money, 
+    discount_num, discount_money, share_give_point, buy_give_point, buy_pv, img_thumb, 
+    img_orogin, img_promote, goods_bef, sell_number, sort, shop_sort, purchase, is_pintuan, 
+    is_zhongchou, is_real, is_qianggou, is_promote, is_miaosha, is_xiangliang, is_pre, 
+    is_hot, is_dangpin, is_recommended, is_point, point_price, is_new, is_had_gift, is_tra, 
+    is_share, is_bargain, is_user_coupon, is_discount, is_tuangou, is_yanguang, is_user_coupon_fee, 
+    is_coupon_50, is_coupon_100, is_daojishituan, is_guangxue, zhongchou_cate_id, is_pay_once, 
+    two_push, one_push, gift_lists, status, buy_deduction_point, buy_give_share_point, 
+    pay_level_lists, review_give_point, pintuan_params, params, pintuan_endtime, img_pintuan, 
+    shop_id, edittime, addtime, warehouse_ids, kuaidi_ids, supplier_id, supply_price, 
+    is_top, give_points, click_count, is_promote_qm, img_detail, goods_status, kf_url, 
+    indextpl_id
+  </sql>
+  <sql id="Blob_Column_List">
+    goods_des, video, video_bef, service
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.masha.model.TlShopGoodsExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tl_shop_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.masha.model.TlShopGoodsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tl_shop_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tl_shop_goods
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tl_shop_goods
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.masha.model.TlShopGoodsExample">
+    delete from tl_shop_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.masha.model.TlShopGoods">
+    insert into tl_shop_goods (goods_id, goods_sn, is_yuncang, 
+      goods_name, sub_title, goods_name_style, 
+      keyword, count_buy, count_view, 
+      cate_id, home_cate, cate_self_id, 
+      brand_id, attribute_cate_id, provider_id, 
+      goods_number, goods_weight, market_price, 
+      shop_price, shiyong_price, vip_price, 
+      pifa_price, cost_price, cal_price, 
+      coupon_fee, coupon_discount, grade_see_all, 
+      grade_see_ids, is_free_shipping_fee, meal_price, 
+      dis_price, max_point_pre, max_point, 
+      promote_price, promote_start_date, point_end_date, 
+      promote_end_date, commission_money, discount_num, 
+      discount_money, share_give_point, buy_give_point, 
+      buy_pv, img_thumb, img_orogin, 
+      img_promote, goods_bef, sell_number, 
+      sort, shop_sort, purchase, 
+      is_pintuan, is_zhongchou, is_real, 
+      is_qianggou, is_promote, is_miaosha, 
+      is_xiangliang, is_pre, is_hot, 
+      is_dangpin, is_recommended, is_point, 
+      point_price, is_new, is_had_gift, 
+      is_tra, is_share, is_bargain, 
+      is_user_coupon, is_discount, is_tuangou, 
+      is_yanguang, is_user_coupon_fee, is_coupon_50, 
+      is_coupon_100, is_daojishituan, is_guangxue, 
+      zhongchou_cate_id, is_pay_once, two_push, 
+      one_push, gift_lists, status, 
+      buy_deduction_point, buy_give_share_point, pay_level_lists, 
+      review_give_point, pintuan_params, params, 
+      pintuan_endtime, img_pintuan, shop_id, 
+      edittime, addtime, warehouse_ids, 
+      kuaidi_ids, supplier_id, supply_price, 
+      is_top, give_points, click_count, 
+      is_promote_qm, img_detail, goods_status, 
+      kf_url, indextpl_id, goods_des, 
+      video, video_bef, service
+      )
+    values (#{goodsId,jdbcType=INTEGER}, #{goodsSn,jdbcType=VARCHAR}, #{isYuncang,jdbcType=SMALLINT}, 
+      #{goodsName,jdbcType=VARCHAR}, #{subTitle,jdbcType=VARCHAR}, #{goodsNameStyle,jdbcType=VARCHAR}, 
+      #{keyword,jdbcType=VARCHAR}, #{countBuy,jdbcType=INTEGER}, #{countView,jdbcType=INTEGER}, 
+      #{cateId,jdbcType=INTEGER}, #{homeCate,jdbcType=INTEGER}, #{cateSelfId,jdbcType=INTEGER}, 
+      #{brandId,jdbcType=SMALLINT}, #{attributeCateId,jdbcType=INTEGER}, #{providerId,jdbcType=VARCHAR}, 
+      #{goodsNumber,jdbcType=INTEGER}, #{goodsWeight,jdbcType=DECIMAL}, #{marketPrice,jdbcType=DECIMAL}, 
+      #{shopPrice,jdbcType=DECIMAL}, #{shiyongPrice,jdbcType=DECIMAL}, #{vipPrice,jdbcType=DECIMAL}, 
+      #{pifaPrice,jdbcType=DECIMAL}, #{costPrice,jdbcType=DECIMAL}, #{calPrice,jdbcType=DECIMAL}, 
+      #{couponFee,jdbcType=DECIMAL}, #{couponDiscount,jdbcType=INTEGER}, #{gradeSeeAll,jdbcType=INTEGER}, 
+      #{gradeSeeIds,jdbcType=VARCHAR}, #{isFreeShippingFee,jdbcType=INTEGER}, #{mealPrice,jdbcType=DECIMAL}, 
+      #{disPrice,jdbcType=DECIMAL}, #{maxPointPre,jdbcType=INTEGER}, #{maxPoint,jdbcType=INTEGER}, 
+      #{promotePrice,jdbcType=DECIMAL}, #{promoteStartDate,jdbcType=INTEGER}, #{pointEndDate,jdbcType=INTEGER}, 
+      #{promoteEndDate,jdbcType=INTEGER}, #{commissionMoney,jdbcType=DECIMAL}, #{discountNum,jdbcType=VARCHAR}, 
+      #{discountMoney,jdbcType=DECIMAL}, #{shareGivePoint,jdbcType=INTEGER}, #{buyGivePoint,jdbcType=INTEGER}, 
+      #{buyPv,jdbcType=DECIMAL}, #{imgThumb,jdbcType=VARCHAR}, #{imgOrogin,jdbcType=VARCHAR}, 
+      #{imgPromote,jdbcType=VARCHAR}, #{goodsBef,jdbcType=VARCHAR}, #{sellNumber,jdbcType=INTEGER}, 
+      #{sort,jdbcType=INTEGER}, #{shopSort,jdbcType=INTEGER}, #{purchase,jdbcType=VARCHAR}, 
+      #{isPintuan,jdbcType=SMALLINT}, #{isZhongchou,jdbcType=SMALLINT}, #{isReal,jdbcType=SMALLINT}, 
+      #{isQianggou,jdbcType=SMALLINT}, #{isPromote,jdbcType=SMALLINT}, #{isMiaosha,jdbcType=SMALLINT}, 
+      #{isXiangliang,jdbcType=SMALLINT}, #{isPre,jdbcType=SMALLINT}, #{isHot,jdbcType=SMALLINT}, 
+      #{isDangpin,jdbcType=SMALLINT}, #{isRecommended,jdbcType=SMALLINT}, #{isPoint,jdbcType=SMALLINT}, 
+      #{pointPrice,jdbcType=INTEGER}, #{isNew,jdbcType=SMALLINT}, #{isHadGift,jdbcType=SMALLINT}, 
+      #{isTra,jdbcType=SMALLINT}, #{isShare,jdbcType=SMALLINT}, #{isBargain,jdbcType=SMALLINT}, 
+      #{isUserCoupon,jdbcType=SMALLINT}, #{isDiscount,jdbcType=SMALLINT}, #{isTuangou,jdbcType=SMALLINT}, 
+      #{isYanguang,jdbcType=SMALLINT}, #{isUserCouponFee,jdbcType=DECIMAL}, #{isCoupon50,jdbcType=SMALLINT}, 
+      #{isCoupon100,jdbcType=SMALLINT}, #{isDaojishituan,jdbcType=SMALLINT}, #{isGuangxue,jdbcType=SMALLINT}, 
+      #{zhongchouCateId,jdbcType=SMALLINT}, #{isPayOnce,jdbcType=SMALLINT}, #{twoPush,jdbcType=VARCHAR}, 
+      #{onePush,jdbcType=VARCHAR}, #{giftLists,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, 
+      #{buyDeductionPoint,jdbcType=INTEGER}, #{buyGiveSharePoint,jdbcType=INTEGER}, #{payLevelLists,jdbcType=REAL}, 
+      #{reviewGivePoint,jdbcType=INTEGER}, #{pintuanParams,jdbcType=VARCHAR}, #{params,jdbcType=VARCHAR}, 
+      #{pintuanEndtime,jdbcType=INTEGER}, #{imgPintuan,jdbcType=VARCHAR}, #{shopId,jdbcType=INTEGER}, 
+      #{edittime,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}, #{warehouseIds,jdbcType=VARCHAR}, 
+      #{kuaidiIds,jdbcType=VARCHAR}, #{supplierId,jdbcType=INTEGER}, #{supplyPrice,jdbcType=DECIMAL}, 
+      #{isTop,jdbcType=TINYINT}, #{givePoints,jdbcType=INTEGER}, #{clickCount,jdbcType=INTEGER}, 
+      #{isPromoteQm,jdbcType=TINYINT}, #{imgDetail,jdbcType=VARCHAR}, #{goodsStatus,jdbcType=VARCHAR}, 
+      #{kfUrl,jdbcType=VARCHAR}, #{indextplId,jdbcType=INTEGER}, #{goodsDes,jdbcType=LONGVARCHAR}, 
+      #{video,jdbcType=LONGVARCHAR}, #{videoBef,jdbcType=LONGVARCHAR}, #{service,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.masha.model.TlShopGoods">
+    insert into tl_shop_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="goodsSn != null">
+        goods_sn,
+      </if>
+      <if test="isYuncang != null">
+        is_yuncang,
+      </if>
+      <if test="goodsName != null">
+        goods_name,
+      </if>
+      <if test="subTitle != null">
+        sub_title,
+      </if>
+      <if test="goodsNameStyle != null">
+        goods_name_style,
+      </if>
+      <if test="keyword != null">
+        keyword,
+      </if>
+      <if test="countBuy != null">
+        count_buy,
+      </if>
+      <if test="countView != null">
+        count_view,
+      </if>
+      <if test="cateId != null">
+        cate_id,
+      </if>
+      <if test="homeCate != null">
+        home_cate,
+      </if>
+      <if test="cateSelfId != null">
+        cate_self_id,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="attributeCateId != null">
+        attribute_cate_id,
+      </if>
+      <if test="providerId != null">
+        provider_id,
+      </if>
+      <if test="goodsNumber != null">
+        goods_number,
+      </if>
+      <if test="goodsWeight != null">
+        goods_weight,
+      </if>
+      <if test="marketPrice != null">
+        market_price,
+      </if>
+      <if test="shopPrice != null">
+        shop_price,
+      </if>
+      <if test="shiyongPrice != null">
+        shiyong_price,
+      </if>
+      <if test="vipPrice != null">
+        vip_price,
+      </if>
+      <if test="pifaPrice != null">
+        pifa_price,
+      </if>
+      <if test="costPrice != null">
+        cost_price,
+      </if>
+      <if test="calPrice != null">
+        cal_price,
+      </if>
+      <if test="couponFee != null">
+        coupon_fee,
+      </if>
+      <if test="couponDiscount != null">
+        coupon_discount,
+      </if>
+      <if test="gradeSeeAll != null">
+        grade_see_all,
+      </if>
+      <if test="gradeSeeIds != null">
+        grade_see_ids,
+      </if>
+      <if test="isFreeShippingFee != null">
+        is_free_shipping_fee,
+      </if>
+      <if test="mealPrice != null">
+        meal_price,
+      </if>
+      <if test="disPrice != null">
+        dis_price,
+      </if>
+      <if test="maxPointPre != null">
+        max_point_pre,
+      </if>
+      <if test="maxPoint != null">
+        max_point,
+      </if>
+      <if test="promotePrice != null">
+        promote_price,
+      </if>
+      <if test="promoteStartDate != null">
+        promote_start_date,
+      </if>
+      <if test="pointEndDate != null">
+        point_end_date,
+      </if>
+      <if test="promoteEndDate != null">
+        promote_end_date,
+      </if>
+      <if test="commissionMoney != null">
+        commission_money,
+      </if>
+      <if test="discountNum != null">
+        discount_num,
+      </if>
+      <if test="discountMoney != null">
+        discount_money,
+      </if>
+      <if test="shareGivePoint != null">
+        share_give_point,
+      </if>
+      <if test="buyGivePoint != null">
+        buy_give_point,
+      </if>
+      <if test="buyPv != null">
+        buy_pv,
+      </if>
+      <if test="imgThumb != null">
+        img_thumb,
+      </if>
+      <if test="imgOrogin != null">
+        img_orogin,
+      </if>
+      <if test="imgPromote != null">
+        img_promote,
+      </if>
+      <if test="goodsBef != null">
+        goods_bef,
+      </if>
+      <if test="sellNumber != null">
+        sell_number,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="shopSort != null">
+        shop_sort,
+      </if>
+      <if test="purchase != null">
+        purchase,
+      </if>
+      <if test="isPintuan != null">
+        is_pintuan,
+      </if>
+      <if test="isZhongchou != null">
+        is_zhongchou,
+      </if>
+      <if test="isReal != null">
+        is_real,
+      </if>
+      <if test="isQianggou != null">
+        is_qianggou,
+      </if>
+      <if test="isPromote != null">
+        is_promote,
+      </if>
+      <if test="isMiaosha != null">
+        is_miaosha,
+      </if>
+      <if test="isXiangliang != null">
+        is_xiangliang,
+      </if>
+      <if test="isPre != null">
+        is_pre,
+      </if>
+      <if test="isHot != null">
+        is_hot,
+      </if>
+      <if test="isDangpin != null">
+        is_dangpin,
+      </if>
+      <if test="isRecommended != null">
+        is_recommended,
+      </if>
+      <if test="isPoint != null">
+        is_point,
+      </if>
+      <if test="pointPrice != null">
+        point_price,
+      </if>
+      <if test="isNew != null">
+        is_new,
+      </if>
+      <if test="isHadGift != null">
+        is_had_gift,
+      </if>
+      <if test="isTra != null">
+        is_tra,
+      </if>
+      <if test="isShare != null">
+        is_share,
+      </if>
+      <if test="isBargain != null">
+        is_bargain,
+      </if>
+      <if test="isUserCoupon != null">
+        is_user_coupon,
+      </if>
+      <if test="isDiscount != null">
+        is_discount,
+      </if>
+      <if test="isTuangou != null">
+        is_tuangou,
+      </if>
+      <if test="isYanguang != null">
+        is_yanguang,
+      </if>
+      <if test="isUserCouponFee != null">
+        is_user_coupon_fee,
+      </if>
+      <if test="isCoupon50 != null">
+        is_coupon_50,
+      </if>
+      <if test="isCoupon100 != null">
+        is_coupon_100,
+      </if>
+      <if test="isDaojishituan != null">
+        is_daojishituan,
+      </if>
+      <if test="isGuangxue != null">
+        is_guangxue,
+      </if>
+      <if test="zhongchouCateId != null">
+        zhongchou_cate_id,
+      </if>
+      <if test="isPayOnce != null">
+        is_pay_once,
+      </if>
+      <if test="twoPush != null">
+        two_push,
+      </if>
+      <if test="onePush != null">
+        one_push,
+      </if>
+      <if test="giftLists != null">
+        gift_lists,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="buyDeductionPoint != null">
+        buy_deduction_point,
+      </if>
+      <if test="buyGiveSharePoint != null">
+        buy_give_share_point,
+      </if>
+      <if test="payLevelLists != null">
+        pay_level_lists,
+      </if>
+      <if test="reviewGivePoint != null">
+        review_give_point,
+      </if>
+      <if test="pintuanParams != null">
+        pintuan_params,
+      </if>
+      <if test="params != null">
+        params,
+      </if>
+      <if test="pintuanEndtime != null">
+        pintuan_endtime,
+      </if>
+      <if test="imgPintuan != null">
+        img_pintuan,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="edittime != null">
+        edittime,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="warehouseIds != null">
+        warehouse_ids,
+      </if>
+      <if test="kuaidiIds != null">
+        kuaidi_ids,
+      </if>
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="supplyPrice != null">
+        supply_price,
+      </if>
+      <if test="isTop != null">
+        is_top,
+      </if>
+      <if test="givePoints != null">
+        give_points,
+      </if>
+      <if test="clickCount != null">
+        click_count,
+      </if>
+      <if test="isPromoteQm != null">
+        is_promote_qm,
+      </if>
+      <if test="imgDetail != null">
+        img_detail,
+      </if>
+      <if test="goodsStatus != null">
+        goods_status,
+      </if>
+      <if test="kfUrl != null">
+        kf_url,
+      </if>
+      <if test="indextplId != null">
+        indextpl_id,
+      </if>
+      <if test="goodsDes != null">
+        goods_des,
+      </if>
+      <if test="video != null">
+        video,
+      </if>
+      <if test="videoBef != null">
+        video_bef,
+      </if>
+      <if test="service != null">
+        service,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsSn != null">
+        #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="isYuncang != null">
+        #{isYuncang,jdbcType=SMALLINT},
+      </if>
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="subTitle != null">
+        #{subTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNameStyle != null">
+        #{goodsNameStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="countBuy != null">
+        #{countBuy,jdbcType=INTEGER},
+      </if>
+      <if test="countView != null">
+        #{countView,jdbcType=INTEGER},
+      </if>
+      <if test="cateId != null">
+        #{cateId,jdbcType=INTEGER},
+      </if>
+      <if test="homeCate != null">
+        #{homeCate,jdbcType=INTEGER},
+      </if>
+      <if test="cateSelfId != null">
+        #{cateSelfId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=SMALLINT},
+      </if>
+      <if test="attributeCateId != null">
+        #{attributeCateId,jdbcType=INTEGER},
+      </if>
+      <if test="providerId != null">
+        #{providerId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNumber != null">
+        #{goodsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="goodsWeight != null">
+        #{goodsWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="marketPrice != null">
+        #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shopPrice != null">
+        #{shopPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shiyongPrice != null">
+        #{shiyongPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="vipPrice != null">
+        #{vipPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pifaPrice != null">
+        #{pifaPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="costPrice != null">
+        #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="calPrice != null">
+        #{calPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="couponFee != null">
+        #{couponFee,jdbcType=DECIMAL},
+      </if>
+      <if test="couponDiscount != null">
+        #{couponDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="gradeSeeAll != null">
+        #{gradeSeeAll,jdbcType=INTEGER},
+      </if>
+      <if test="gradeSeeIds != null">
+        #{gradeSeeIds,jdbcType=VARCHAR},
+      </if>
+      <if test="isFreeShippingFee != null">
+        #{isFreeShippingFee,jdbcType=INTEGER},
+      </if>
+      <if test="mealPrice != null">
+        #{mealPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="disPrice != null">
+        #{disPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="maxPointPre != null">
+        #{maxPointPre,jdbcType=INTEGER},
+      </if>
+      <if test="maxPoint != null">
+        #{maxPoint,jdbcType=INTEGER},
+      </if>
+      <if test="promotePrice != null">
+        #{promotePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="promoteStartDate != null">
+        #{promoteStartDate,jdbcType=INTEGER},
+      </if>
+      <if test="pointEndDate != null">
+        #{pointEndDate,jdbcType=INTEGER},
+      </if>
+      <if test="promoteEndDate != null">
+        #{promoteEndDate,jdbcType=INTEGER},
+      </if>
+      <if test="commissionMoney != null">
+        #{commissionMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="discountNum != null">
+        #{discountNum,jdbcType=VARCHAR},
+      </if>
+      <if test="discountMoney != null">
+        #{discountMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="shareGivePoint != null">
+        #{shareGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="buyGivePoint != null">
+        #{buyGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="buyPv != null">
+        #{buyPv,jdbcType=DECIMAL},
+      </if>
+      <if test="imgThumb != null">
+        #{imgThumb,jdbcType=VARCHAR},
+      </if>
+      <if test="imgOrogin != null">
+        #{imgOrogin,jdbcType=VARCHAR},
+      </if>
+      <if test="imgPromote != null">
+        #{imgPromote,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsBef != null">
+        #{goodsBef,jdbcType=VARCHAR},
+      </if>
+      <if test="sellNumber != null">
+        #{sellNumber,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="shopSort != null">
+        #{shopSort,jdbcType=INTEGER},
+      </if>
+      <if test="purchase != null">
+        #{purchase,jdbcType=VARCHAR},
+      </if>
+      <if test="isPintuan != null">
+        #{isPintuan,jdbcType=SMALLINT},
+      </if>
+      <if test="isZhongchou != null">
+        #{isZhongchou,jdbcType=SMALLINT},
+      </if>
+      <if test="isReal != null">
+        #{isReal,jdbcType=SMALLINT},
+      </if>
+      <if test="isQianggou != null">
+        #{isQianggou,jdbcType=SMALLINT},
+      </if>
+      <if test="isPromote != null">
+        #{isPromote,jdbcType=SMALLINT},
+      </if>
+      <if test="isMiaosha != null">
+        #{isMiaosha,jdbcType=SMALLINT},
+      </if>
+      <if test="isXiangliang != null">
+        #{isXiangliang,jdbcType=SMALLINT},
+      </if>
+      <if test="isPre != null">
+        #{isPre,jdbcType=SMALLINT},
+      </if>
+      <if test="isHot != null">
+        #{isHot,jdbcType=SMALLINT},
+      </if>
+      <if test="isDangpin != null">
+        #{isDangpin,jdbcType=SMALLINT},
+      </if>
+      <if test="isRecommended != null">
+        #{isRecommended,jdbcType=SMALLINT},
+      </if>
+      <if test="isPoint != null">
+        #{isPoint,jdbcType=SMALLINT},
+      </if>
+      <if test="pointPrice != null">
+        #{pointPrice,jdbcType=INTEGER},
+      </if>
+      <if test="isNew != null">
+        #{isNew,jdbcType=SMALLINT},
+      </if>
+      <if test="isHadGift != null">
+        #{isHadGift,jdbcType=SMALLINT},
+      </if>
+      <if test="isTra != null">
+        #{isTra,jdbcType=SMALLINT},
+      </if>
+      <if test="isShare != null">
+        #{isShare,jdbcType=SMALLINT},
+      </if>
+      <if test="isBargain != null">
+        #{isBargain,jdbcType=SMALLINT},
+      </if>
+      <if test="isUserCoupon != null">
+        #{isUserCoupon,jdbcType=SMALLINT},
+      </if>
+      <if test="isDiscount != null">
+        #{isDiscount,jdbcType=SMALLINT},
+      </if>
+      <if test="isTuangou != null">
+        #{isTuangou,jdbcType=SMALLINT},
+      </if>
+      <if test="isYanguang != null">
+        #{isYanguang,jdbcType=SMALLINT},
+      </if>
+      <if test="isUserCouponFee != null">
+        #{isUserCouponFee,jdbcType=DECIMAL},
+      </if>
+      <if test="isCoupon50 != null">
+        #{isCoupon50,jdbcType=SMALLINT},
+      </if>
+      <if test="isCoupon100 != null">
+        #{isCoupon100,jdbcType=SMALLINT},
+      </if>
+      <if test="isDaojishituan != null">
+        #{isDaojishituan,jdbcType=SMALLINT},
+      </if>
+      <if test="isGuangxue != null">
+        #{isGuangxue,jdbcType=SMALLINT},
+      </if>
+      <if test="zhongchouCateId != null">
+        #{zhongchouCateId,jdbcType=SMALLINT},
+      </if>
+      <if test="isPayOnce != null">
+        #{isPayOnce,jdbcType=SMALLINT},
+      </if>
+      <if test="twoPush != null">
+        #{twoPush,jdbcType=VARCHAR},
+      </if>
+      <if test="onePush != null">
+        #{onePush,jdbcType=VARCHAR},
+      </if>
+      <if test="giftLists != null">
+        #{giftLists,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="buyDeductionPoint != null">
+        #{buyDeductionPoint,jdbcType=INTEGER},
+      </if>
+      <if test="buyGiveSharePoint != null">
+        #{buyGiveSharePoint,jdbcType=INTEGER},
+      </if>
+      <if test="payLevelLists != null">
+        #{payLevelLists,jdbcType=REAL},
+      </if>
+      <if test="reviewGivePoint != null">
+        #{reviewGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanParams != null">
+        #{pintuanParams,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="pintuanEndtime != null">
+        #{pintuanEndtime,jdbcType=INTEGER},
+      </if>
+      <if test="imgPintuan != null">
+        #{imgPintuan,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="edittime != null">
+        #{edittime,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseIds != null">
+        #{warehouseIds,jdbcType=VARCHAR},
+      </if>
+      <if test="kuaidiIds != null">
+        #{kuaidiIds,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="supplyPrice != null">
+        #{supplyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="isTop != null">
+        #{isTop,jdbcType=TINYINT},
+      </if>
+      <if test="givePoints != null">
+        #{givePoints,jdbcType=INTEGER},
+      </if>
+      <if test="clickCount != null">
+        #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="isPromoteQm != null">
+        #{isPromoteQm,jdbcType=TINYINT},
+      </if>
+      <if test="imgDetail != null">
+        #{imgDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsStatus != null">
+        #{goodsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="kfUrl != null">
+        #{kfUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="indextplId != null">
+        #{indextplId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsDes != null">
+        #{goodsDes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="video != null">
+        #{video,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="videoBef != null">
+        #{videoBef,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="service != null">
+        #{service,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.masha.model.TlShopGoodsExample" resultType="java.lang.Long">
+    select count(*) from tl_shop_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tl_shop_goods
+    <set>
+      <if test="record.goodsId != null">
+        goods_id = #{record.goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsSn != null">
+        goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isYuncang != null">
+        is_yuncang = #{record.isYuncang,jdbcType=SMALLINT},
+      </if>
+      <if test="record.goodsName != null">
+        goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subTitle != null">
+        sub_title = #{record.subTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsNameStyle != null">
+        goods_name_style = #{record.goodsNameStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keyword != null">
+        keyword = #{record.keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.countBuy != null">
+        count_buy = #{record.countBuy,jdbcType=INTEGER},
+      </if>
+      <if test="record.countView != null">
+        count_view = #{record.countView,jdbcType=INTEGER},
+      </if>
+      <if test="record.cateId != null">
+        cate_id = #{record.cateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.homeCate != null">
+        home_cate = #{record.homeCate,jdbcType=INTEGER},
+      </if>
+      <if test="record.cateSelfId != null">
+        cate_self_id = #{record.cateSelfId,jdbcType=INTEGER},
+      </if>
+      <if test="record.brandId != null">
+        brand_id = #{record.brandId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.attributeCateId != null">
+        attribute_cate_id = #{record.attributeCateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.providerId != null">
+        provider_id = #{record.providerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsNumber != null">
+        goods_number = #{record.goodsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsWeight != null">
+        goods_weight = #{record.goodsWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.marketPrice != null">
+        market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.shopPrice != null">
+        shop_price = #{record.shopPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.shiyongPrice != null">
+        shiyong_price = #{record.shiyongPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.vipPrice != null">
+        vip_price = #{record.vipPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.pifaPrice != null">
+        pifa_price = #{record.pifaPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.costPrice != null">
+        cost_price = #{record.costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.calPrice != null">
+        cal_price = #{record.calPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.couponFee != null">
+        coupon_fee = #{record.couponFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.couponDiscount != null">
+        coupon_discount = #{record.couponDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeSeeAll != null">
+        grade_see_all = #{record.gradeSeeAll,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeSeeIds != null">
+        grade_see_ids = #{record.gradeSeeIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isFreeShippingFee != null">
+        is_free_shipping_fee = #{record.isFreeShippingFee,jdbcType=INTEGER},
+      </if>
+      <if test="record.mealPrice != null">
+        meal_price = #{record.mealPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.disPrice != null">
+        dis_price = #{record.disPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.maxPointPre != null">
+        max_point_pre = #{record.maxPointPre,jdbcType=INTEGER},
+      </if>
+      <if test="record.maxPoint != null">
+        max_point = #{record.maxPoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.promotePrice != null">
+        promote_price = #{record.promotePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.promoteStartDate != null">
+        promote_start_date = #{record.promoteStartDate,jdbcType=INTEGER},
+      </if>
+      <if test="record.pointEndDate != null">
+        point_end_date = #{record.pointEndDate,jdbcType=INTEGER},
+      </if>
+      <if test="record.promoteEndDate != null">
+        promote_end_date = #{record.promoteEndDate,jdbcType=INTEGER},
+      </if>
+      <if test="record.commissionMoney != null">
+        commission_money = #{record.commissionMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.discountNum != null">
+        discount_num = #{record.discountNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.discountMoney != null">
+        discount_money = #{record.discountMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.shareGivePoint != null">
+        share_give_point = #{record.shareGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyGivePoint != null">
+        buy_give_point = #{record.buyGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyPv != null">
+        buy_pv = #{record.buyPv,jdbcType=DECIMAL},
+      </if>
+      <if test="record.imgThumb != null">
+        img_thumb = #{record.imgThumb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgOrogin != null">
+        img_orogin = #{record.imgOrogin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgPromote != null">
+        img_promote = #{record.imgPromote,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsBef != null">
+        goods_bef = #{record.goodsBef,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellNumber != null">
+        sell_number = #{record.sellNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopSort != null">
+        shop_sort = #{record.shopSort,jdbcType=INTEGER},
+      </if>
+      <if test="record.purchase != null">
+        purchase = #{record.purchase,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isPintuan != null">
+        is_pintuan = #{record.isPintuan,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isZhongchou != null">
+        is_zhongchou = #{record.isZhongchou,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isReal != null">
+        is_real = #{record.isReal,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isQianggou != null">
+        is_qianggou = #{record.isQianggou,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isPromote != null">
+        is_promote = #{record.isPromote,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isMiaosha != null">
+        is_miaosha = #{record.isMiaosha,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isXiangliang != null">
+        is_xiangliang = #{record.isXiangliang,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isPre != null">
+        is_pre = #{record.isPre,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isHot != null">
+        is_hot = #{record.isHot,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isDangpin != null">
+        is_dangpin = #{record.isDangpin,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isRecommended != null">
+        is_recommended = #{record.isRecommended,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isPoint != null">
+        is_point = #{record.isPoint,jdbcType=SMALLINT},
+      </if>
+      <if test="record.pointPrice != null">
+        point_price = #{record.pointPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.isNew != null">
+        is_new = #{record.isNew,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isHadGift != null">
+        is_had_gift = #{record.isHadGift,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isTra != null">
+        is_tra = #{record.isTra,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isShare != null">
+        is_share = #{record.isShare,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isBargain != null">
+        is_bargain = #{record.isBargain,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isUserCoupon != null">
+        is_user_coupon = #{record.isUserCoupon,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isDiscount != null">
+        is_discount = #{record.isDiscount,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isTuangou != null">
+        is_tuangou = #{record.isTuangou,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isYanguang != null">
+        is_yanguang = #{record.isYanguang,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isUserCouponFee != null">
+        is_user_coupon_fee = #{record.isUserCouponFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isCoupon50 != null">
+        is_coupon_50 = #{record.isCoupon50,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isCoupon100 != null">
+        is_coupon_100 = #{record.isCoupon100,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isDaojishituan != null">
+        is_daojishituan = #{record.isDaojishituan,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isGuangxue != null">
+        is_guangxue = #{record.isGuangxue,jdbcType=SMALLINT},
+      </if>
+      <if test="record.zhongchouCateId != null">
+        zhongchou_cate_id = #{record.zhongchouCateId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isPayOnce != null">
+        is_pay_once = #{record.isPayOnce,jdbcType=SMALLINT},
+      </if>
+      <if test="record.twoPush != null">
+        two_push = #{record.twoPush,jdbcType=VARCHAR},
+      </if>
+      <if test="record.onePush != null">
+        one_push = #{record.onePush,jdbcType=VARCHAR},
+      </if>
+      <if test="record.giftLists != null">
+        gift_lists = #{record.giftLists,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=SMALLINT},
+      </if>
+      <if test="record.buyDeductionPoint != null">
+        buy_deduction_point = #{record.buyDeductionPoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyGiveSharePoint != null">
+        buy_give_share_point = #{record.buyGiveSharePoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.payLevelLists != null">
+        pay_level_lists = #{record.payLevelLists,jdbcType=REAL},
+      </if>
+      <if test="record.reviewGivePoint != null">
+        review_give_point = #{record.reviewGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.pintuanParams != null">
+        pintuan_params = #{record.pintuanParams,jdbcType=VARCHAR},
+      </if>
+      <if test="record.params != null">
+        params = #{record.params,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pintuanEndtime != null">
+        pintuan_endtime = #{record.pintuanEndtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.imgPintuan != null">
+        img_pintuan = #{record.imgPintuan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopId != null">
+        shop_id = #{record.shopId,jdbcType=INTEGER},
+      </if>
+      <if test="record.edittime != null">
+        edittime = #{record.edittime,jdbcType=INTEGER},
+      </if>
+      <if test="record.addtime != null">
+        addtime = #{record.addtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.warehouseIds != null">
+        warehouse_ids = #{record.warehouseIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kuaidiIds != null">
+        kuaidi_ids = #{record.kuaidiIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.supplierId != null">
+        supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="record.supplyPrice != null">
+        supply_price = #{record.supplyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isTop != null">
+        is_top = #{record.isTop,jdbcType=TINYINT},
+      </if>
+      <if test="record.givePoints != null">
+        give_points = #{record.givePoints,jdbcType=INTEGER},
+      </if>
+      <if test="record.clickCount != null">
+        click_count = #{record.clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.isPromoteQm != null">
+        is_promote_qm = #{record.isPromoteQm,jdbcType=TINYINT},
+      </if>
+      <if test="record.imgDetail != null">
+        img_detail = #{record.imgDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsStatus != null">
+        goods_status = #{record.goodsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kfUrl != null">
+        kf_url = #{record.kfUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indextplId != null">
+        indextpl_id = #{record.indextplId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsDes != null">
+        goods_des = #{record.goodsDes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.video != null">
+        video = #{record.video,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.videoBef != null">
+        video_bef = #{record.videoBef,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.service != null">
+        service = #{record.service,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tl_shop_goods
+    set goods_id = #{record.goodsId,jdbcType=INTEGER},
+      goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      is_yuncang = #{record.isYuncang,jdbcType=SMALLINT},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      sub_title = #{record.subTitle,jdbcType=VARCHAR},
+      goods_name_style = #{record.goodsNameStyle,jdbcType=VARCHAR},
+      keyword = #{record.keyword,jdbcType=VARCHAR},
+      count_buy = #{record.countBuy,jdbcType=INTEGER},
+      count_view = #{record.countView,jdbcType=INTEGER},
+      cate_id = #{record.cateId,jdbcType=INTEGER},
+      home_cate = #{record.homeCate,jdbcType=INTEGER},
+      cate_self_id = #{record.cateSelfId,jdbcType=INTEGER},
+      brand_id = #{record.brandId,jdbcType=SMALLINT},
+      attribute_cate_id = #{record.attributeCateId,jdbcType=INTEGER},
+      provider_id = #{record.providerId,jdbcType=VARCHAR},
+      goods_number = #{record.goodsNumber,jdbcType=INTEGER},
+      goods_weight = #{record.goodsWeight,jdbcType=DECIMAL},
+      market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      shop_price = #{record.shopPrice,jdbcType=DECIMAL},
+      shiyong_price = #{record.shiyongPrice,jdbcType=DECIMAL},
+      vip_price = #{record.vipPrice,jdbcType=DECIMAL},
+      pifa_price = #{record.pifaPrice,jdbcType=DECIMAL},
+      cost_price = #{record.costPrice,jdbcType=DECIMAL},
+      cal_price = #{record.calPrice,jdbcType=DECIMAL},
+      coupon_fee = #{record.couponFee,jdbcType=DECIMAL},
+      coupon_discount = #{record.couponDiscount,jdbcType=INTEGER},
+      grade_see_all = #{record.gradeSeeAll,jdbcType=INTEGER},
+      grade_see_ids = #{record.gradeSeeIds,jdbcType=VARCHAR},
+      is_free_shipping_fee = #{record.isFreeShippingFee,jdbcType=INTEGER},
+      meal_price = #{record.mealPrice,jdbcType=DECIMAL},
+      dis_price = #{record.disPrice,jdbcType=DECIMAL},
+      max_point_pre = #{record.maxPointPre,jdbcType=INTEGER},
+      max_point = #{record.maxPoint,jdbcType=INTEGER},
+      promote_price = #{record.promotePrice,jdbcType=DECIMAL},
+      promote_start_date = #{record.promoteStartDate,jdbcType=INTEGER},
+      point_end_date = #{record.pointEndDate,jdbcType=INTEGER},
+      promote_end_date = #{record.promoteEndDate,jdbcType=INTEGER},
+      commission_money = #{record.commissionMoney,jdbcType=DECIMAL},
+      discount_num = #{record.discountNum,jdbcType=VARCHAR},
+      discount_money = #{record.discountMoney,jdbcType=DECIMAL},
+      share_give_point = #{record.shareGivePoint,jdbcType=INTEGER},
+      buy_give_point = #{record.buyGivePoint,jdbcType=INTEGER},
+      buy_pv = #{record.buyPv,jdbcType=DECIMAL},
+      img_thumb = #{record.imgThumb,jdbcType=VARCHAR},
+      img_orogin = #{record.imgOrogin,jdbcType=VARCHAR},
+      img_promote = #{record.imgPromote,jdbcType=VARCHAR},
+      goods_bef = #{record.goodsBef,jdbcType=VARCHAR},
+      sell_number = #{record.sellNumber,jdbcType=INTEGER},
+      sort = #{record.sort,jdbcType=INTEGER},
+      shop_sort = #{record.shopSort,jdbcType=INTEGER},
+      purchase = #{record.purchase,jdbcType=VARCHAR},
+      is_pintuan = #{record.isPintuan,jdbcType=SMALLINT},
+      is_zhongchou = #{record.isZhongchou,jdbcType=SMALLINT},
+      is_real = #{record.isReal,jdbcType=SMALLINT},
+      is_qianggou = #{record.isQianggou,jdbcType=SMALLINT},
+      is_promote = #{record.isPromote,jdbcType=SMALLINT},
+      is_miaosha = #{record.isMiaosha,jdbcType=SMALLINT},
+      is_xiangliang = #{record.isXiangliang,jdbcType=SMALLINT},
+      is_pre = #{record.isPre,jdbcType=SMALLINT},
+      is_hot = #{record.isHot,jdbcType=SMALLINT},
+      is_dangpin = #{record.isDangpin,jdbcType=SMALLINT},
+      is_recommended = #{record.isRecommended,jdbcType=SMALLINT},
+      is_point = #{record.isPoint,jdbcType=SMALLINT},
+      point_price = #{record.pointPrice,jdbcType=INTEGER},
+      is_new = #{record.isNew,jdbcType=SMALLINT},
+      is_had_gift = #{record.isHadGift,jdbcType=SMALLINT},
+      is_tra = #{record.isTra,jdbcType=SMALLINT},
+      is_share = #{record.isShare,jdbcType=SMALLINT},
+      is_bargain = #{record.isBargain,jdbcType=SMALLINT},
+      is_user_coupon = #{record.isUserCoupon,jdbcType=SMALLINT},
+      is_discount = #{record.isDiscount,jdbcType=SMALLINT},
+      is_tuangou = #{record.isTuangou,jdbcType=SMALLINT},
+      is_yanguang = #{record.isYanguang,jdbcType=SMALLINT},
+      is_user_coupon_fee = #{record.isUserCouponFee,jdbcType=DECIMAL},
+      is_coupon_50 = #{record.isCoupon50,jdbcType=SMALLINT},
+      is_coupon_100 = #{record.isCoupon100,jdbcType=SMALLINT},
+      is_daojishituan = #{record.isDaojishituan,jdbcType=SMALLINT},
+      is_guangxue = #{record.isGuangxue,jdbcType=SMALLINT},
+      zhongchou_cate_id = #{record.zhongchouCateId,jdbcType=SMALLINT},
+      is_pay_once = #{record.isPayOnce,jdbcType=SMALLINT},
+      two_push = #{record.twoPush,jdbcType=VARCHAR},
+      one_push = #{record.onePush,jdbcType=VARCHAR},
+      gift_lists = #{record.giftLists,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=SMALLINT},
+      buy_deduction_point = #{record.buyDeductionPoint,jdbcType=INTEGER},
+      buy_give_share_point = #{record.buyGiveSharePoint,jdbcType=INTEGER},
+      pay_level_lists = #{record.payLevelLists,jdbcType=REAL},
+      review_give_point = #{record.reviewGivePoint,jdbcType=INTEGER},
+      pintuan_params = #{record.pintuanParams,jdbcType=VARCHAR},
+      params = #{record.params,jdbcType=VARCHAR},
+      pintuan_endtime = #{record.pintuanEndtime,jdbcType=INTEGER},
+      img_pintuan = #{record.imgPintuan,jdbcType=VARCHAR},
+      shop_id = #{record.shopId,jdbcType=INTEGER},
+      edittime = #{record.edittime,jdbcType=INTEGER},
+      addtime = #{record.addtime,jdbcType=INTEGER},
+      warehouse_ids = #{record.warehouseIds,jdbcType=VARCHAR},
+      kuaidi_ids = #{record.kuaidiIds,jdbcType=VARCHAR},
+      supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      supply_price = #{record.supplyPrice,jdbcType=DECIMAL},
+      is_top = #{record.isTop,jdbcType=TINYINT},
+      give_points = #{record.givePoints,jdbcType=INTEGER},
+      click_count = #{record.clickCount,jdbcType=INTEGER},
+      is_promote_qm = #{record.isPromoteQm,jdbcType=TINYINT},
+      img_detail = #{record.imgDetail,jdbcType=VARCHAR},
+      goods_status = #{record.goodsStatus,jdbcType=VARCHAR},
+      kf_url = #{record.kfUrl,jdbcType=VARCHAR},
+      indextpl_id = #{record.indextplId,jdbcType=INTEGER},
+      goods_des = #{record.goodsDes,jdbcType=LONGVARCHAR},
+      video = #{record.video,jdbcType=LONGVARCHAR},
+      video_bef = #{record.videoBef,jdbcType=LONGVARCHAR},
+      service = #{record.service,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tl_shop_goods
+    set goods_id = #{record.goodsId,jdbcType=INTEGER},
+      goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      is_yuncang = #{record.isYuncang,jdbcType=SMALLINT},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      sub_title = #{record.subTitle,jdbcType=VARCHAR},
+      goods_name_style = #{record.goodsNameStyle,jdbcType=VARCHAR},
+      keyword = #{record.keyword,jdbcType=VARCHAR},
+      count_buy = #{record.countBuy,jdbcType=INTEGER},
+      count_view = #{record.countView,jdbcType=INTEGER},
+      cate_id = #{record.cateId,jdbcType=INTEGER},
+      home_cate = #{record.homeCate,jdbcType=INTEGER},
+      cate_self_id = #{record.cateSelfId,jdbcType=INTEGER},
+      brand_id = #{record.brandId,jdbcType=SMALLINT},
+      attribute_cate_id = #{record.attributeCateId,jdbcType=INTEGER},
+      provider_id = #{record.providerId,jdbcType=VARCHAR},
+      goods_number = #{record.goodsNumber,jdbcType=INTEGER},
+      goods_weight = #{record.goodsWeight,jdbcType=DECIMAL},
+      market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      shop_price = #{record.shopPrice,jdbcType=DECIMAL},
+      shiyong_price = #{record.shiyongPrice,jdbcType=DECIMAL},
+      vip_price = #{record.vipPrice,jdbcType=DECIMAL},
+      pifa_price = #{record.pifaPrice,jdbcType=DECIMAL},
+      cost_price = #{record.costPrice,jdbcType=DECIMAL},
+      cal_price = #{record.calPrice,jdbcType=DECIMAL},
+      coupon_fee = #{record.couponFee,jdbcType=DECIMAL},
+      coupon_discount = #{record.couponDiscount,jdbcType=INTEGER},
+      grade_see_all = #{record.gradeSeeAll,jdbcType=INTEGER},
+      grade_see_ids = #{record.gradeSeeIds,jdbcType=VARCHAR},
+      is_free_shipping_fee = #{record.isFreeShippingFee,jdbcType=INTEGER},
+      meal_price = #{record.mealPrice,jdbcType=DECIMAL},
+      dis_price = #{record.disPrice,jdbcType=DECIMAL},
+      max_point_pre = #{record.maxPointPre,jdbcType=INTEGER},
+      max_point = #{record.maxPoint,jdbcType=INTEGER},
+      promote_price = #{record.promotePrice,jdbcType=DECIMAL},
+      promote_start_date = #{record.promoteStartDate,jdbcType=INTEGER},
+      point_end_date = #{record.pointEndDate,jdbcType=INTEGER},
+      promote_end_date = #{record.promoteEndDate,jdbcType=INTEGER},
+      commission_money = #{record.commissionMoney,jdbcType=DECIMAL},
+      discount_num = #{record.discountNum,jdbcType=VARCHAR},
+      discount_money = #{record.discountMoney,jdbcType=DECIMAL},
+      share_give_point = #{record.shareGivePoint,jdbcType=INTEGER},
+      buy_give_point = #{record.buyGivePoint,jdbcType=INTEGER},
+      buy_pv = #{record.buyPv,jdbcType=DECIMAL},
+      img_thumb = #{record.imgThumb,jdbcType=VARCHAR},
+      img_orogin = #{record.imgOrogin,jdbcType=VARCHAR},
+      img_promote = #{record.imgPromote,jdbcType=VARCHAR},
+      goods_bef = #{record.goodsBef,jdbcType=VARCHAR},
+      sell_number = #{record.sellNumber,jdbcType=INTEGER},
+      sort = #{record.sort,jdbcType=INTEGER},
+      shop_sort = #{record.shopSort,jdbcType=INTEGER},
+      purchase = #{record.purchase,jdbcType=VARCHAR},
+      is_pintuan = #{record.isPintuan,jdbcType=SMALLINT},
+      is_zhongchou = #{record.isZhongchou,jdbcType=SMALLINT},
+      is_real = #{record.isReal,jdbcType=SMALLINT},
+      is_qianggou = #{record.isQianggou,jdbcType=SMALLINT},
+      is_promote = #{record.isPromote,jdbcType=SMALLINT},
+      is_miaosha = #{record.isMiaosha,jdbcType=SMALLINT},
+      is_xiangliang = #{record.isXiangliang,jdbcType=SMALLINT},
+      is_pre = #{record.isPre,jdbcType=SMALLINT},
+      is_hot = #{record.isHot,jdbcType=SMALLINT},
+      is_dangpin = #{record.isDangpin,jdbcType=SMALLINT},
+      is_recommended = #{record.isRecommended,jdbcType=SMALLINT},
+      is_point = #{record.isPoint,jdbcType=SMALLINT},
+      point_price = #{record.pointPrice,jdbcType=INTEGER},
+      is_new = #{record.isNew,jdbcType=SMALLINT},
+      is_had_gift = #{record.isHadGift,jdbcType=SMALLINT},
+      is_tra = #{record.isTra,jdbcType=SMALLINT},
+      is_share = #{record.isShare,jdbcType=SMALLINT},
+      is_bargain = #{record.isBargain,jdbcType=SMALLINT},
+      is_user_coupon = #{record.isUserCoupon,jdbcType=SMALLINT},
+      is_discount = #{record.isDiscount,jdbcType=SMALLINT},
+      is_tuangou = #{record.isTuangou,jdbcType=SMALLINT},
+      is_yanguang = #{record.isYanguang,jdbcType=SMALLINT},
+      is_user_coupon_fee = #{record.isUserCouponFee,jdbcType=DECIMAL},
+      is_coupon_50 = #{record.isCoupon50,jdbcType=SMALLINT},
+      is_coupon_100 = #{record.isCoupon100,jdbcType=SMALLINT},
+      is_daojishituan = #{record.isDaojishituan,jdbcType=SMALLINT},
+      is_guangxue = #{record.isGuangxue,jdbcType=SMALLINT},
+      zhongchou_cate_id = #{record.zhongchouCateId,jdbcType=SMALLINT},
+      is_pay_once = #{record.isPayOnce,jdbcType=SMALLINT},
+      two_push = #{record.twoPush,jdbcType=VARCHAR},
+      one_push = #{record.onePush,jdbcType=VARCHAR},
+      gift_lists = #{record.giftLists,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=SMALLINT},
+      buy_deduction_point = #{record.buyDeductionPoint,jdbcType=INTEGER},
+      buy_give_share_point = #{record.buyGiveSharePoint,jdbcType=INTEGER},
+      pay_level_lists = #{record.payLevelLists,jdbcType=REAL},
+      review_give_point = #{record.reviewGivePoint,jdbcType=INTEGER},
+      pintuan_params = #{record.pintuanParams,jdbcType=VARCHAR},
+      params = #{record.params,jdbcType=VARCHAR},
+      pintuan_endtime = #{record.pintuanEndtime,jdbcType=INTEGER},
+      img_pintuan = #{record.imgPintuan,jdbcType=VARCHAR},
+      shop_id = #{record.shopId,jdbcType=INTEGER},
+      edittime = #{record.edittime,jdbcType=INTEGER},
+      addtime = #{record.addtime,jdbcType=INTEGER},
+      warehouse_ids = #{record.warehouseIds,jdbcType=VARCHAR},
+      kuaidi_ids = #{record.kuaidiIds,jdbcType=VARCHAR},
+      supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      supply_price = #{record.supplyPrice,jdbcType=DECIMAL},
+      is_top = #{record.isTop,jdbcType=TINYINT},
+      give_points = #{record.givePoints,jdbcType=INTEGER},
+      click_count = #{record.clickCount,jdbcType=INTEGER},
+      is_promote_qm = #{record.isPromoteQm,jdbcType=TINYINT},
+      img_detail = #{record.imgDetail,jdbcType=VARCHAR},
+      goods_status = #{record.goodsStatus,jdbcType=VARCHAR},
+      kf_url = #{record.kfUrl,jdbcType=VARCHAR},
+      indextpl_id = #{record.indextplId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.masha.model.TlShopGoods">
+    update tl_shop_goods
+    <set>
+      <if test="goodsSn != null">
+        goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="isYuncang != null">
+        is_yuncang = #{isYuncang,jdbcType=SMALLINT},
+      </if>
+      <if test="goodsName != null">
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="subTitle != null">
+        sub_title = #{subTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNameStyle != null">
+        goods_name_style = #{goodsNameStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="countBuy != null">
+        count_buy = #{countBuy,jdbcType=INTEGER},
+      </if>
+      <if test="countView != null">
+        count_view = #{countView,jdbcType=INTEGER},
+      </if>
+      <if test="cateId != null">
+        cate_id = #{cateId,jdbcType=INTEGER},
+      </if>
+      <if test="homeCate != null">
+        home_cate = #{homeCate,jdbcType=INTEGER},
+      </if>
+      <if test="cateSelfId != null">
+        cate_self_id = #{cateSelfId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=SMALLINT},
+      </if>
+      <if test="attributeCateId != null">
+        attribute_cate_id = #{attributeCateId,jdbcType=INTEGER},
+      </if>
+      <if test="providerId != null">
+        provider_id = #{providerId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNumber != null">
+        goods_number = #{goodsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="goodsWeight != null">
+        goods_weight = #{goodsWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="marketPrice != null">
+        market_price = #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shopPrice != null">
+        shop_price = #{shopPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shiyongPrice != null">
+        shiyong_price = #{shiyongPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="vipPrice != null">
+        vip_price = #{vipPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pifaPrice != null">
+        pifa_price = #{pifaPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="costPrice != null">
+        cost_price = #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="calPrice != null">
+        cal_price = #{calPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="couponFee != null">
+        coupon_fee = #{couponFee,jdbcType=DECIMAL},
+      </if>
+      <if test="couponDiscount != null">
+        coupon_discount = #{couponDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="gradeSeeAll != null">
+        grade_see_all = #{gradeSeeAll,jdbcType=INTEGER},
+      </if>
+      <if test="gradeSeeIds != null">
+        grade_see_ids = #{gradeSeeIds,jdbcType=VARCHAR},
+      </if>
+      <if test="isFreeShippingFee != null">
+        is_free_shipping_fee = #{isFreeShippingFee,jdbcType=INTEGER},
+      </if>
+      <if test="mealPrice != null">
+        meal_price = #{mealPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="disPrice != null">
+        dis_price = #{disPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="maxPointPre != null">
+        max_point_pre = #{maxPointPre,jdbcType=INTEGER},
+      </if>
+      <if test="maxPoint != null">
+        max_point = #{maxPoint,jdbcType=INTEGER},
+      </if>
+      <if test="promotePrice != null">
+        promote_price = #{promotePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="promoteStartDate != null">
+        promote_start_date = #{promoteStartDate,jdbcType=INTEGER},
+      </if>
+      <if test="pointEndDate != null">
+        point_end_date = #{pointEndDate,jdbcType=INTEGER},
+      </if>
+      <if test="promoteEndDate != null">
+        promote_end_date = #{promoteEndDate,jdbcType=INTEGER},
+      </if>
+      <if test="commissionMoney != null">
+        commission_money = #{commissionMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="discountNum != null">
+        discount_num = #{discountNum,jdbcType=VARCHAR},
+      </if>
+      <if test="discountMoney != null">
+        discount_money = #{discountMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="shareGivePoint != null">
+        share_give_point = #{shareGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="buyGivePoint != null">
+        buy_give_point = #{buyGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="buyPv != null">
+        buy_pv = #{buyPv,jdbcType=DECIMAL},
+      </if>
+      <if test="imgThumb != null">
+        img_thumb = #{imgThumb,jdbcType=VARCHAR},
+      </if>
+      <if test="imgOrogin != null">
+        img_orogin = #{imgOrogin,jdbcType=VARCHAR},
+      </if>
+      <if test="imgPromote != null">
+        img_promote = #{imgPromote,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsBef != null">
+        goods_bef = #{goodsBef,jdbcType=VARCHAR},
+      </if>
+      <if test="sellNumber != null">
+        sell_number = #{sellNumber,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="shopSort != null">
+        shop_sort = #{shopSort,jdbcType=INTEGER},
+      </if>
+      <if test="purchase != null">
+        purchase = #{purchase,jdbcType=VARCHAR},
+      </if>
+      <if test="isPintuan != null">
+        is_pintuan = #{isPintuan,jdbcType=SMALLINT},
+      </if>
+      <if test="isZhongchou != null">
+        is_zhongchou = #{isZhongchou,jdbcType=SMALLINT},
+      </if>
+      <if test="isReal != null">
+        is_real = #{isReal,jdbcType=SMALLINT},
+      </if>
+      <if test="isQianggou != null">
+        is_qianggou = #{isQianggou,jdbcType=SMALLINT},
+      </if>
+      <if test="isPromote != null">
+        is_promote = #{isPromote,jdbcType=SMALLINT},
+      </if>
+      <if test="isMiaosha != null">
+        is_miaosha = #{isMiaosha,jdbcType=SMALLINT},
+      </if>
+      <if test="isXiangliang != null">
+        is_xiangliang = #{isXiangliang,jdbcType=SMALLINT},
+      </if>
+      <if test="isPre != null">
+        is_pre = #{isPre,jdbcType=SMALLINT},
+      </if>
+      <if test="isHot != null">
+        is_hot = #{isHot,jdbcType=SMALLINT},
+      </if>
+      <if test="isDangpin != null">
+        is_dangpin = #{isDangpin,jdbcType=SMALLINT},
+      </if>
+      <if test="isRecommended != null">
+        is_recommended = #{isRecommended,jdbcType=SMALLINT},
+      </if>
+      <if test="isPoint != null">
+        is_point = #{isPoint,jdbcType=SMALLINT},
+      </if>
+      <if test="pointPrice != null">
+        point_price = #{pointPrice,jdbcType=INTEGER},
+      </if>
+      <if test="isNew != null">
+        is_new = #{isNew,jdbcType=SMALLINT},
+      </if>
+      <if test="isHadGift != null">
+        is_had_gift = #{isHadGift,jdbcType=SMALLINT},
+      </if>
+      <if test="isTra != null">
+        is_tra = #{isTra,jdbcType=SMALLINT},
+      </if>
+      <if test="isShare != null">
+        is_share = #{isShare,jdbcType=SMALLINT},
+      </if>
+      <if test="isBargain != null">
+        is_bargain = #{isBargain,jdbcType=SMALLINT},
+      </if>
+      <if test="isUserCoupon != null">
+        is_user_coupon = #{isUserCoupon,jdbcType=SMALLINT},
+      </if>
+      <if test="isDiscount != null">
+        is_discount = #{isDiscount,jdbcType=SMALLINT},
+      </if>
+      <if test="isTuangou != null">
+        is_tuangou = #{isTuangou,jdbcType=SMALLINT},
+      </if>
+      <if test="isYanguang != null">
+        is_yanguang = #{isYanguang,jdbcType=SMALLINT},
+      </if>
+      <if test="isUserCouponFee != null">
+        is_user_coupon_fee = #{isUserCouponFee,jdbcType=DECIMAL},
+      </if>
+      <if test="isCoupon50 != null">
+        is_coupon_50 = #{isCoupon50,jdbcType=SMALLINT},
+      </if>
+      <if test="isCoupon100 != null">
+        is_coupon_100 = #{isCoupon100,jdbcType=SMALLINT},
+      </if>
+      <if test="isDaojishituan != null">
+        is_daojishituan = #{isDaojishituan,jdbcType=SMALLINT},
+      </if>
+      <if test="isGuangxue != null">
+        is_guangxue = #{isGuangxue,jdbcType=SMALLINT},
+      </if>
+      <if test="zhongchouCateId != null">
+        zhongchou_cate_id = #{zhongchouCateId,jdbcType=SMALLINT},
+      </if>
+      <if test="isPayOnce != null">
+        is_pay_once = #{isPayOnce,jdbcType=SMALLINT},
+      </if>
+      <if test="twoPush != null">
+        two_push = #{twoPush,jdbcType=VARCHAR},
+      </if>
+      <if test="onePush != null">
+        one_push = #{onePush,jdbcType=VARCHAR},
+      </if>
+      <if test="giftLists != null">
+        gift_lists = #{giftLists,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="buyDeductionPoint != null">
+        buy_deduction_point = #{buyDeductionPoint,jdbcType=INTEGER},
+      </if>
+      <if test="buyGiveSharePoint != null">
+        buy_give_share_point = #{buyGiveSharePoint,jdbcType=INTEGER},
+      </if>
+      <if test="payLevelLists != null">
+        pay_level_lists = #{payLevelLists,jdbcType=REAL},
+      </if>
+      <if test="reviewGivePoint != null">
+        review_give_point = #{reviewGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanParams != null">
+        pintuan_params = #{pintuanParams,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        params = #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="pintuanEndtime != null">
+        pintuan_endtime = #{pintuanEndtime,jdbcType=INTEGER},
+      </if>
+      <if test="imgPintuan != null">
+        img_pintuan = #{imgPintuan,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="edittime != null">
+        edittime = #{edittime,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        addtime = #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseIds != null">
+        warehouse_ids = #{warehouseIds,jdbcType=VARCHAR},
+      </if>
+      <if test="kuaidiIds != null">
+        kuaidi_ids = #{kuaidiIds,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null">
+        supplier_id = #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="supplyPrice != null">
+        supply_price = #{supplyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="isTop != null">
+        is_top = #{isTop,jdbcType=TINYINT},
+      </if>
+      <if test="givePoints != null">
+        give_points = #{givePoints,jdbcType=INTEGER},
+      </if>
+      <if test="clickCount != null">
+        click_count = #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="isPromoteQm != null">
+        is_promote_qm = #{isPromoteQm,jdbcType=TINYINT},
+      </if>
+      <if test="imgDetail != null">
+        img_detail = #{imgDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsStatus != null">
+        goods_status = #{goodsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="kfUrl != null">
+        kf_url = #{kfUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="indextplId != null">
+        indextpl_id = #{indextplId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsDes != null">
+        goods_des = #{goodsDes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="video != null">
+        video = #{video,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="videoBef != null">
+        video_bef = #{videoBef,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="service != null">
+        service = #{service,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.masha.model.TlShopGoods">
+    update tl_shop_goods
+    set goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      is_yuncang = #{isYuncang,jdbcType=SMALLINT},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      sub_title = #{subTitle,jdbcType=VARCHAR},
+      goods_name_style = #{goodsNameStyle,jdbcType=VARCHAR},
+      keyword = #{keyword,jdbcType=VARCHAR},
+      count_buy = #{countBuy,jdbcType=INTEGER},
+      count_view = #{countView,jdbcType=INTEGER},
+      cate_id = #{cateId,jdbcType=INTEGER},
+      home_cate = #{homeCate,jdbcType=INTEGER},
+      cate_self_id = #{cateSelfId,jdbcType=INTEGER},
+      brand_id = #{brandId,jdbcType=SMALLINT},
+      attribute_cate_id = #{attributeCateId,jdbcType=INTEGER},
+      provider_id = #{providerId,jdbcType=VARCHAR},
+      goods_number = #{goodsNumber,jdbcType=INTEGER},
+      goods_weight = #{goodsWeight,jdbcType=DECIMAL},
+      market_price = #{marketPrice,jdbcType=DECIMAL},
+      shop_price = #{shopPrice,jdbcType=DECIMAL},
+      shiyong_price = #{shiyongPrice,jdbcType=DECIMAL},
+      vip_price = #{vipPrice,jdbcType=DECIMAL},
+      pifa_price = #{pifaPrice,jdbcType=DECIMAL},
+      cost_price = #{costPrice,jdbcType=DECIMAL},
+      cal_price = #{calPrice,jdbcType=DECIMAL},
+      coupon_fee = #{couponFee,jdbcType=DECIMAL},
+      coupon_discount = #{couponDiscount,jdbcType=INTEGER},
+      grade_see_all = #{gradeSeeAll,jdbcType=INTEGER},
+      grade_see_ids = #{gradeSeeIds,jdbcType=VARCHAR},
+      is_free_shipping_fee = #{isFreeShippingFee,jdbcType=INTEGER},
+      meal_price = #{mealPrice,jdbcType=DECIMAL},
+      dis_price = #{disPrice,jdbcType=DECIMAL},
+      max_point_pre = #{maxPointPre,jdbcType=INTEGER},
+      max_point = #{maxPoint,jdbcType=INTEGER},
+      promote_price = #{promotePrice,jdbcType=DECIMAL},
+      promote_start_date = #{promoteStartDate,jdbcType=INTEGER},
+      point_end_date = #{pointEndDate,jdbcType=INTEGER},
+      promote_end_date = #{promoteEndDate,jdbcType=INTEGER},
+      commission_money = #{commissionMoney,jdbcType=DECIMAL},
+      discount_num = #{discountNum,jdbcType=VARCHAR},
+      discount_money = #{discountMoney,jdbcType=DECIMAL},
+      share_give_point = #{shareGivePoint,jdbcType=INTEGER},
+      buy_give_point = #{buyGivePoint,jdbcType=INTEGER},
+      buy_pv = #{buyPv,jdbcType=DECIMAL},
+      img_thumb = #{imgThumb,jdbcType=VARCHAR},
+      img_orogin = #{imgOrogin,jdbcType=VARCHAR},
+      img_promote = #{imgPromote,jdbcType=VARCHAR},
+      goods_bef = #{goodsBef,jdbcType=VARCHAR},
+      sell_number = #{sellNumber,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      shop_sort = #{shopSort,jdbcType=INTEGER},
+      purchase = #{purchase,jdbcType=VARCHAR},
+      is_pintuan = #{isPintuan,jdbcType=SMALLINT},
+      is_zhongchou = #{isZhongchou,jdbcType=SMALLINT},
+      is_real = #{isReal,jdbcType=SMALLINT},
+      is_qianggou = #{isQianggou,jdbcType=SMALLINT},
+      is_promote = #{isPromote,jdbcType=SMALLINT},
+      is_miaosha = #{isMiaosha,jdbcType=SMALLINT},
+      is_xiangliang = #{isXiangliang,jdbcType=SMALLINT},
+      is_pre = #{isPre,jdbcType=SMALLINT},
+      is_hot = #{isHot,jdbcType=SMALLINT},
+      is_dangpin = #{isDangpin,jdbcType=SMALLINT},
+      is_recommended = #{isRecommended,jdbcType=SMALLINT},
+      is_point = #{isPoint,jdbcType=SMALLINT},
+      point_price = #{pointPrice,jdbcType=INTEGER},
+      is_new = #{isNew,jdbcType=SMALLINT},
+      is_had_gift = #{isHadGift,jdbcType=SMALLINT},
+      is_tra = #{isTra,jdbcType=SMALLINT},
+      is_share = #{isShare,jdbcType=SMALLINT},
+      is_bargain = #{isBargain,jdbcType=SMALLINT},
+      is_user_coupon = #{isUserCoupon,jdbcType=SMALLINT},
+      is_discount = #{isDiscount,jdbcType=SMALLINT},
+      is_tuangou = #{isTuangou,jdbcType=SMALLINT},
+      is_yanguang = #{isYanguang,jdbcType=SMALLINT},
+      is_user_coupon_fee = #{isUserCouponFee,jdbcType=DECIMAL},
+      is_coupon_50 = #{isCoupon50,jdbcType=SMALLINT},
+      is_coupon_100 = #{isCoupon100,jdbcType=SMALLINT},
+      is_daojishituan = #{isDaojishituan,jdbcType=SMALLINT},
+      is_guangxue = #{isGuangxue,jdbcType=SMALLINT},
+      zhongchou_cate_id = #{zhongchouCateId,jdbcType=SMALLINT},
+      is_pay_once = #{isPayOnce,jdbcType=SMALLINT},
+      two_push = #{twoPush,jdbcType=VARCHAR},
+      one_push = #{onePush,jdbcType=VARCHAR},
+      gift_lists = #{giftLists,jdbcType=VARCHAR},
+      status = #{status,jdbcType=SMALLINT},
+      buy_deduction_point = #{buyDeductionPoint,jdbcType=INTEGER},
+      buy_give_share_point = #{buyGiveSharePoint,jdbcType=INTEGER},
+      pay_level_lists = #{payLevelLists,jdbcType=REAL},
+      review_give_point = #{reviewGivePoint,jdbcType=INTEGER},
+      pintuan_params = #{pintuanParams,jdbcType=VARCHAR},
+      params = #{params,jdbcType=VARCHAR},
+      pintuan_endtime = #{pintuanEndtime,jdbcType=INTEGER},
+      img_pintuan = #{imgPintuan,jdbcType=VARCHAR},
+      shop_id = #{shopId,jdbcType=INTEGER},
+      edittime = #{edittime,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      warehouse_ids = #{warehouseIds,jdbcType=VARCHAR},
+      kuaidi_ids = #{kuaidiIds,jdbcType=VARCHAR},
+      supplier_id = #{supplierId,jdbcType=INTEGER},
+      supply_price = #{supplyPrice,jdbcType=DECIMAL},
+      is_top = #{isTop,jdbcType=TINYINT},
+      give_points = #{givePoints,jdbcType=INTEGER},
+      click_count = #{clickCount,jdbcType=INTEGER},
+      is_promote_qm = #{isPromoteQm,jdbcType=TINYINT},
+      img_detail = #{imgDetail,jdbcType=VARCHAR},
+      goods_status = #{goodsStatus,jdbcType=VARCHAR},
+      kf_url = #{kfUrl,jdbcType=VARCHAR},
+      indextpl_id = #{indextplId,jdbcType=INTEGER},
+      goods_des = #{goodsDes,jdbcType=LONGVARCHAR},
+      video = #{video,jdbcType=LONGVARCHAR},
+      video_bef = #{videoBef,jdbcType=LONGVARCHAR},
+      service = #{service,jdbcType=LONGVARCHAR}
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.masha.model.TlShopGoods">
+    update tl_shop_goods
+    set goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      is_yuncang = #{isYuncang,jdbcType=SMALLINT},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      sub_title = #{subTitle,jdbcType=VARCHAR},
+      goods_name_style = #{goodsNameStyle,jdbcType=VARCHAR},
+      keyword = #{keyword,jdbcType=VARCHAR},
+      count_buy = #{countBuy,jdbcType=INTEGER},
+      count_view = #{countView,jdbcType=INTEGER},
+      cate_id = #{cateId,jdbcType=INTEGER},
+      home_cate = #{homeCate,jdbcType=INTEGER},
+      cate_self_id = #{cateSelfId,jdbcType=INTEGER},
+      brand_id = #{brandId,jdbcType=SMALLINT},
+      attribute_cate_id = #{attributeCateId,jdbcType=INTEGER},
+      provider_id = #{providerId,jdbcType=VARCHAR},
+      goods_number = #{goodsNumber,jdbcType=INTEGER},
+      goods_weight = #{goodsWeight,jdbcType=DECIMAL},
+      market_price = #{marketPrice,jdbcType=DECIMAL},
+      shop_price = #{shopPrice,jdbcType=DECIMAL},
+      shiyong_price = #{shiyongPrice,jdbcType=DECIMAL},
+      vip_price = #{vipPrice,jdbcType=DECIMAL},
+      pifa_price = #{pifaPrice,jdbcType=DECIMAL},
+      cost_price = #{costPrice,jdbcType=DECIMAL},
+      cal_price = #{calPrice,jdbcType=DECIMAL},
+      coupon_fee = #{couponFee,jdbcType=DECIMAL},
+      coupon_discount = #{couponDiscount,jdbcType=INTEGER},
+      grade_see_all = #{gradeSeeAll,jdbcType=INTEGER},
+      grade_see_ids = #{gradeSeeIds,jdbcType=VARCHAR},
+      is_free_shipping_fee = #{isFreeShippingFee,jdbcType=INTEGER},
+      meal_price = #{mealPrice,jdbcType=DECIMAL},
+      dis_price = #{disPrice,jdbcType=DECIMAL},
+      max_point_pre = #{maxPointPre,jdbcType=INTEGER},
+      max_point = #{maxPoint,jdbcType=INTEGER},
+      promote_price = #{promotePrice,jdbcType=DECIMAL},
+      promote_start_date = #{promoteStartDate,jdbcType=INTEGER},
+      point_end_date = #{pointEndDate,jdbcType=INTEGER},
+      promote_end_date = #{promoteEndDate,jdbcType=INTEGER},
+      commission_money = #{commissionMoney,jdbcType=DECIMAL},
+      discount_num = #{discountNum,jdbcType=VARCHAR},
+      discount_money = #{discountMoney,jdbcType=DECIMAL},
+      share_give_point = #{shareGivePoint,jdbcType=INTEGER},
+      buy_give_point = #{buyGivePoint,jdbcType=INTEGER},
+      buy_pv = #{buyPv,jdbcType=DECIMAL},
+      img_thumb = #{imgThumb,jdbcType=VARCHAR},
+      img_orogin = #{imgOrogin,jdbcType=VARCHAR},
+      img_promote = #{imgPromote,jdbcType=VARCHAR},
+      goods_bef = #{goodsBef,jdbcType=VARCHAR},
+      sell_number = #{sellNumber,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      shop_sort = #{shopSort,jdbcType=INTEGER},
+      purchase = #{purchase,jdbcType=VARCHAR},
+      is_pintuan = #{isPintuan,jdbcType=SMALLINT},
+      is_zhongchou = #{isZhongchou,jdbcType=SMALLINT},
+      is_real = #{isReal,jdbcType=SMALLINT},
+      is_qianggou = #{isQianggou,jdbcType=SMALLINT},
+      is_promote = #{isPromote,jdbcType=SMALLINT},
+      is_miaosha = #{isMiaosha,jdbcType=SMALLINT},
+      is_xiangliang = #{isXiangliang,jdbcType=SMALLINT},
+      is_pre = #{isPre,jdbcType=SMALLINT},
+      is_hot = #{isHot,jdbcType=SMALLINT},
+      is_dangpin = #{isDangpin,jdbcType=SMALLINT},
+      is_recommended = #{isRecommended,jdbcType=SMALLINT},
+      is_point = #{isPoint,jdbcType=SMALLINT},
+      point_price = #{pointPrice,jdbcType=INTEGER},
+      is_new = #{isNew,jdbcType=SMALLINT},
+      is_had_gift = #{isHadGift,jdbcType=SMALLINT},
+      is_tra = #{isTra,jdbcType=SMALLINT},
+      is_share = #{isShare,jdbcType=SMALLINT},
+      is_bargain = #{isBargain,jdbcType=SMALLINT},
+      is_user_coupon = #{isUserCoupon,jdbcType=SMALLINT},
+      is_discount = #{isDiscount,jdbcType=SMALLINT},
+      is_tuangou = #{isTuangou,jdbcType=SMALLINT},
+      is_yanguang = #{isYanguang,jdbcType=SMALLINT},
+      is_user_coupon_fee = #{isUserCouponFee,jdbcType=DECIMAL},
+      is_coupon_50 = #{isCoupon50,jdbcType=SMALLINT},
+      is_coupon_100 = #{isCoupon100,jdbcType=SMALLINT},
+      is_daojishituan = #{isDaojishituan,jdbcType=SMALLINT},
+      is_guangxue = #{isGuangxue,jdbcType=SMALLINT},
+      zhongchou_cate_id = #{zhongchouCateId,jdbcType=SMALLINT},
+      is_pay_once = #{isPayOnce,jdbcType=SMALLINT},
+      two_push = #{twoPush,jdbcType=VARCHAR},
+      one_push = #{onePush,jdbcType=VARCHAR},
+      gift_lists = #{giftLists,jdbcType=VARCHAR},
+      status = #{status,jdbcType=SMALLINT},
+      buy_deduction_point = #{buyDeductionPoint,jdbcType=INTEGER},
+      buy_give_share_point = #{buyGiveSharePoint,jdbcType=INTEGER},
+      pay_level_lists = #{payLevelLists,jdbcType=REAL},
+      review_give_point = #{reviewGivePoint,jdbcType=INTEGER},
+      pintuan_params = #{pintuanParams,jdbcType=VARCHAR},
+      params = #{params,jdbcType=VARCHAR},
+      pintuan_endtime = #{pintuanEndtime,jdbcType=INTEGER},
+      img_pintuan = #{imgPintuan,jdbcType=VARCHAR},
+      shop_id = #{shopId,jdbcType=INTEGER},
+      edittime = #{edittime,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      warehouse_ids = #{warehouseIds,jdbcType=VARCHAR},
+      kuaidi_ids = #{kuaidiIds,jdbcType=VARCHAR},
+      supplier_id = #{supplierId,jdbcType=INTEGER},
+      supply_price = #{supplyPrice,jdbcType=DECIMAL},
+      is_top = #{isTop,jdbcType=TINYINT},
+      give_points = #{givePoints,jdbcType=INTEGER},
+      click_count = #{clickCount,jdbcType=INTEGER},
+      is_promote_qm = #{isPromoteQm,jdbcType=TINYINT},
+      img_detail = #{imgDetail,jdbcType=VARCHAR},
+      goods_status = #{goodsStatus,jdbcType=VARCHAR},
+      kf_url = #{kfUrl,jdbcType=VARCHAR},
+      indextpl_id = #{indextplId,jdbcType=INTEGER}
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
+</mapper>
