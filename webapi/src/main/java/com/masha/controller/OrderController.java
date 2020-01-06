@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(description = "订单管理")
 @RestController
+@Api(description = "订单管理")
 @RequestMapping("/Order")
 public class OrderController extends BaseController {
     @Autowired
