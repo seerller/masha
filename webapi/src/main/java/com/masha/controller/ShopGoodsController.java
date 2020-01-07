@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.masha.controller.commen.BaseController;
 import com.masha.model.TlShopGoods;
+import com.masha.service.Impl.OrderService;
 import com.masha.service.Impl.ShopGoodsService;
+import com.masha.tools.MessageBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -21,6 +23,9 @@ public class ShopGoodsController extends BaseController {
     @Autowired
     ShopGoodsService shopGoodsService;
 
+    @Autowired
+    OrderService orderService;
+
     @ApiOperation(value = "商品列表")
     @RequestMapping(value = "/ShopGoods", method = RequestMethod.GET)
     public Object getShopGoodsList(Page page){
@@ -35,6 +40,10 @@ public class ShopGoodsController extends BaseController {
     })
     public Object getShopGoodsById(Integer goodsId){
         return resultSuccess(shopGoodsService.getById(goodsId));
+    }
+
+    public MessageBean addorder(){
+        return resultSuccess();
     }
 
 }

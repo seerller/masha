@@ -1,4 +1,4 @@
-package com.gangan.out;
+package com.masha.out;
 
 public class Department{
     private Integer id;

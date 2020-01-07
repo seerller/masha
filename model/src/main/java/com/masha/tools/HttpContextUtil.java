@@ -1,4 +1,4 @@
-package com.gangan.tools;
+package com.masha.tools;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -14,7 +14,6 @@ public class HttpContextUtil {
     /**
      * 获取IP地址的方法
      *
-     * @param request 传一个request对象下来
      * @return
      */
     public static String getIpAddress() {

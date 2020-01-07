@@ -1,4 +1,4 @@
-package com.gangan.out;
+package com.masha.out;
 
 import java.io.Serializable;
 import java.util.Date;

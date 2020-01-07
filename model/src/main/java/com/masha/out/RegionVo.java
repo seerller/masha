@@ -1,6 +1,4 @@
-package com.gangan.out;
-
-import com.gangan.model.Area;
+package com.masha.out;
 
 import java.io.Serializable;
 import java.util.List;

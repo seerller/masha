@@ -1,7 +1,5 @@
-package com.gangan.out;
+package com.masha.out;
 
-
-import com.gangan.model.Message;
 
 import java.io.Serializable;
 import java.util.List;

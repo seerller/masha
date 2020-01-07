@@ -1,4 +1,4 @@
-package com.gangan.tools;
+package com.masha.tools;
 
 import com.github.houbb.opencc4j.util.ZhConverterUtil;
 

@@ -1,4 +1,4 @@
-package com.gangan.tools;
+package com.masha.tools;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

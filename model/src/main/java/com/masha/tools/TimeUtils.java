@@ -1,4 +1,4 @@
-package com.gangan.tools;
+package com.masha.tools;
 
 import org.apache.commons.lang.StringUtils;
 

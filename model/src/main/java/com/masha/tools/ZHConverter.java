@@ -1,4 +1,4 @@
-package com.gangan.tools;
+package com.masha.tools;
 
 import java.io.*;
 import java.util.HashMap;
