@@ -6,7 +6,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.masha.controller.commen.BaseController;
 import com.masha.model.TlOrder;
 import com.masha.model.TlOrderBack;
+import com.masha.model.TlOrderGoods;
 import com.masha.service.Impl.OrderBackService;
+import com.masha.service.Impl.OrderGoodsService;
 import com.masha.service.Impl.OrderService;
 import com.masha.tools.MessageBean;
 import io.swagger.annotations.Api;
@@ -27,6 +29,9 @@ public class OrderController extends BaseController {
 
     @Autowired
     OrderBackService orderBackService;
+
+    @Autowired
+    OrderGoodsService orderGoodsService;
 
     @RequestMapping(value = "/getTlOerderList", method = RequestMethod.POST)
     @ApiOperation(value = "订单列表")
@@ -110,7 +115,25 @@ public class OrderController extends BaseController {
         return resultSuccess(orderBackService.save(orderBack));
     }
 
-
+    @RequestMapping(value = "/addComment",method = RequestMethod.POST)
+    @ApiOperation(value = "订单商品评价")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name="orderId", dataType = "Integer", required = true , value = "订单id"),
+            @ApiImplicitParam(paramType = "query", name="goodsId", dataType = "Integer", required = true , value = "商品id"),
+            @ApiImplicitParam(paramType = "query", name="commentStar", dataType = "Integer", required = true , value = "评分"),
+            @ApiImplicitParam(paramType = "query", name="content", dataType = "String", required = true , value = "评价内容"),
+            @ApiImplicitParam(paramType = "query", name="Img", dataType = "String", required = true , value = "图片"),
+    })
+    public MessageBean addComment(Integer orderId, Integer goodsId, Integer commentStar , String content, String Img){
+        TlOrderGoods orderGoods=new TlOrderGoods();
+        orderGoods.setOrderId(orderId);
+        orderGoods.setGoodsId(goodsId);
+        orderGoods.setCommentStar(commentStar);
+        orderGoods.setContent(content);
+        orderGoods.setImg(Img);
+        orderGoods.setCommentStatus(1);
+        return resultSuccess(orderGoodsService.save(orderGoods));
+    }
 
 }
 
