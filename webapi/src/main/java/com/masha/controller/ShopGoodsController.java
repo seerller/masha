@@ -10,6 +10,7 @@ import com.masha.model.TlShopGoods;
 import com.masha.service.Impl.OrderGoodsService;
 import com.masha.service.Impl.OrderService;
 import com.masha.service.Impl.ShopGoodsService;
+import com.masha.tools.MessageBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -67,6 +68,33 @@ public class ShopGoodsController extends BaseController {
         QueryWrapper<TlOrder> query = Wrappers.<TlOrder>query();
         query.select("address", "address_name","address_phone").eq("user_Id",userId);
         return resultSuccess(orderService.query());
+    }
+
+    @RequestMapping(value = "/addAddress",method = RequestMethod.POST)
+    @ApiOperation(value = "新增地址")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name="addressId", dataType = "Short", required = true , value = "地址id"),
+            @ApiImplicitParam(paramType = "query", name="addressName", dataType = "String", required = true , value = "姓名"),
+            @ApiImplicitParam(paramType = "query", name="addressPhone", dataType = "String", required = true , value = "手机号码"),
+            @ApiImplicitParam(paramType = "query", name="addressProvinceId", dataType = "Integer", required = true , value = "省份ID"),
+            @ApiImplicitParam(paramType = "query", name="addressAreaId", dataType = "Integer", required = true , value = "地区ID"),
+            @ApiImplicitParam(paramType = "query", name="addressCityId", dataType = "Integer", required = true , value = "城市ID"),
+            @ApiImplicitParam(paramType = "query", name="addressStreetId", dataType = "Integer", required = true , value = "街道ID"),
+            @ApiImplicitParam(paramType = "query", name="addressParams", dataType = "String", required = true , value = "地址详情")
+    })
+    public MessageBean addAddress(Short addressId, String addressName, String addressPhone,
+                                  Integer addressProvinceId,Integer addressCityId,Integer addressAreaId,
+                                  Integer addressStreetId,String addressParams){
+        TlOrder order = new TlOrder();
+        order.setAddressId(addressId);
+        order.setAddressName(addressName);
+        order.setAddressPhone(addressPhone);
+        order.setAddressProvinceId(addressProvinceId);
+        order.setAddressAreaId(addressAreaId);
+        order.setAddressCityId(addressCityId);
+        order.setAddressStreetId(addressStreetId);
+        order.setAddressParams(addressParams);
+        return resultSuccess(orderService.save(order));
     }
 
 
