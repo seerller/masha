@@ -135,5 +135,19 @@ public class OrderController extends BaseController {
         return resultSuccess(orderGoodsService.save(orderGoods));
     }
 
+    @RequestMapping(value = "/addOrder", method = RequestMethod.POST)
+    @ApiOperation(value = "新增订单")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name="orderId", dataType = "Integer", required = true , value = "订单id")
+    })
+    public MessageBean addOrder(Short addressId, Integer orderId){
+        TlOrder order = new TlOrder();
+        order.setAddressId(addressId);
+        orderService.getTlOrderById(orderId);
+        return resultSuccess(orderService.save(order));
+    }
+
+
+
 }
 
