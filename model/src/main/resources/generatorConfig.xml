@@ -49,7 +49,7 @@
             <property name="superClass" value="com.masha.controller"></property>-->
 
         <!--生成全部表tableName设为%-->
-        <table tableName = "tl_order_goods">
+        <table tableName = "tl_shop_share_user">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

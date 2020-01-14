@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.masha.mapper.TlShopShareUserMapper">
+  <resultMap id="BaseResultMap" type="com.masha.model.TlShopShareUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="business_id" jdbcType="INTEGER" property="businessId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="parent_ids" jdbcType="VARCHAR" property="parentIds" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="is_email_check" jdbcType="INTEGER" property="isEmailCheck" />
+    <result column="path_id" jdbcType="VARCHAR" property="pathId" />
+    <result column="point_cps" jdbcType="INTEGER" property="pointCps" />
+    <result column="qccode" jdbcType="VARCHAR" property="qccode" />
+    <result column="truename" jdbcType="VARCHAR" property="truename" />
+    <result column="tenpay" jdbcType="VARCHAR" property="tenpay" />
+    <result column="alipay" jdbcType="VARCHAR" property="alipay" />
+    <result column="shenfenzheng" jdbcType="VARCHAR" property="shenfenzheng" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="wx_num" jdbcType="VARCHAR" property="wxNum" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="point" jdbcType="INTEGER" property="point" />
+    <result column="point_all" jdbcType="INTEGER" property="pointAll" />
+    <result column="cash" jdbcType="DECIMAL" property="cash" />
+    <result column="count_orderfee_all" jdbcType="DECIMAL" property="countOrderfeeAll" />
+    <result column="count_sharefee_all" jdbcType="DECIMAL" property="countSharefeeAll" />
+    <result column="count_orderfee" jdbcType="DECIMAL" property="countOrderfee" />
+    <result column="count_order_pv" jdbcType="DECIMAL" property="countOrderPv" />
+    <result column="cash_all" jdbcType="DECIMAL" property="cashAll" />
+    <result column="count_order" jdbcType="INTEGER" property="countOrder" />
+    <result column="count_alluser" jdbcType="INTEGER" property="countAlluser" />
+    <result column="count_vipuser" jdbcType="INTEGER" property="countVipuser" />
+    <result column="count_comuser" jdbcType="INTEGER" property="countComuser" />
+    <result column="count_user_click" jdbcType="INTEGER" property="countUserClick" />
+    <result column="count_user_guanzhu" jdbcType="INTEGER" property="countUserGuanzhu" />
+    <result column="count_user_buy" jdbcType="INTEGER" property="countUserBuy" />
+    <result column="count_yiwancheng_fenxiao" jdbcType="INTEGER" property="countYiwanchengFenxiao" />
+    <result column="count_weiwancheng_fenxiao" jdbcType="INTEGER" property="countWeiwanchengFenxiao" />
+    <result column="count_cash_meifukuan" jdbcType="DECIMAL" property="countCashMeifukuan" />
+    <result column="count_cash_yifukuan" jdbcType="DECIMAL" property="countCashYifukuan" />
+    <result column="count_cash_meishouhuo" jdbcType="DECIMAL" property="countCashMeishouhuo" />
+    <result column="count_cash_shouhuo" jdbcType="DECIMAL" property="countCashShouhuo" />
+    <result column="count_cash_can_tixian" jdbcType="DECIMAL" property="countCashCanTixian" />
+    <result column="count_cash_has_tixian" jdbcType="DECIMAL" property="countCashHasTixian" />
+    <result column="count_cash_zuofei" jdbcType="DECIMAL" property="countCashZuofei" />
+    <result column="count_order_sale_paid" jdbcType="DECIMAL" property="countOrderSalePaid" />
+    <result column="count_share_point" jdbcType="DECIMAL" property="countSharePoint" />
+    <result column="count_cash_equal" jdbcType="DECIMAL" property="countCashEqual" />
+    <result column="count_cash_gap" jdbcType="DECIMAL" property="countCashGap" />
+    <result column="count_cash_profit" jdbcType="DECIMAL" property="countCashProfit" />
+    <result column="count_cash_team" jdbcType="DECIMAL" property="countCashTeam" />
+    <result column="wx_qccode" jdbcType="VARCHAR" property="wxQccode" />
+    <result column="is_guanzhu" jdbcType="INTEGER" property="isGuanzhu" />
+    <result column="addtime" jdbcType="INTEGER" property="addtime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="is_share" jdbcType="INTEGER" property="isShare" />
+    <result column="check_content" jdbcType="VARCHAR" property="checkContent" />
+    <result column="gudong_text" jdbcType="VARCHAR" property="gudongText" />
+    <result column="app" jdbcType="VARCHAR" property="app" />
+    <result column="share_grade_id" jdbcType="INTEGER" property="shareGradeId" />
+    <result column="guanli_grade_id" jdbcType="INTEGER" property="guanliGradeId" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="is_renzheng" jdbcType="TINYINT" property="isRenzheng" />
+    <result column="is_share_user" jdbcType="TINYINT" property="isShareUser" />
+    <result column="is_buy" jdbcType="INTEGER" property="isBuy" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, business_id, user_id, password, parent_id, parent_ids, email, is_email_check, 
+    path_id, point_cps, qccode, truename, tenpay, alipay, shenfenzheng, qq, wx_num, phone, 
+    birthday, point, point_all, cash, count_orderfee_all, count_sharefee_all, count_orderfee, 
+    count_order_pv, cash_all, count_order, count_alluser, count_vipuser, count_comuser, 
+    count_user_click, count_user_guanzhu, count_user_buy, count_yiwancheng_fenxiao, count_weiwancheng_fenxiao, 
+    count_cash_meifukuan, count_cash_yifukuan, count_cash_meishouhuo, count_cash_shouhuo, 
+    count_cash_can_tixian, count_cash_has_tixian, count_cash_zuofei, count_order_sale_paid, 
+    count_share_point, count_cash_equal, count_cash_gap, count_cash_profit, count_cash_team, 
+    wx_qccode, is_guanzhu, addtime, status, is_share, check_content, gudong_text, app, 
+    share_grade_id, guanli_grade_id, level, is_renzheng, is_share_user, is_buy
+  </sql>
+  <select id="selectByExample" parameterType="com.masha.model.TlShopShareUserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tl_shop_share_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tl_shop_share_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tl_shop_share_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.masha.model.TlShopShareUserExample">
+    delete from tl_shop_share_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.masha.model.TlShopShareUser">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tl_shop_share_user (business_id, user_id, password, 
+      parent_id, parent_ids, email, 
+      is_email_check, path_id, point_cps, 
+      qccode, truename, tenpay, 
+      alipay, shenfenzheng, qq, 
+      wx_num, phone, birthday, 
+      point, point_all, cash, 
+      count_orderfee_all, count_sharefee_all, count_orderfee, 
+      count_order_pv, cash_all, count_order, 
+      count_alluser, count_vipuser, count_comuser, 
+      count_user_click, count_user_guanzhu, count_user_buy, 
+      count_yiwancheng_fenxiao, count_weiwancheng_fenxiao, 
+      count_cash_meifukuan, count_cash_yifukuan, 
+      count_cash_meishouhuo, count_cash_shouhuo, 
+      count_cash_can_tixian, count_cash_has_tixian, 
+      count_cash_zuofei, count_order_sale_paid, count_share_point, 
+      count_cash_equal, count_cash_gap, count_cash_profit, 
+      count_cash_team, wx_qccode, is_guanzhu, 
+      addtime, status, is_share, 
+      check_content, gudong_text, app, 
+      share_grade_id, guanli_grade_id, level, 
+      is_renzheng, is_share_user, is_buy
+      )
+    values (#{businessId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, 
+      #{parentId,jdbcType=INTEGER}, #{parentIds,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{isEmailCheck,jdbcType=INTEGER}, #{pathId,jdbcType=VARCHAR}, #{pointCps,jdbcType=INTEGER}, 
+      #{qccode,jdbcType=VARCHAR}, #{truename,jdbcType=VARCHAR}, #{tenpay,jdbcType=VARCHAR}, 
+      #{alipay,jdbcType=VARCHAR}, #{shenfenzheng,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+      #{wxNum,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{point,jdbcType=INTEGER}, #{pointAll,jdbcType=INTEGER}, #{cash,jdbcType=DECIMAL}, 
+      #{countOrderfeeAll,jdbcType=DECIMAL}, #{countSharefeeAll,jdbcType=DECIMAL}, #{countOrderfee,jdbcType=DECIMAL}, 
+      #{countOrderPv,jdbcType=DECIMAL}, #{cashAll,jdbcType=DECIMAL}, #{countOrder,jdbcType=INTEGER}, 
+      #{countAlluser,jdbcType=INTEGER}, #{countVipuser,jdbcType=INTEGER}, #{countComuser,jdbcType=INTEGER}, 
+      #{countUserClick,jdbcType=INTEGER}, #{countUserGuanzhu,jdbcType=INTEGER}, #{countUserBuy,jdbcType=INTEGER}, 
+      #{countYiwanchengFenxiao,jdbcType=INTEGER}, #{countWeiwanchengFenxiao,jdbcType=INTEGER}, 
+      #{countCashMeifukuan,jdbcType=DECIMAL}, #{countCashYifukuan,jdbcType=DECIMAL}, 
+      #{countCashMeishouhuo,jdbcType=DECIMAL}, #{countCashShouhuo,jdbcType=DECIMAL}, 
+      #{countCashCanTixian,jdbcType=DECIMAL}, #{countCashHasTixian,jdbcType=DECIMAL}, 
+      #{countCashZuofei,jdbcType=DECIMAL}, #{countOrderSalePaid,jdbcType=DECIMAL}, #{countSharePoint,jdbcType=DECIMAL}, 
+      #{countCashEqual,jdbcType=DECIMAL}, #{countCashGap,jdbcType=DECIMAL}, #{countCashProfit,jdbcType=DECIMAL}, 
+      #{countCashTeam,jdbcType=DECIMAL}, #{wxQccode,jdbcType=VARCHAR}, #{isGuanzhu,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{isShare,jdbcType=INTEGER}, 
+      #{checkContent,jdbcType=VARCHAR}, #{gudongText,jdbcType=VARCHAR}, #{app,jdbcType=VARCHAR}, 
+      #{shareGradeId,jdbcType=INTEGER}, #{guanliGradeId,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, 
+      #{isRenzheng,jdbcType=TINYINT}, #{isShareUser,jdbcType=TINYINT}, #{isBuy,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.masha.model.TlShopShareUser">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tl_shop_share_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="businessId != null">
+        business_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="parentIds != null">
+        parent_ids,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="isEmailCheck != null">
+        is_email_check,
+      </if>
+      <if test="pathId != null">
+        path_id,
+      </if>
+      <if test="pointCps != null">
+        point_cps,
+      </if>
+      <if test="qccode != null">
+        qccode,
+      </if>
+      <if test="truename != null">
+        truename,
+      </if>
+      <if test="tenpay != null">
+        tenpay,
+      </if>
+      <if test="alipay != null">
+        alipay,
+      </if>
+      <if test="shenfenzheng != null">
+        shenfenzheng,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="wxNum != null">
+        wx_num,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="point != null">
+        point,
+      </if>
+      <if test="pointAll != null">
+        point_all,
+      </if>
+      <if test="cash != null">
+        cash,
+      </if>
+      <if test="countOrderfeeAll != null">
+        count_orderfee_all,
+      </if>
+      <if test="countSharefeeAll != null">
+        count_sharefee_all,
+      </if>
+      <if test="countOrderfee != null">
+        count_orderfee,
+      </if>
+      <if test="countOrderPv != null">
+        count_order_pv,
+      </if>
+      <if test="cashAll != null">
+        cash_all,
+      </if>
+      <if test="countOrder != null">
+        count_order,
+      </if>
+      <if test="countAlluser != null">
+        count_alluser,
+      </if>
+      <if test="countVipuser != null">
+        count_vipuser,
+      </if>
+      <if test="countComuser != null">
+        count_comuser,
+      </if>
+      <if test="countUserClick != null">
+        count_user_click,
+      </if>
+      <if test="countUserGuanzhu != null">
+        count_user_guanzhu,
+      </if>
+      <if test="countUserBuy != null">
+        count_user_buy,
+      </if>
+      <if test="countYiwanchengFenxiao != null">
+        count_yiwancheng_fenxiao,
+      </if>
+      <if test="countWeiwanchengFenxiao != null">
+        count_weiwancheng_fenxiao,
+      </if>
+      <if test="countCashMeifukuan != null">
+        count_cash_meifukuan,
+      </if>
+      <if test="countCashYifukuan != null">
+        count_cash_yifukuan,
+      </if>
+      <if test="countCashMeishouhuo != null">
+        count_cash_meishouhuo,
+      </if>
+      <if test="countCashShouhuo != null">
+        count_cash_shouhuo,
+      </if>
+      <if test="countCashCanTixian != null">
+        count_cash_can_tixian,
+      </if>
+      <if test="countCashHasTixian != null">
+        count_cash_has_tixian,
+      </if>
+      <if test="countCashZuofei != null">
+        count_cash_zuofei,
+      </if>
+      <if test="countOrderSalePaid != null">
+        count_order_sale_paid,
+      </if>
+      <if test="countSharePoint != null">
+        count_share_point,
+      </if>
+      <if test="countCashEqual != null">
+        count_cash_equal,
+      </if>
+      <if test="countCashGap != null">
+        count_cash_gap,
+      </if>
+      <if test="countCashProfit != null">
+        count_cash_profit,
+      </if>
+      <if test="countCashTeam != null">
+        count_cash_team,
+      </if>
+      <if test="wxQccode != null">
+        wx_qccode,
+      </if>
+      <if test="isGuanzhu != null">
+        is_guanzhu,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="isShare != null">
+        is_share,
+      </if>
+      <if test="checkContent != null">
+        check_content,
+      </if>
+      <if test="gudongText != null">
+        gudong_text,
+      </if>
+      <if test="app != null">
+        app,
+      </if>
+      <if test="shareGradeId != null">
+        share_grade_id,
+      </if>
+      <if test="guanliGradeId != null">
+        guanli_grade_id,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="isRenzheng != null">
+        is_renzheng,
+      </if>
+      <if test="isShareUser != null">
+        is_share_user,
+      </if>
+      <if test="isBuy != null">
+        is_buy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="businessId != null">
+        #{businessId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="parentIds != null">
+        #{parentIds,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="isEmailCheck != null">
+        #{isEmailCheck,jdbcType=INTEGER},
+      </if>
+      <if test="pathId != null">
+        #{pathId,jdbcType=VARCHAR},
+      </if>
+      <if test="pointCps != null">
+        #{pointCps,jdbcType=INTEGER},
+      </if>
+      <if test="qccode != null">
+        #{qccode,jdbcType=VARCHAR},
+      </if>
+      <if test="truename != null">
+        #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="tenpay != null">
+        #{tenpay,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="shenfenzheng != null">
+        #{shenfenzheng,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNum != null">
+        #{wxNum,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null">
+        #{point,jdbcType=INTEGER},
+      </if>
+      <if test="pointAll != null">
+        #{pointAll,jdbcType=INTEGER},
+      </if>
+      <if test="cash != null">
+        #{cash,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrderfeeAll != null">
+        #{countOrderfeeAll,jdbcType=DECIMAL},
+      </if>
+      <if test="countSharefeeAll != null">
+        #{countSharefeeAll,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrderfee != null">
+        #{countOrderfee,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrderPv != null">
+        #{countOrderPv,jdbcType=DECIMAL},
+      </if>
+      <if test="cashAll != null">
+        #{cashAll,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrder != null">
+        #{countOrder,jdbcType=INTEGER},
+      </if>
+      <if test="countAlluser != null">
+        #{countAlluser,jdbcType=INTEGER},
+      </if>
+      <if test="countVipuser != null">
+        #{countVipuser,jdbcType=INTEGER},
+      </if>
+      <if test="countComuser != null">
+        #{countComuser,jdbcType=INTEGER},
+      </if>
+      <if test="countUserClick != null">
+        #{countUserClick,jdbcType=INTEGER},
+      </if>
+      <if test="countUserGuanzhu != null">
+        #{countUserGuanzhu,jdbcType=INTEGER},
+      </if>
+      <if test="countUserBuy != null">
+        #{countUserBuy,jdbcType=INTEGER},
+      </if>
+      <if test="countYiwanchengFenxiao != null">
+        #{countYiwanchengFenxiao,jdbcType=INTEGER},
+      </if>
+      <if test="countWeiwanchengFenxiao != null">
+        #{countWeiwanchengFenxiao,jdbcType=INTEGER},
+      </if>
+      <if test="countCashMeifukuan != null">
+        #{countCashMeifukuan,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashYifukuan != null">
+        #{countCashYifukuan,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashMeishouhuo != null">
+        #{countCashMeishouhuo,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashShouhuo != null">
+        #{countCashShouhuo,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashCanTixian != null">
+        #{countCashCanTixian,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashHasTixian != null">
+        #{countCashHasTixian,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashZuofei != null">
+        #{countCashZuofei,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrderSalePaid != null">
+        #{countOrderSalePaid,jdbcType=DECIMAL},
+      </if>
+      <if test="countSharePoint != null">
+        #{countSharePoint,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashEqual != null">
+        #{countCashEqual,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashGap != null">
+        #{countCashGap,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashProfit != null">
+        #{countCashProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashTeam != null">
+        #{countCashTeam,jdbcType=DECIMAL},
+      </if>
+      <if test="wxQccode != null">
+        #{wxQccode,jdbcType=VARCHAR},
+      </if>
+      <if test="isGuanzhu != null">
+        #{isGuanzhu,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="isShare != null">
+        #{isShare,jdbcType=INTEGER},
+      </if>
+      <if test="checkContent != null">
+        #{checkContent,jdbcType=VARCHAR},
+      </if>
+      <if test="gudongText != null">
+        #{gudongText,jdbcType=VARCHAR},
+      </if>
+      <if test="app != null">
+        #{app,jdbcType=VARCHAR},
+      </if>
+      <if test="shareGradeId != null">
+        #{shareGradeId,jdbcType=INTEGER},
+      </if>
+      <if test="guanliGradeId != null">
+        #{guanliGradeId,jdbcType=INTEGER},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="isRenzheng != null">
+        #{isRenzheng,jdbcType=TINYINT},
+      </if>
+      <if test="isShareUser != null">
+        #{isShareUser,jdbcType=TINYINT},
+      </if>
+      <if test="isBuy != null">
+        #{isBuy,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.masha.model.TlShopShareUserExample" resultType="java.lang.Long">
+    select count(*) from tl_shop_share_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tl_shop_share_user
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.businessId != null">
+        business_id = #{record.businessId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentId != null">
+        parent_id = #{record.parentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentIds != null">
+        parent_ids = #{record.parentIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isEmailCheck != null">
+        is_email_check = #{record.isEmailCheck,jdbcType=INTEGER},
+      </if>
+      <if test="record.pathId != null">
+        path_id = #{record.pathId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pointCps != null">
+        point_cps = #{record.pointCps,jdbcType=INTEGER},
+      </if>
+      <if test="record.qccode != null">
+        qccode = #{record.qccode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.truename != null">
+        truename = #{record.truename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tenpay != null">
+        tenpay = #{record.tenpay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alipay != null">
+        alipay = #{record.alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shenfenzheng != null">
+        shenfenzheng = #{record.shenfenzheng,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qq != null">
+        qq = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wxNum != null">
+        wx_num = #{record.wxNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null">
+        birthday = #{record.birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.point != null">
+        point = #{record.point,jdbcType=INTEGER},
+      </if>
+      <if test="record.pointAll != null">
+        point_all = #{record.pointAll,jdbcType=INTEGER},
+      </if>
+      <if test="record.cash != null">
+        cash = #{record.cash,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countOrderfeeAll != null">
+        count_orderfee_all = #{record.countOrderfeeAll,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countSharefeeAll != null">
+        count_sharefee_all = #{record.countSharefeeAll,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countOrderfee != null">
+        count_orderfee = #{record.countOrderfee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countOrderPv != null">
+        count_order_pv = #{record.countOrderPv,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cashAll != null">
+        cash_all = #{record.cashAll,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countOrder != null">
+        count_order = #{record.countOrder,jdbcType=INTEGER},
+      </if>
+      <if test="record.countAlluser != null">
+        count_alluser = #{record.countAlluser,jdbcType=INTEGER},
+      </if>
+      <if test="record.countVipuser != null">
+        count_vipuser = #{record.countVipuser,jdbcType=INTEGER},
+      </if>
+      <if test="record.countComuser != null">
+        count_comuser = #{record.countComuser,jdbcType=INTEGER},
+      </if>
+      <if test="record.countUserClick != null">
+        count_user_click = #{record.countUserClick,jdbcType=INTEGER},
+      </if>
+      <if test="record.countUserGuanzhu != null">
+        count_user_guanzhu = #{record.countUserGuanzhu,jdbcType=INTEGER},
+      </if>
+      <if test="record.countUserBuy != null">
+        count_user_buy = #{record.countUserBuy,jdbcType=INTEGER},
+      </if>
+      <if test="record.countYiwanchengFenxiao != null">
+        count_yiwancheng_fenxiao = #{record.countYiwanchengFenxiao,jdbcType=INTEGER},
+      </if>
+      <if test="record.countWeiwanchengFenxiao != null">
+        count_weiwancheng_fenxiao = #{record.countWeiwanchengFenxiao,jdbcType=INTEGER},
+      </if>
+      <if test="record.countCashMeifukuan != null">
+        count_cash_meifukuan = #{record.countCashMeifukuan,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashYifukuan != null">
+        count_cash_yifukuan = #{record.countCashYifukuan,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashMeishouhuo != null">
+        count_cash_meishouhuo = #{record.countCashMeishouhuo,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashShouhuo != null">
+        count_cash_shouhuo = #{record.countCashShouhuo,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashCanTixian != null">
+        count_cash_can_tixian = #{record.countCashCanTixian,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashHasTixian != null">
+        count_cash_has_tixian = #{record.countCashHasTixian,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashZuofei != null">
+        count_cash_zuofei = #{record.countCashZuofei,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countOrderSalePaid != null">
+        count_order_sale_paid = #{record.countOrderSalePaid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countSharePoint != null">
+        count_share_point = #{record.countSharePoint,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashEqual != null">
+        count_cash_equal = #{record.countCashEqual,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashGap != null">
+        count_cash_gap = #{record.countCashGap,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashProfit != null">
+        count_cash_profit = #{record.countCashProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="record.countCashTeam != null">
+        count_cash_team = #{record.countCashTeam,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wxQccode != null">
+        wx_qccode = #{record.wxQccode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isGuanzhu != null">
+        is_guanzhu = #{record.isGuanzhu,jdbcType=INTEGER},
+      </if>
+      <if test="record.addtime != null">
+        addtime = #{record.addtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.isShare != null">
+        is_share = #{record.isShare,jdbcType=INTEGER},
+      </if>
+      <if test="record.checkContent != null">
+        check_content = #{record.checkContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gudongText != null">
+        gudong_text = #{record.gudongText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.app != null">
+        app = #{record.app,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareGradeId != null">
+        share_grade_id = #{record.shareGradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.guanliGradeId != null">
+        guanli_grade_id = #{record.guanliGradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.level != null">
+        level = #{record.level,jdbcType=INTEGER},
+      </if>
+      <if test="record.isRenzheng != null">
+        is_renzheng = #{record.isRenzheng,jdbcType=TINYINT},
+      </if>
+      <if test="record.isShareUser != null">
+        is_share_user = #{record.isShareUser,jdbcType=TINYINT},
+      </if>
+      <if test="record.isBuy != null">
+        is_buy = #{record.isBuy,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tl_shop_share_user
+    set id = #{record.id,jdbcType=INTEGER},
+      business_id = #{record.businessId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      password = #{record.password,jdbcType=VARCHAR},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      parent_ids = #{record.parentIds,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      is_email_check = #{record.isEmailCheck,jdbcType=INTEGER},
+      path_id = #{record.pathId,jdbcType=VARCHAR},
+      point_cps = #{record.pointCps,jdbcType=INTEGER},
+      qccode = #{record.qccode,jdbcType=VARCHAR},
+      truename = #{record.truename,jdbcType=VARCHAR},
+      tenpay = #{record.tenpay,jdbcType=VARCHAR},
+      alipay = #{record.alipay,jdbcType=VARCHAR},
+      shenfenzheng = #{record.shenfenzheng,jdbcType=VARCHAR},
+      qq = #{record.qq,jdbcType=VARCHAR},
+      wx_num = #{record.wxNum,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=VARCHAR},
+      point = #{record.point,jdbcType=INTEGER},
+      point_all = #{record.pointAll,jdbcType=INTEGER},
+      cash = #{record.cash,jdbcType=DECIMAL},
+      count_orderfee_all = #{record.countOrderfeeAll,jdbcType=DECIMAL},
+      count_sharefee_all = #{record.countSharefeeAll,jdbcType=DECIMAL},
+      count_orderfee = #{record.countOrderfee,jdbcType=DECIMAL},
+      count_order_pv = #{record.countOrderPv,jdbcType=DECIMAL},
+      cash_all = #{record.cashAll,jdbcType=DECIMAL},
+      count_order = #{record.countOrder,jdbcType=INTEGER},
+      count_alluser = #{record.countAlluser,jdbcType=INTEGER},
+      count_vipuser = #{record.countVipuser,jdbcType=INTEGER},
+      count_comuser = #{record.countComuser,jdbcType=INTEGER},
+      count_user_click = #{record.countUserClick,jdbcType=INTEGER},
+      count_user_guanzhu = #{record.countUserGuanzhu,jdbcType=INTEGER},
+      count_user_buy = #{record.countUserBuy,jdbcType=INTEGER},
+      count_yiwancheng_fenxiao = #{record.countYiwanchengFenxiao,jdbcType=INTEGER},
+      count_weiwancheng_fenxiao = #{record.countWeiwanchengFenxiao,jdbcType=INTEGER},
+      count_cash_meifukuan = #{record.countCashMeifukuan,jdbcType=DECIMAL},
+      count_cash_yifukuan = #{record.countCashYifukuan,jdbcType=DECIMAL},
+      count_cash_meishouhuo = #{record.countCashMeishouhuo,jdbcType=DECIMAL},
+      count_cash_shouhuo = #{record.countCashShouhuo,jdbcType=DECIMAL},
+      count_cash_can_tixian = #{record.countCashCanTixian,jdbcType=DECIMAL},
+      count_cash_has_tixian = #{record.countCashHasTixian,jdbcType=DECIMAL},
+      count_cash_zuofei = #{record.countCashZuofei,jdbcType=DECIMAL},
+      count_order_sale_paid = #{record.countOrderSalePaid,jdbcType=DECIMAL},
+      count_share_point = #{record.countSharePoint,jdbcType=DECIMAL},
+      count_cash_equal = #{record.countCashEqual,jdbcType=DECIMAL},
+      count_cash_gap = #{record.countCashGap,jdbcType=DECIMAL},
+      count_cash_profit = #{record.countCashProfit,jdbcType=DECIMAL},
+      count_cash_team = #{record.countCashTeam,jdbcType=DECIMAL},
+      wx_qccode = #{record.wxQccode,jdbcType=VARCHAR},
+      is_guanzhu = #{record.isGuanzhu,jdbcType=INTEGER},
+      addtime = #{record.addtime,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      is_share = #{record.isShare,jdbcType=INTEGER},
+      check_content = #{record.checkContent,jdbcType=VARCHAR},
+      gudong_text = #{record.gudongText,jdbcType=VARCHAR},
+      app = #{record.app,jdbcType=VARCHAR},
+      share_grade_id = #{record.shareGradeId,jdbcType=INTEGER},
+      guanli_grade_id = #{record.guanliGradeId,jdbcType=INTEGER},
+      level = #{record.level,jdbcType=INTEGER},
+      is_renzheng = #{record.isRenzheng,jdbcType=TINYINT},
+      is_share_user = #{record.isShareUser,jdbcType=TINYINT},
+      is_buy = #{record.isBuy,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.masha.model.TlShopShareUser">
+    update tl_shop_share_user
+    <set>
+      <if test="businessId != null">
+        business_id = #{businessId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="parentIds != null">
+        parent_ids = #{parentIds,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="isEmailCheck != null">
+        is_email_check = #{isEmailCheck,jdbcType=INTEGER},
+      </if>
+      <if test="pathId != null">
+        path_id = #{pathId,jdbcType=VARCHAR},
+      </if>
+      <if test="pointCps != null">
+        point_cps = #{pointCps,jdbcType=INTEGER},
+      </if>
+      <if test="qccode != null">
+        qccode = #{qccode,jdbcType=VARCHAR},
+      </if>
+      <if test="truename != null">
+        truename = #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="tenpay != null">
+        tenpay = #{tenpay,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        alipay = #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="shenfenzheng != null">
+        shenfenzheng = #{shenfenzheng,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNum != null">
+        wx_num = #{wxNum,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null">
+        point = #{point,jdbcType=INTEGER},
+      </if>
+      <if test="pointAll != null">
+        point_all = #{pointAll,jdbcType=INTEGER},
+      </if>
+      <if test="cash != null">
+        cash = #{cash,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrderfeeAll != null">
+        count_orderfee_all = #{countOrderfeeAll,jdbcType=DECIMAL},
+      </if>
+      <if test="countSharefeeAll != null">
+        count_sharefee_all = #{countSharefeeAll,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrderfee != null">
+        count_orderfee = #{countOrderfee,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrderPv != null">
+        count_order_pv = #{countOrderPv,jdbcType=DECIMAL},
+      </if>
+      <if test="cashAll != null">
+        cash_all = #{cashAll,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrder != null">
+        count_order = #{countOrder,jdbcType=INTEGER},
+      </if>
+      <if test="countAlluser != null">
+        count_alluser = #{countAlluser,jdbcType=INTEGER},
+      </if>
+      <if test="countVipuser != null">
+        count_vipuser = #{countVipuser,jdbcType=INTEGER},
+      </if>
+      <if test="countComuser != null">
+        count_comuser = #{countComuser,jdbcType=INTEGER},
+      </if>
+      <if test="countUserClick != null">
+        count_user_click = #{countUserClick,jdbcType=INTEGER},
+      </if>
+      <if test="countUserGuanzhu != null">
+        count_user_guanzhu = #{countUserGuanzhu,jdbcType=INTEGER},
+      </if>
+      <if test="countUserBuy != null">
+        count_user_buy = #{countUserBuy,jdbcType=INTEGER},
+      </if>
+      <if test="countYiwanchengFenxiao != null">
+        count_yiwancheng_fenxiao = #{countYiwanchengFenxiao,jdbcType=INTEGER},
+      </if>
+      <if test="countWeiwanchengFenxiao != null">
+        count_weiwancheng_fenxiao = #{countWeiwanchengFenxiao,jdbcType=INTEGER},
+      </if>
+      <if test="countCashMeifukuan != null">
+        count_cash_meifukuan = #{countCashMeifukuan,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashYifukuan != null">
+        count_cash_yifukuan = #{countCashYifukuan,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashMeishouhuo != null">
+        count_cash_meishouhuo = #{countCashMeishouhuo,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashShouhuo != null">
+        count_cash_shouhuo = #{countCashShouhuo,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashCanTixian != null">
+        count_cash_can_tixian = #{countCashCanTixian,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashHasTixian != null">
+        count_cash_has_tixian = #{countCashHasTixian,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashZuofei != null">
+        count_cash_zuofei = #{countCashZuofei,jdbcType=DECIMAL},
+      </if>
+      <if test="countOrderSalePaid != null">
+        count_order_sale_paid = #{countOrderSalePaid,jdbcType=DECIMAL},
+      </if>
+      <if test="countSharePoint != null">
+        count_share_point = #{countSharePoint,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashEqual != null">
+        count_cash_equal = #{countCashEqual,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashGap != null">
+        count_cash_gap = #{countCashGap,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashProfit != null">
+        count_cash_profit = #{countCashProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="countCashTeam != null">
+        count_cash_team = #{countCashTeam,jdbcType=DECIMAL},
+      </if>
+      <if test="wxQccode != null">
+        wx_qccode = #{wxQccode,jdbcType=VARCHAR},
+      </if>
+      <if test="isGuanzhu != null">
+        is_guanzhu = #{isGuanzhu,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        addtime = #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="isShare != null">
+        is_share = #{isShare,jdbcType=INTEGER},
+      </if>
+      <if test="checkContent != null">
+        check_content = #{checkContent,jdbcType=VARCHAR},
+      </if>
+      <if test="gudongText != null">
+        gudong_text = #{gudongText,jdbcType=VARCHAR},
+      </if>
+      <if test="app != null">
+        app = #{app,jdbcType=VARCHAR},
+      </if>
+      <if test="shareGradeId != null">
+        share_grade_id = #{shareGradeId,jdbcType=INTEGER},
+      </if>
+      <if test="guanliGradeId != null">
+        guanli_grade_id = #{guanliGradeId,jdbcType=INTEGER},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="isRenzheng != null">
+        is_renzheng = #{isRenzheng,jdbcType=TINYINT},
+      </if>
+      <if test="isShareUser != null">
+        is_share_user = #{isShareUser,jdbcType=TINYINT},
+      </if>
+      <if test="isBuy != null">
+        is_buy = #{isBuy,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.masha.model.TlShopShareUser">
+    update tl_shop_share_user
+    set business_id = #{businessId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      password = #{password,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      parent_ids = #{parentIds,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      is_email_check = #{isEmailCheck,jdbcType=INTEGER},
+      path_id = #{pathId,jdbcType=VARCHAR},
+      point_cps = #{pointCps,jdbcType=INTEGER},
+      qccode = #{qccode,jdbcType=VARCHAR},
+      truename = #{truename,jdbcType=VARCHAR},
+      tenpay = #{tenpay,jdbcType=VARCHAR},
+      alipay = #{alipay,jdbcType=VARCHAR},
+      shenfenzheng = #{shenfenzheng,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wx_num = #{wxNum,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      point = #{point,jdbcType=INTEGER},
+      point_all = #{pointAll,jdbcType=INTEGER},
+      cash = #{cash,jdbcType=DECIMAL},
+      count_orderfee_all = #{countOrderfeeAll,jdbcType=DECIMAL},
+      count_sharefee_all = #{countSharefeeAll,jdbcType=DECIMAL},
+      count_orderfee = #{countOrderfee,jdbcType=DECIMAL},
+      count_order_pv = #{countOrderPv,jdbcType=DECIMAL},
+      cash_all = #{cashAll,jdbcType=DECIMAL},
+      count_order = #{countOrder,jdbcType=INTEGER},
+      count_alluser = #{countAlluser,jdbcType=INTEGER},
+      count_vipuser = #{countVipuser,jdbcType=INTEGER},
+      count_comuser = #{countComuser,jdbcType=INTEGER},
+      count_user_click = #{countUserClick,jdbcType=INTEGER},
+      count_user_guanzhu = #{countUserGuanzhu,jdbcType=INTEGER},
+      count_user_buy = #{countUserBuy,jdbcType=INTEGER},
+      count_yiwancheng_fenxiao = #{countYiwanchengFenxiao,jdbcType=INTEGER},
+      count_weiwancheng_fenxiao = #{countWeiwanchengFenxiao,jdbcType=INTEGER},
+      count_cash_meifukuan = #{countCashMeifukuan,jdbcType=DECIMAL},
+      count_cash_yifukuan = #{countCashYifukuan,jdbcType=DECIMAL},
+      count_cash_meishouhuo = #{countCashMeishouhuo,jdbcType=DECIMAL},
+      count_cash_shouhuo = #{countCashShouhuo,jdbcType=DECIMAL},
+      count_cash_can_tixian = #{countCashCanTixian,jdbcType=DECIMAL},
+      count_cash_has_tixian = #{countCashHasTixian,jdbcType=DECIMAL},
+      count_cash_zuofei = #{countCashZuofei,jdbcType=DECIMAL},
+      count_order_sale_paid = #{countOrderSalePaid,jdbcType=DECIMAL},
+      count_share_point = #{countSharePoint,jdbcType=DECIMAL},
+      count_cash_equal = #{countCashEqual,jdbcType=DECIMAL},
+      count_cash_gap = #{countCashGap,jdbcType=DECIMAL},
+      count_cash_profit = #{countCashProfit,jdbcType=DECIMAL},
+      count_cash_team = #{countCashTeam,jdbcType=DECIMAL},
+      wx_qccode = #{wxQccode,jdbcType=VARCHAR},
+      is_guanzhu = #{isGuanzhu,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      is_share = #{isShare,jdbcType=INTEGER},
+      check_content = #{checkContent,jdbcType=VARCHAR},
+      gudong_text = #{gudongText,jdbcType=VARCHAR},
+      app = #{app,jdbcType=VARCHAR},
+      share_grade_id = #{shareGradeId,jdbcType=INTEGER},
+      guanli_grade_id = #{guanliGradeId,jdbcType=INTEGER},
+      level = #{level,jdbcType=INTEGER},
+      is_renzheng = #{isRenzheng,jdbcType=TINYINT},
+      is_share_user = #{isShareUser,jdbcType=TINYINT},
+      is_buy = #{isBuy,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
