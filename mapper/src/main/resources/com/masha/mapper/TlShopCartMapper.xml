@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.masha.mapper.TlShopCartMapper">
+  <resultMap id="BaseResultMap" type="com.masha.model.TlShopCart">
+    <id column="cart_id" jdbcType="INTEGER" property="cartId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="point_price" jdbcType="INTEGER" property="pointPrice" />
+    <result column="buy_give_point" jdbcType="INTEGER" property="buyGivePoint" />
+    <result column="attr" jdbcType="VARCHAR" property="attr" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="addtime" jdbcType="VARCHAR" property="addtime" />
+    <result column="goods_sn" jdbcType="VARCHAR" property="goodsSn" />
+    <result column="is_pintuan" jdbcType="INTEGER" property="isPintuan" />
+    <result column="pintuan_id" jdbcType="INTEGER" property="pintuanId" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="warehouse_id" jdbcType="INTEGER" property="warehouseId" />
+    <result column="is_zhongchou" jdbcType="INTEGER" property="isZhongchou" />
+    <result column="is_miaosha" jdbcType="INTEGER" property="isMiaosha" />
+    <result column="is_shiyong" jdbcType="INTEGER" property="isShiyong" />
+    <result column="is_point" jdbcType="INTEGER" property="isPoint" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cart_id, user_id, type, goods_id, amount, price, point_price, buy_give_point, attr, 
+    status, addtime, goods_sn, is_pintuan, pintuan_id, shop_id, warehouse_id, is_zhongchou, 
+    is_miaosha, is_shiyong, is_point
+  </sql>
+  <select id="selectByExample" parameterType="com.masha.model.TlShopCartExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tl_shop_cart
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tl_shop_cart
+    where cart_id = #{cartId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tl_shop_cart
+    where cart_id = #{cartId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.masha.model.TlShopCartExample">
+    delete from tl_shop_cart
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.masha.model.TlShopCart">
+    insert into tl_shop_cart (cart_id, user_id, type, 
+      goods_id, amount, price, 
+      point_price, buy_give_point, attr, 
+      status, addtime, goods_sn, 
+      is_pintuan, pintuan_id, shop_id, 
+      warehouse_id, is_zhongchou, is_miaosha, 
+      is_shiyong, is_point)
+    values (#{cartId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+      #{goodsId,jdbcType=INTEGER}, #{amount,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, 
+      #{pointPrice,jdbcType=INTEGER}, #{buyGivePoint,jdbcType=INTEGER}, #{attr,jdbcType=VARCHAR}, 
+      #{status,jdbcType=SMALLINT}, #{addtime,jdbcType=VARCHAR}, #{goodsSn,jdbcType=VARCHAR}, 
+      #{isPintuan,jdbcType=INTEGER}, #{pintuanId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, 
+      #{warehouseId,jdbcType=INTEGER}, #{isZhongchou,jdbcType=INTEGER}, #{isMiaosha,jdbcType=INTEGER}, 
+      #{isShiyong,jdbcType=INTEGER}, #{isPoint,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.masha.model.TlShopCart">
+    insert into tl_shop_cart
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cartId != null">
+        cart_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="pointPrice != null">
+        point_price,
+      </if>
+      <if test="buyGivePoint != null">
+        buy_give_point,
+      </if>
+      <if test="attr != null">
+        attr,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="goodsSn != null">
+        goods_sn,
+      </if>
+      <if test="isPintuan != null">
+        is_pintuan,
+      </if>
+      <if test="pintuanId != null">
+        pintuan_id,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="warehouseId != null">
+        warehouse_id,
+      </if>
+      <if test="isZhongchou != null">
+        is_zhongchou,
+      </if>
+      <if test="isMiaosha != null">
+        is_miaosha,
+      </if>
+      <if test="isShiyong != null">
+        is_shiyong,
+      </if>
+      <if test="isPoint != null">
+        is_point,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cartId != null">
+        #{cartId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="pointPrice != null">
+        #{pointPrice,jdbcType=INTEGER},
+      </if>
+      <if test="buyGivePoint != null">
+        #{buyGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="attr != null">
+        #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSn != null">
+        #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="isPintuan != null">
+        #{isPintuan,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanId != null">
+        #{pintuanId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseId != null">
+        #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="isZhongchou != null">
+        #{isZhongchou,jdbcType=INTEGER},
+      </if>
+      <if test="isMiaosha != null">
+        #{isMiaosha,jdbcType=INTEGER},
+      </if>
+      <if test="isShiyong != null">
+        #{isShiyong,jdbcType=INTEGER},
+      </if>
+      <if test="isPoint != null">
+        #{isPoint,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.masha.model.TlShopCartExample" resultType="java.lang.Long">
+    select count(*) from tl_shop_cart
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tl_shop_cart
+    <set>
+      <if test="record.cartId != null">
+        cart_id = #{record.cartId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsId != null">
+        goods_id = #{record.goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.amount != null">
+        amount = #{record.amount,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.pointPrice != null">
+        point_price = #{record.pointPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyGivePoint != null">
+        buy_give_point = #{record.buyGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.attr != null">
+        attr = #{record.attr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=SMALLINT},
+      </if>
+      <if test="record.addtime != null">
+        addtime = #{record.addtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsSn != null">
+        goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isPintuan != null">
+        is_pintuan = #{record.isPintuan,jdbcType=INTEGER},
+      </if>
+      <if test="record.pintuanId != null">
+        pintuan_id = #{record.pintuanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopId != null">
+        shop_id = #{record.shopId,jdbcType=INTEGER},
+      </if>
+      <if test="record.warehouseId != null">
+        warehouse_id = #{record.warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isZhongchou != null">
+        is_zhongchou = #{record.isZhongchou,jdbcType=INTEGER},
+      </if>
+      <if test="record.isMiaosha != null">
+        is_miaosha = #{record.isMiaosha,jdbcType=INTEGER},
+      </if>
+      <if test="record.isShiyong != null">
+        is_shiyong = #{record.isShiyong,jdbcType=INTEGER},
+      </if>
+      <if test="record.isPoint != null">
+        is_point = #{record.isPoint,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tl_shop_cart
+    set cart_id = #{record.cartId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=INTEGER},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      amount = #{record.amount,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=DECIMAL},
+      point_price = #{record.pointPrice,jdbcType=INTEGER},
+      buy_give_point = #{record.buyGivePoint,jdbcType=INTEGER},
+      attr = #{record.attr,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=SMALLINT},
+      addtime = #{record.addtime,jdbcType=VARCHAR},
+      goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      is_pintuan = #{record.isPintuan,jdbcType=INTEGER},
+      pintuan_id = #{record.pintuanId,jdbcType=INTEGER},
+      shop_id = #{record.shopId,jdbcType=INTEGER},
+      warehouse_id = #{record.warehouseId,jdbcType=INTEGER},
+      is_zhongchou = #{record.isZhongchou,jdbcType=INTEGER},
+      is_miaosha = #{record.isMiaosha,jdbcType=INTEGER},
+      is_shiyong = #{record.isShiyong,jdbcType=INTEGER},
+      is_point = #{record.isPoint,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.masha.model.TlShopCart">
+    update tl_shop_cart
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="pointPrice != null">
+        point_price = #{pointPrice,jdbcType=INTEGER},
+      </if>
+      <if test="buyGivePoint != null">
+        buy_give_point = #{buyGivePoint,jdbcType=INTEGER},
+      </if>
+      <if test="attr != null">
+        attr = #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="addtime != null">
+        addtime = #{addtime,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSn != null">
+        goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="isPintuan != null">
+        is_pintuan = #{isPintuan,jdbcType=INTEGER},
+      </if>
+      <if test="pintuanId != null">
+        pintuan_id = #{pintuanId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseId != null">
+        warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="isZhongchou != null">
+        is_zhongchou = #{isZhongchou,jdbcType=INTEGER},
+      </if>
+      <if test="isMiaosha != null">
+        is_miaosha = #{isMiaosha,jdbcType=INTEGER},
+      </if>
+      <if test="isShiyong != null">
+        is_shiyong = #{isShiyong,jdbcType=INTEGER},
+      </if>
+      <if test="isPoint != null">
+        is_point = #{isPoint,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cart_id = #{cartId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.masha.model.TlShopCart">
+    update tl_shop_cart
+    set user_id = #{userId,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=INTEGER},
+      price = #{price,jdbcType=DECIMAL},
+      point_price = #{pointPrice,jdbcType=INTEGER},
+      buy_give_point = #{buyGivePoint,jdbcType=INTEGER},
+      attr = #{attr,jdbcType=VARCHAR},
+      status = #{status,jdbcType=SMALLINT},
+      addtime = #{addtime,jdbcType=VARCHAR},
+      goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      is_pintuan = #{isPintuan,jdbcType=INTEGER},
+      pintuan_id = #{pintuanId,jdbcType=INTEGER},
+      shop_id = #{shopId,jdbcType=INTEGER},
+      warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      is_zhongchou = #{isZhongchou,jdbcType=INTEGER},
+      is_miaosha = #{isMiaosha,jdbcType=INTEGER},
+      is_shiyong = #{isShiyong,jdbcType=INTEGER},
+      is_point = #{isPoint,jdbcType=INTEGER}
+    where cart_id = #{cartId,jdbcType=INTEGER}
+  </update>
+</mapper>
