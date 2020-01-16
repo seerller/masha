@@ -1,9 +1,12 @@
 package com.masha.model;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+@Data
 public class TlShopCart implements Serializable {
     private Integer cartId;
 

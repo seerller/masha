@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+@Data
 public class TlShopShareUser implements Serializable {
     private Integer id;
 

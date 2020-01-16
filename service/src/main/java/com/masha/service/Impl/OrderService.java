@@ -1,6 +1,7 @@
 package com.masha.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.masha.model.TlOrder;
@@ -29,8 +30,7 @@ public class OrderService  implements IOrderService{
         return null;
     }
 
-    @Override
-    public void deleteTlOrderById(Integer orderId) {
+    public void deleteTlOrderById(QueryWrapper<TlOrder> orderId) {
 
     }
 

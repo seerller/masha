@@ -1,5 +1,12 @@
 server:
   port: 8080
+  servlet:
+    context-path: /gangan
+  ssl:
+    key-store: java.tuolve.com.jks
+    key-store-password: ib9f61d3977a2r2
+    key-store-type: JKS
+    ssl.key-alias: alias
 spring:
 #???????
   application:

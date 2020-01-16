@@ -1,15 +1,13 @@
 package com.masha.tools;
 
 import com.zhenzi.sms.ZhenziSmsClient;
-import io.swagger.models.auth.In;
 import org.mybatis.logging.Logger;
 import org.mybatis.logging.LoggerFactory;
 import redis.clients.jedis.Jedis;
 
-import org.mybatis.logging.Logger;
-import org.mybatis.logging.LoggerFactory;
-
 import java.util.Random;
+
+//import io.swagger.models.auth.In;
 
 public class SmsUtil {
     private Logger log = LoggerFactory.getLogger(getClass());

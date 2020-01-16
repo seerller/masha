@@ -3,6 +3,7 @@ package com.masha.model;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
+@Data
 public class TlUserBank implements Serializable {
     private Integer id;
 

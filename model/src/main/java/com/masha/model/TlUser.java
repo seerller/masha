@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+@Data
 public class TlUser implements Serializable {
     @ApiModelProperty(value = "//用户自增ID")
     private Integer id;
