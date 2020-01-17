@@ -41,11 +41,11 @@ public class OrderController extends BaseController {
     })
     public Object getTlOrderList(Page page  ,Integer ver, Integer user_id, Integer is_app , String sql){
         QueryWrapper<TlOrder> query = Wrappers.<TlOrder>query();
-        //query.select("pay_status");
+        query.select("pay_status","comment_status","back_status","back_order","is_self","is_self_status");
         return resultSuccess(orderService.page(page , query));
     }
 
-    @RequestMapping(value = "/getTlOerderList", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/getTlOerderList", method = RequestMethod.POST)
     @ApiOperation(value = "订单列表（待付款）")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name="payStatus", dataType = "Integer", required = true , value = "付款状态")
@@ -79,7 +79,7 @@ public class OrderController extends BaseController {
         QueryWrapper<TlOrder> query = Wrappers.<TlOrder>query();
         query.eq("shippingStatus", 1);
         return resultSuccess(orderService.page(page , query));
-    }
+    }*/
 
     @RequestMapping(value = "/getTlOrderById", method = RequestMethod.POST)
     @ApiOperation(value = "订单详情", notes = "根据订单id查询订单详情")
@@ -91,12 +91,16 @@ public class OrderController extends BaseController {
     }
 
     @RequestMapping(value = "/deleteTlOrderById", method = RequestMethod.POST)
-    @ApiOperation(value = "删除订单", notes = "根据主键删除订单")
+    @ApiOperation(value = "删除未付款订单", notes = "根据主键删除订单")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name="orderId", dataType = "Integer", required = true , value = "订单id")
     })
     public MessageBean deleteTlOrderById(Integer orderId){
-        return resultSuccess(orderService.removeById(orderId));
+        TlOrder order = new TlOrder();
+        int status=order.getPayStatus();
+        if (status == 0){
+        orderService.removeById(orderId);}
+        return resultSuccess();
     }
 
     @RequestMapping(value = "/add_back",method = RequestMethod.POST)
