@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Api(description = "订单管理")
-@RequestMapping("/Order")
-public class OrderController extends BaseController {
+@Api(description = "用户订单")
+@RequestMapping("/UserOrder")
+public class UserOrderController extends BaseController {
     @Autowired
     OrderService orderService;
 
